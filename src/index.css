@@ -15,4 +15,7 @@
     margin: 0;
     box-sizing: border-box;
   }
+  .nav-item {
+    @apply border-b-[1px] border-stone-700 p-2;
+  }
 }

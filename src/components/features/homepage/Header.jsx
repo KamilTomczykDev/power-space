@@ -1,13 +1,18 @@
 import headerImg from "../../../assets/header-image.jpg";
+import bgSvg from "../../../assets/asset.svg";
 
 function Header() {
   return (
-    <div className="flex justify-center bg-stone-900">
-      <div className="md:grid-cols-headerDesktop w-full max-w-[1500px] md:grid">
+    <div className="flex justify-center overflow-hidden bg-stone-900 ">
+      <div className="md:grid-cols-headerDesktop relative w-full max-w-[1500px] md:grid">
+        <img
+          src={bgSvg}
+          className="translate absolute right-[-400px] top-[-400px] hidden w-[1000px] opacity-10 md:flex"
+        />
         <div className="relative hidden h-screen max-h-[900px] px-10 py-4 md:flex">
           <img src={headerImg} className="w-full rounded-xl object-cover" />
         </div>
-        <div className="flex h-screen max-h-[900px] w-full flex-col items-start justify-end">
+        <div className="z-10 flex h-screen max-h-[900px] w-full flex-col items-start justify-end">
           <div className="flex w-full max-w-[1300px] pb-4">
             <div className="flex max-w-[400px] flex-col items-start gap-1 px-4 text-stone-100 sm:max-w-[500px] md:mb-[100px] md:px-0 xl:max-w-[600px] xl:gap-3 2xl:mb-[200px] 2xl:max-w-[1200px]">
               <h2 className="sm:text-md xl:text-md text-sm 2xl:text-lg">

@@ -6,7 +6,8 @@ export default {
   theme: {
     extend: {
       gridTemplateRows: {
-        'headerMobile': '1fr 2fr'
+        'headerMobile': '1fr 2fr',
+        'navMobile': '1fr 70px'
       },
       gridTemplateColumns: {
         'headerDesktop' : '40% 1fr'
