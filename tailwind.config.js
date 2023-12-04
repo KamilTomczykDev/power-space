@@ -7,6 +7,9 @@ export default {
     extend: {
       gridTemplateRows: {
         'headerMobile': '1fr 2fr'
+      },
+      gridTemplateColumns: {
+        'headerDesktop' : '40% 1fr'
       }
     },
   },
