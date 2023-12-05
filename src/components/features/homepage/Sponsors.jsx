@@ -1,4 +1,4 @@
-function Logos() {
+function Sponsors() {
   return (
     <div className="flex w-full justify-center border-y-[1px] border-stone-600">
       <div className="flex max-w-[1500px] flex-wrap items-center justify-center gap-10 p-10">
@@ -22,4 +22,4 @@ function Logos() {
   );
 }
 
-export default Logos;
+export default Sponsors;
