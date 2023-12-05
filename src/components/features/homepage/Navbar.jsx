@@ -20,7 +20,7 @@ function Navbar() {
 
   return (
     <div
-      className={`fixed z-20 flex w-full justify-center border-stone-600 transition-all duration-500 ${
+      className={`fixed z-40 flex w-full justify-center border-stone-600 transition-all duration-500 ${
         nav ? "" : "border-b-[1px]"
       } ${
         color
@@ -29,7 +29,7 @@ function Navbar() {
       }`}
     >
       <nav
-        className={` md:grid-cols-headerDesktop flex h-[60px] w-full max-w-[1500px] items-center justify-between gap-4 px-4 text-stone-300 md:grid md:h-[80px] md:gap-0`}
+        className={` flex h-[60px] w-full max-w-[1500px] items-center justify-between gap-4 px-4 text-stone-300 md:grid md:h-[80px] md:grid-cols-headerDesktop md:gap-0`}
       >
         <img src={logo} className="z-30 w-[100px] md:ml-8" />
         <div className="hidden items-center justify-between md:flex">
@@ -54,7 +54,7 @@ function Navbar() {
           <FaBars size={20} />
         </div>
         {nav && (
-          <div className="grid-rows-navMobile absolute left-0 top-0 z-20 grid h-screen w-full bg-stone-800 md:hidden">
+          <div className="absolute left-0 top-0 z-20 grid h-screen w-full grid-rows-navMobile bg-stone-800 md:hidden">
             <div className="mt-[60px] flex p-8">
               <ul className="flex w-full flex-col gap-5 text-xl font-semibold tracking-wider">
                 <li className="nav-item">Pricing</li>
