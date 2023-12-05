@@ -6,16 +6,34 @@ import { FaBars } from "react-icons/fa6";
 function Navbar() {
   const [nav, setNav] = useState(false);
 
+  const [color, setColor] = useState();
+
+  const colorNav = () => {
+    if (window.scrollY >= 80) {
+      setColor(true);
+    } else {
+      setColor(false);
+    }
+  };
+
+  window.addEventListener("scroll", colorNav);
+
   return (
-    <div className="fixed z-20 flex w-full justify-center">
+    <div
+      className={`fixed z-20 flex w-full justify-center border-stone-600 transition-all duration-500 ${
+        nav ? "" : "border-b-[1px]"
+      } ${
+        color
+          ? "bg-stone-900 md:border-b-[1px]  md:border-opacity-100"
+          : "md:border-opacity-0"
+      }`}
+    >
       <nav
-        className={`md:grid-cols-headerDesktop flex h-[60px] w-full max-w-[1500px] items-center justify-between gap-4 ${
-          nav ? "" : "border-b-[1px]"
-        } border-stone-600 px-4 text-stone-300 md:grid md:h-[80px] md:gap-0 md:border-b-0`}
+        className={` md:grid-cols-headerDesktop flex h-[60px] w-full max-w-[1500px] items-center justify-between gap-4 px-4 text-stone-300 md:grid md:h-[80px] md:gap-0`}
       >
         <img src={logo} className="z-30 w-[100px] md:ml-8" />
         <div className="hidden items-center justify-between md:flex">
-          <ul className="flex gap-8 text-sm">
+          <ul className="flex gap-8 text-sm xl:text-lg">
             <li>Pricing</li>
             <li>FAQ</li>
             <li>Contact</li>
