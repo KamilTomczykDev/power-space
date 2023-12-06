@@ -8,7 +8,7 @@ function Pricing() {
   const [proOpen, setProOpen] = useState();
   return (
     <div className="flex w-full items-center justify-center py-[100px]">
-      <div className="w-max-[1500px] flex w-full flex-col items-center justify-center gap-6 p-4 text-white">
+      <div className="flex w-full max-w-[1500px] flex-col items-center justify-center gap-6 p-4 text-white">
         <div className="rounded-full border-[1px] border-green-500 bg-green-900 px-4 py-1 text-sm">
           Pricing
         </div>
@@ -40,17 +40,17 @@ function Pricing() {
             {personalOpen && (
               <div>
                 <div className="flex items-center gap-2 text-xl">
-                  <FaCheck size={20} /> My profile
+                  <FaCheck size={20} /> Maximum 20 workouts
                 </div>
                 <div className="flex items-center gap-2 text-xl">
-                  <FaCheck size={20} /> availble for 2 weeks
+                  <FaCheck size={20} /> Availble for 2 weeks
                 </div>
               </div>
             )}
           </div>
           <div
             onClick={() => setProOpen(!proOpen)}
-            className="shadow-middle flex w-full flex-col gap-10 rounded-md border-[1px] border-stone-700 p-6 shadow-green-700"
+            className="flex w-full flex-col gap-10 rounded-md border-[1px] border-stone-700 p-6 shadow-middle shadow-green-700"
           >
             <div className="flex w-full justify-between">
               <div className="flex items-center rounded-full border-[1px] border-green-500 bg-green-900 px-3 py-1">
@@ -66,10 +66,16 @@ function Pricing() {
             {proOpen && (
               <div>
                 <div className="flex items-center gap-2 text-xl">
-                  <FaCheck size={20} /> My profile
+                  <FaCheck size={20} /> Unlimited workouts
                 </div>
                 <div className="flex items-center gap-2 text-xl">
-                  <FaCheck size={20} /> availble for 2 weeks
+                  <FaCheck size={20} /> Unlimited access
+                </div>
+                <div className="flex items-center gap-2 text-xl">
+                  <FaCheck size={20} /> Leaderboard
+                </div>
+                <div className="flex items-center gap-2 text-xl">
+                  <FaCheck size={20} /> Free E-book
                 </div>
               </div>
             )}

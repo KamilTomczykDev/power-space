@@ -4,7 +4,7 @@ import bgSvg from "../../../assets/asset.svg";
 function Header() {
   return (
     <div className="flex justify-center overflow-hidden bg-stone-900 ">
-      <div className="md:grid-cols-headerDesktop relative w-full max-w-[1500px] md:grid">
+      <div className="relative w-full max-w-[1500px] md:grid md:grid-cols-headerDesktop">
         <img
           src={bgSvg}
           className="translate absolute right-[-400px] top-[-400px] hidden w-[1000px] opacity-10 md:flex"
@@ -18,7 +18,7 @@ function Header() {
               <h2 className="sm:text-md xl:text-md text-sm 2xl:text-lg">
                 Put your belt on and
               </h2>
-              <h1 className="xl: text-3xl font-bold sm:text-4xl xl:text-5xl xl:leading-[55px]  2xl:text-[70px] 2xl:leading-[80px]">
+              <h1 className="xl: text-3xl font-bold tracking-wide sm:text-4xl xl:text-5xl xl:leading-[55px]  2xl:text-[70px] 2xl:leading-[82px]">
                 Unleash your{" "}
                 <span className="text-green-500">powerlifting</span> potential.
               </h1>
