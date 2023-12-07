@@ -7,7 +7,7 @@ import AboutItem from "../../ui/homepage/AboutItem";
 function About() {
   return (
     <div className="flex w-full items-center justify-center pt-[100px] md:pt-[200px]">
-      <div className="flex max-w-[1500px] flex-col gap-8 sm:flex-row">
+      <div className="flex max-w-[1500px] flex-col gap-[60px] p-4 lg:flex-row">
         <AboutItem
           icon={<GiMuscleUp size={50} color={"#22c55e"} />}
           title="Get strong"

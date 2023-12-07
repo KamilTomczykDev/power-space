@@ -5,6 +5,12 @@ export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
+      borderWidth: {
+        '1': '1px',
+      },
+      screens: {
+        'xs':'400px',
+      },
       boxShadow: {
         'in' : 'inset 0px -10px 30px 0px rgba(0, 0, 0, 0.1)',
         'middle': '0 0 60px -15px rgba(0, 0, 0, 0.3)',
