@@ -18,4 +18,7 @@
   .nav-item {
     @apply border-b-[1px] border-stone-700 p-2;
   }
+  .card-item {
+    @apply flex items-center gap-2 text-xl text-stone-400;
+  }
 }
