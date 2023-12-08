@@ -1,7 +1,8 @@
 import { useState } from "react";
+import { FaBars } from "react-icons/fa6";
 
 import logo from "../../../assets/logo.png";
-import { FaBars } from "react-icons/fa6";
+import NavLink from "../../ui/homepage/NavLink";
 
 function Navbar() {
   const [nav, setNav] = useState(false);
@@ -34,9 +35,9 @@ function Navbar() {
         <img src={logo} className="z-30 w-[100px] md:ml-8" />
         <div className="hidden items-center justify-between md:flex">
           <ul className="flex gap-8 text-sm xl:text-lg">
-            <li>Pricing</li>
-            <li>FAQ</li>
-            <li>Contact</li>
+            <NavLink to="pricing">Pricing</NavLink>
+            <NavLink to="faq">FAQ</NavLink>
+            <NavLink to="contact">Contact</NavLink>
           </ul>
           <div className="flex gap-5">
             <button className="text-md hidden rounded border-2 border-green-500 bg-green-900 px-4 py-2 font-semibold text-white hover:bg-green-800 sm:flex md:px-6">
@@ -57,9 +58,15 @@ function Navbar() {
           <div className="absolute left-0 top-0 z-20 grid h-screen w-full grid-rows-navMobile bg-stone-800 md:hidden">
             <div className="mt-[60px] flex p-8">
               <ul className="flex w-full flex-col gap-5 text-xl font-semibold tracking-wider">
-                <li className="nav-item">Pricing</li>
-                <li className="nav-item">FAQ</li>
-                <li className="nav-item">Contact</li>
+                <NavLink onClick={() => setNav(!nav)} to="pricing">
+                  Pricing
+                </NavLink>
+                <NavLink onClick={() => setNav(!nav)} to="faq">
+                  FAQ
+                </NavLink>
+                <NavLink onClick={() => setNav(!nav)} to="contact">
+                  Contact
+                </NavLink>
               </ul>
             </div>
             <div className="flex items-center justify-center gap-5 bg-stone-900">

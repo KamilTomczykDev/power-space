@@ -12,7 +12,7 @@ function Footer() {
         </ul>
       </div>
       <div className="md:text-md w-full border-t-2 border-stone-800 p-4 text-center text-sm text-white">
-        <p>All rights reserved@ Kamil Tomczyk 2024</p>
+        <p>All rights reserved Kamil Tomczyk ©2024</p>
       </div>
     </div>
   );

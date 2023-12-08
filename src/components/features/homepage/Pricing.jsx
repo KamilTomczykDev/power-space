@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useInView } from "react-intersection-observer";
 import { FaAngleDown } from "react-icons/fa";
 import { FaAngleUp } from "react-icons/fa";
 import { FaCheck } from "react-icons/fa";
@@ -8,8 +9,12 @@ import sun from "../../../assets/sun.svg";
 function Pricing() {
   const [personalOpen, setPersonalOpen] = useState();
   const [proOpen, setProOpen] = useState();
+  const [ref, inView] = useInView({
+    threshold: 0.5,
+  });
   return (
     <div
+      ref={ref}
       name="pricing"
       className="flex w-full items-center justify-center overflow-hidden py-[100px]"
     >
@@ -109,7 +114,11 @@ function Pricing() {
 
         <div className="mt-10 hidden w-full justify-center gap-10 sm:flex">
           {/*card  */}
-          <div className="z-10 flex h-[450px] w-[290px] flex-col items-start gap-5 rounded border-2 border-stone-600 bg-stone-900 p-4">
+          <div
+            className={`z-10 flex h-[450px] w-[290px] flex-col items-start gap-5 rounded border-2 border-stone-600 bg-stone-900 p-4 transition duration-[2000ms] ${
+              inView ? "" : "translate-x-[-100px] opacity-0"
+            }`}
+          >
             <div className="flex items-center rounded-full border-2 border-stone-600 bg-stone-800 px-3 py-1">
               Personal
             </div>
@@ -137,7 +146,11 @@ function Pricing() {
             </button>
           </div>
 
-          <div className="flex h-[450px] w-[290px] flex-col items-start justify-between gap-5 rounded border-2 border-stone-600 p-4 shadow-middle shadow-green-700">
+          <div
+            className={`flex h-[450px] w-[290px] flex-col items-start justify-between gap-5 rounded border-2 border-stone-600 p-4 shadow-middle shadow-green-700 transition duration-[2000ms] ${
+              inView ? "" : "translate-x-[100px] opacity-0"
+            }`}
+          >
             <div className="flex items-center rounded-full border-2 border-green-500 bg-green-900 px-3 py-1">
               Pro
             </div>
