@@ -10,7 +10,7 @@ function Pricing() {
   const [personalOpen, setPersonalOpen] = useState();
   const [proOpen, setProOpen] = useState();
   const [ref, inView] = useInView({
-    threshold: 0.5,
+    threshold: 0.4,
   });
   return (
     <div

@@ -13,7 +13,7 @@ function Sponsors() {
         <img src={STAY_FIT} className="w-[120px] opacity-60" />
         {/* <img src={K_T} className="w-[100px] opacity-60" /> */}
         <img src={GYN} className="w-[100px] opacity-60" />
-        <img src={SOBIE_DESIGN} className="w-[90px] opacity-[0.15]" />
+        <img src={SOBIE_DESIGN} className="w-[80px] opacity-[0.15]" />
       </div>
     </div>
   );
