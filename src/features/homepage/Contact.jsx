@@ -1,9 +1,12 @@
-import contactImg from "../../../assets/contact-img2.jpg";
-import rectangles from "../../../assets/rectangles.svg";
+import contactImg from "../../assets/contact-img2.jpg";
+import rectangles from "../../assets/rectangles.svg";
 
 function Contact() {
   return (
-    <div name="contact" className=" flex w-full items-center justify-center overflow-hidden py-[100px]">
+    <div
+      name="contact"
+      className=" flex w-full items-center justify-center overflow-hidden py-[100px]"
+    >
       <div className="relative flex flex-col items-center gap-6 p-4 lg:gap-10">
         <img
           src={rectangles}

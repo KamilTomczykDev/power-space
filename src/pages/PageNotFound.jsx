@@ -1,4 +1,4 @@
-import LinkButton from "../components/ui/homepage/LinkButton";
+import LinkButton from "../ui/LinkButton";
 
 import logo from "../assets/logo.png";
 

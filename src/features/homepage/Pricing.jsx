@@ -4,7 +4,7 @@ import { FaAngleDown } from "react-icons/fa";
 import { FaAngleUp } from "react-icons/fa";
 import { FaCheck } from "react-icons/fa";
 
-import sun from "../../../assets/sun.svg";
+import sun from "../../assets/sun.svg";
 
 function Pricing() {
   const [personalOpen, setPersonalOpen] = useState();

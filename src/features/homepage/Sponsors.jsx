@@ -1,7 +1,6 @@
-import STAY_FIT from "../../../assets/stay-fit.png";
-// import K_T from "../../../assets/k-t.png";
-import GYN from "../../../assets/gyn.png";
-import SOBIE_DESIGN from "../../../assets/sobie-design.png";
+import STAY_FIT from "../../assets/stay-fit.png";
+import GYN from "../../assets/gyn.png";
+import SOBIE_DESIGN from "../../assets/sobie-design.png";
 
 function Sponsors() {
   return (

@@ -1,4 +1,4 @@
-import FaqDropdown from "../../ui/homepage/FaqDropdown";
+import FaqDropdown from "../../ui/FaqDropdown";
 
 function Faq() {
   return (

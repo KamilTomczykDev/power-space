@@ -1,5 +1,5 @@
-import LoginForm from "../components/features/login/LoginForm";
-import LinkButton from "../components/ui/homepage/LinkButton";
+import LoginForm from "../features/login/LoginForm";
+import LinkButton from "../ui/LinkButton";
 
 import logo from "../assets/logo.png";
 

@@ -1,5 +1,5 @@
-import headerImg from "../../../assets/header-image.jpg";
-import stripes from "../../../assets/stripes.svg";
+import headerImg from "../../assets/header-image.jpg";
+import stripes from "../../assets/stripes.svg";
 import { useInView } from "react-intersection-observer";
 
 function Header() {

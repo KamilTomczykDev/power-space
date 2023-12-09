@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { FaAngleDown } from "react-icons/fa";
 import { FaAngleUp } from "react-icons/fa";
-import useMountTransition from "../../hooks/useMountTransition";
+import useMountTransition from "../hooks/useMountTransition";
 
 function FaqDropdown({ title, children }) {
   const [isOpen, setIsOpen] = useState(false);

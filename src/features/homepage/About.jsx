@@ -2,7 +2,7 @@ import { GiMuscleUp } from "react-icons/gi";
 import { GiThreeFriends } from "react-icons/gi";
 import { GiTrophy } from "react-icons/gi";
 
-import AboutItem from "../../ui/homepage/AboutItem";
+import AboutItem from "../../ui/AboutItem";
 
 function About() {
   return (

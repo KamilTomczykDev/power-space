@@ -1,12 +1,12 @@
-import About from "../components/features/homepage/About";
-import Header from "../components/features/homepage/Header";
-import Sponsors from "../components/features/homepage/Sponsors";
-import Navbar from "../components/features/homepage/Navbar";
-import Pricing from "../components/features/homepage/Pricing";
-import Faq from "../components/features/homepage/Faq";
-import CallToAction from "../components/features/homepage/CallToAction";
-import Contact from "../components/features/homepage/Contact";
-import Footer from "../components/features/homepage/Footer";
+import About from "../features/homepage/About";
+import Header from "../features/homepage/Header";
+import Sponsors from "../features/homepage/Sponsors";
+import Navbar from "../features/homepage/Navbar";
+import Pricing from "../features/homepage/Pricing";
+import Faq from "../features/homepage/Faq";
+import CallToAction from "../features/homepage/CallToAction";
+import Contact from "../features/homepage/Contact";
+import Footer from "../features/homepage/Footer";
 
 function Homepage() {
   return (

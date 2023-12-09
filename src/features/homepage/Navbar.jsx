@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { FaBars } from "react-icons/fa6";
 
-import logo from "../../../assets/logo.png";
-import NavLink from "../../ui/homepage/NavLink";
+import logo from "../../assets/logo.png";
+import NavLink from "../../ui/NavLink";
 
 function Navbar() {
   const [nav, setNav] = useState(false);

@@ -1,5 +1,5 @@
-import logo from "../../../assets/logo.png";
-import NavLink from "../../ui/homepage/NavLink";
+import logo from "../../assets/logo.png";
+import NavLink from "../../ui/NavLink";
 
 function Footer() {
   return (
