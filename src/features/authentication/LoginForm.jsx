@@ -1,10 +1,21 @@
 import { useState } from "react";
+import { login } from "../../services/apiAuth";
 
 function LoginForm() {
-  const [email, setEmail] = useState();
-  const [password, setPassword] = useState();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    if (!email || !password) return;
+    login({ email, password });
+  }
+
   return (
-    <form onSubmit={"dupa"} className="flex w-full flex-col items-start gap-3">
+    <form
+      onSubmit={handleSubmit}
+      className="flex w-full flex-col items-start gap-3"
+    >
       <div className="flex w-full flex-col gap-1">
         <label className="font-semibold text-stone-400">Email</label>
         <input

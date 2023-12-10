@@ -1,4 +1,4 @@
-import LoginForm from "../features/login/LoginForm";
+import LoginForm from "../features/authentication/LoginForm";
 import LinkButton from "../ui/LinkButton";
 
 import logo from "../assets/logo.png";
