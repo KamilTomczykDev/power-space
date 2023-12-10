@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import headerImg from "../../assets/header-image.jpg";
 import stripes from "../../assets/stripes.svg";
 import { useInView } from "react-intersection-observer";
@@ -38,9 +39,11 @@ function Header() {
                 Meet your friends and approach new rivals. Everything is
                 possible buddy. We love you.
               </h2>
-              <button className="text-md mt-4 rounded border-2 border-green-500 bg-green-900 px-4 py-2 font-semibold text-white hover:bg-green-800 md:px-6">
-                Start now
-              </button>
+              <Link to="login">
+                <button className="text-md mt-4 rounded border-2 border-green-500 bg-green-900 px-4 py-2 font-semibold text-white hover:bg-green-800 md:px-6">
+                  Start now
+                </button>
+              </Link>
             </div>
           </div>
         </div>

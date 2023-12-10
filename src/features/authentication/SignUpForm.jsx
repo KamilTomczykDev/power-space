@@ -1,27 +1,32 @@
 import { useState } from "react";
-import { login } from "../../services/apiAuth";
-
+import { signUp } from "../../services/apiAuth";
 import LinkButton from "../../ui/LinkButton";
 
 function LoginForm() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [confirmedPassword, setConfirmedPassword] = useState("");
 
   function handleSubmit(e) {
     e.preventDefault();
-    if (!email || !password) return;
-    login({ email, password });
+    if (
+      !email ||
+      !password ||
+      !confirmedPassword ||
+      password !== confirmedPassword
+    )
+      return;
+    signUp({ email, password });
   }
 
   return (
     <>
       <div>
-        <h3 className="text-4xl font-semibold">Hello!</h3>
+        <h3 className="text-4xl font-semibold">Welcome!</h3>
         <label className="font-semibold text-stone-400">
-          Log in to your account
+          Create new account
         </label>
       </div>
-
       <form
         onSubmit={handleSubmit}
         className="flex w-full flex-col items-start gap-3"
@@ -45,19 +50,34 @@ function LoginForm() {
             className="flex w-full rounded-md border-2 border-stone-600 bg-stone-800 p-2"
             placeholder="*******"
             type="password"
-            id="password"
+            id="confirmedPassword"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             required
           />
         </div>
+
+        <div className="flex w-full flex-col gap-1">
+          <label className="font-semibold text-stone-400">
+            Confirm Password
+          </label>
+          <input
+            className="flex w-full rounded-md border-2 border-stone-600 bg-stone-800 p-2"
+            placeholder="*******"
+            type="password"
+            id="password"
+            value={confirmedPassword}
+            onChange={(e) => setConfirmedPassword(e.target.value)}
+            required
+          />
+        </div>
         <button className="w-full rounded-md border-2 border-green-400 bg-green-900 p-2 hover:bg-green-800">
-          Log in
+          Sign up
         </button>
       </form>
       <span className="text-sm">
-        {`Don't have an account? `}
-        <LinkButton to="/login/signup">Sign Up Now</LinkButton>
+        {`Already registered? `}
+        <LinkButton to="/login">Log in now</LinkButton>
       </span>
     </>
   );

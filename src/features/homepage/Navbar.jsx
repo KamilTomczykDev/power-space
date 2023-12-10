@@ -3,6 +3,7 @@ import { FaBars } from "react-icons/fa6";
 
 import logo from "../../assets/logo.png";
 import NavLink from "../../ui/NavLink";
+import { Link } from "react-router-dom";
 
 function Navbar() {
   const [nav, setNav] = useState(false);
@@ -40,12 +41,16 @@ function Navbar() {
             <NavLink to="contact">Contact</NavLink>
           </ul>
           <div className="flex gap-5">
-            <button className="text-md hidden rounded border-2 border-green-500 bg-green-900 px-4 py-2 font-semibold text-white hover:bg-green-800 sm:flex md:px-6">
-              Log in
-            </button>
-            <button className="text-md hidden rounded border-2 border-stone-400 bg-stone-800 px-4 py-2 font-semibold text-white hover:bg-stone-700 sm:flex md:px-6">
-              Sign up
-            </button>
+            <Link to="login">
+              <button className="text-md hidden rounded border-2 border-green-500 bg-green-900 px-4 py-2 font-semibold text-white hover:bg-green-800 sm:flex md:px-6">
+                Log in
+              </button>
+            </Link>
+            <Link to="login/signup">
+              <button className="text-md hidden rounded border-2 border-stone-400 bg-stone-800 px-4 py-2 font-semibold text-white hover:bg-stone-700 sm:flex md:px-6">
+                Sign up
+              </button>
+            </Link>
           </div>
         </div>
         <div
@@ -70,12 +75,16 @@ function Navbar() {
               </ul>
             </div>
             <div className="flex items-center justify-center gap-5 bg-stone-900">
-              <button className="text-md rounded border-2 border-green-500 bg-green-900 px-6 py-2 font-semibold text-white hover:bg-green-800">
-                Log in
-              </button>
-              <button className="text-md rounded border-2 border-stone-400 bg-stone-800 px-6 py-2 font-semibold text-white hover:bg-stone-700">
-                Sign up
-              </button>
+              <Link to="login">
+                <button className="text-md rounded border-2 border-green-500 bg-green-900 px-6 py-2 font-semibold text-white hover:bg-green-800">
+                  Log in
+                </button>
+              </Link>
+              <Link to="login/signup">
+                <button className="text-md rounded border-2 border-stone-400 bg-stone-800 px-6 py-2 font-semibold text-white hover:bg-stone-700">
+                  Sign up
+                </button>
+              </Link>
             </div>
           </div>
         )}
