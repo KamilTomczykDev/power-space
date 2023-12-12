@@ -7,6 +7,10 @@ import PageNotFound from "./pages/PageNotFound";
 import Login from "./pages/Login";
 import LoginForm from "./features/authentication/LoginForm";
 import SignUpForm from "./features/authentication/SignUpForm";
+import { Toaster } from "react-hot-toast";
+import Dashboard from "./pages/Dashboard";
+import AppLayout from "./ui/AppLayout";
+import ProtectedRoute from "./ui/ProtectedRoute";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -28,9 +32,40 @@ function App() {
             <Route index element={<LoginForm />} />
             <Route path="signup" element={<SignUpForm />} />
           </Route>
+          <Route
+            path="dashboard"
+            element={
+              <ProtectedRoute>
+                <AppLayout />
+              </ProtectedRoute>
+            }
+          >
+            <Route index element={<Dashboard />} />
+          </Route>
           <Route path="*" element={<PageNotFound />} />
         </Routes>
       </BrowserRouter>
+
+      <Toaster
+        position="top-center"
+        gutter={12}
+        containerStyle={{ margin: "8px" }}
+        toastOptions={{
+          success: {
+            duration: 3000,
+          },
+          error: {
+            duration: 5000,
+          },
+          style: {
+            fontSize: "16px",
+            maxWidth: "500px",
+            padding: "16px 24px",
+            backgroundColor: "#292524",
+            color: "white",
+          },
+        }}
+      />
     </QueryClientProvider>
   );
 }

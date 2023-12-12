@@ -5,6 +5,10 @@ export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
+      maxWidth: {
+        'main' : "800px",
+
+      },
       borderWidth: {
         '1': '1px',
       },
@@ -17,10 +21,12 @@ export default {
       },
       gridTemplateRows: {
         'headerMobile': '1fr 2fr',
-        'navMobile': '1fr 70px'
+        'navMobile': '1fr 70px',
+        'mobile-app' : '1fr 80px',
       },
       gridTemplateColumns: {
-        'headerDesktop' : '40% 1fr'
+        'headerDesktop' : '40% 1fr',
+        'desktop-app' : '15% 1fr',
       }
     },
   },

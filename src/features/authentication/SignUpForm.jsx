@@ -1,11 +1,15 @@
 import { useState } from "react";
-import { signUp } from "../../services/apiAuth";
+import { useSignup } from "./useSignup";
+
 import LinkButton from "../../ui/LinkButton";
+import SpinnerMini from "../../ui/SpinnerMini";
 
 function LoginForm() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmedPassword, setConfirmedPassword] = useState("");
+
+  const { signup, isLoading } = useSignup();
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -16,7 +20,8 @@ function LoginForm() {
       password !== confirmedPassword
     )
       return;
-    signUp({ email, password });
+
+    signup({ email, password });
   }
 
   return (
@@ -41,6 +46,7 @@ function LoginForm() {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
+            disabled={isLoading}
           />
         </div>
 
@@ -54,6 +60,7 @@ function LoginForm() {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             required
+            disabled={isLoading}
           />
         </div>
 
@@ -69,10 +76,11 @@ function LoginForm() {
             value={confirmedPassword}
             onChange={(e) => setConfirmedPassword(e.target.value)}
             required
+            disabled={isLoading}
           />
         </div>
         <button className="w-full rounded-md border-2 border-green-400 bg-green-900 p-2 hover:bg-green-800">
-          Sign up
+          {isLoading ? <SpinnerMini /> : "Sign up"}
         </button>
       </form>
       <span className="text-sm">
