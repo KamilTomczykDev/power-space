@@ -1,27 +1,33 @@
-import { useState } from "react";
+// import { useState } from "react";
 import { useSignup } from "./useSignup";
+import { useForm } from "react-hook-form";
 
 import LinkButton from "../../ui/LinkButton";
 import SpinnerMini from "../../ui/SpinnerMini";
+import FormRow from "../../ui/FormRow";
 
-function LoginForm() {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [confirmedPassword, setConfirmedPassword] = useState("");
+function SignupForm() {
+  const { register, formState, getValues, handleSubmit } = useForm();
+  const { errors } = formState;
+
+  console.log(register, errors);
+
+  // const [email, setEmail] = useState("");
+  // const [password, setPassword] = useState("");
+  // const [confirmedPassword, setConfirmedPassword] = useState("");
 
   const { signup, isLoading } = useSignup();
+  console.log(signup);
 
-  function handleSubmit(e) {
-    e.preventDefault();
-    if (
-      !email ||
-      !password ||
-      !confirmedPassword ||
-      password !== confirmedPassword
-    )
-      return;
-
-    signup({ email, password });
+  function onSubmit() {
+    //   if (
+    //     !email ||
+    //     !password ||
+    //     !confirmedPassword ||
+    //     password !== confirmedPassword
+    //   )
+    //     return;
+    //   signup({ email, password });
   }
 
   return (
@@ -33,53 +39,67 @@ function LoginForm() {
         </label>
       </div>
       <form
-        onSubmit={handleSubmit}
+        onSubmit={handleSubmit(onSubmit)}
         className="flex w-full flex-col items-start gap-3"
       >
-        <div className="flex w-full flex-col gap-1">
-          <label className="font-semibold text-stone-400">Email</label>
+        <FormRow label={"Username"} error={errors?.username?.message}>
+          <input
+            className="w-full rounded-md border-2 border-stone-600 bg-stone-800 p-2"
+            placeholder="topLifter123"
+            type="text"
+            id="username"
+            {...register("username", { required: "This field is required" })}
+          />
+        </FormRow>
+        <FormRow label={"Email"} error={errors?.email?.message}>
           <input
             className="w-full rounded-md border-2 border-stone-600 bg-stone-800 p-2"
             placeholder="you@example.com"
             type="email"
             id="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-            disabled={isLoading}
+            {...register("email", {
+              required: "This field is required",
+              pattern: {
+                value: /\S+@\S+\.\S+/,
+                message: "Provide a valid email",
+              },
+            })}
           />
-        </div>
+        </FormRow>
 
-        <div className="flex w-full flex-col gap-1">
-          <label className="font-semibold text-stone-400">Password</label>
-          <input
-            className="flex w-full rounded-md border-2 border-stone-600 bg-stone-800 p-2"
-            placeholder="*******"
-            type="password"
-            id="confirmedPassword"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-            disabled={isLoading}
-          />
-        </div>
-
-        <div className="flex w-full flex-col gap-1">
-          <label className="font-semibold text-stone-400">
-            Confirm Password
-          </label>
+        <FormRow label={"Password"} error={errors?.password?.message}>
           <input
             className="flex w-full rounded-md border-2 border-stone-600 bg-stone-800 p-2"
             placeholder="*******"
             type="password"
             id="password"
-            value={confirmedPassword}
-            onChange={(e) => setConfirmedPassword(e.target.value)}
-            required
-            disabled={isLoading}
+            {...register("password", {
+              required: "This field is required",
+              minLength: {
+                value: 8,
+                message: "Min. 8 characters",
+              },
+            })}
           />
-        </div>
-        <button className="w-full rounded-md border-2 border-green-400 bg-green-900 p-2 hover:bg-green-800">
+        </FormRow>
+
+        <FormRow
+          label={"Confirm password"}
+          error={errors?.passwordConfirm?.message}
+        >
+          <input
+            className="flex w-full rounded-md border-2 border-stone-600 bg-stone-800 p-2"
+            placeholder="*******"
+            type="password"
+            id="passwordConfirm"
+            {...register("passwordConfirm", {
+              required: "This field is required",
+              validate: (value) =>
+                value === getValues().password || "Passwords need to match",
+            })}
+          />
+        </FormRow>
+        <button className="mt-5 w-full rounded-md border-2 border-green-400 bg-green-900 p-2 hover:bg-green-800">
           {isLoading ? <SpinnerMini /> : "Sign up"}
         </button>
       </form>
@@ -91,4 +111,4 @@ function LoginForm() {
   );
 }
 
-export default LoginForm;
+export default SignupForm;

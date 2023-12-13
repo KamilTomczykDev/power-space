@@ -6,7 +6,7 @@ import Homepage from "./pages/Homepage";
 import PageNotFound from "./pages/PageNotFound";
 import Login from "./pages/Login";
 import LoginForm from "./features/authentication/LoginForm";
-import SignUpForm from "./features/authentication/SignUpForm";
+import SignupForm from "./features/authentication/SignupForm";
 import { Toaster } from "react-hot-toast";
 import Dashboard from "./pages/Dashboard";
 import AppLayout from "./ui/AppLayout";
@@ -30,7 +30,7 @@ function App() {
           <Route path="/" element={<Homepage />} />
           <Route path="login" element={<Login />}>
             <Route index element={<LoginForm />} />
-            <Route path="signup" element={<SignUpForm />} />
+            <Route path="signup" element={<SignupForm />} />
           </Route>
           <Route
             path="dashboard"
