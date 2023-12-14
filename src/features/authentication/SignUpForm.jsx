@@ -9,25 +9,10 @@ import FormRow from "../../ui/FormRow";
 function SignupForm() {
   const { register, formState, getValues, handleSubmit } = useForm();
   const { errors } = formState;
-
-  console.log(register, errors);
-
-  // const [email, setEmail] = useState("");
-  // const [password, setPassword] = useState("");
-  // const [confirmedPassword, setConfirmedPassword] = useState("");
-
   const { signup, isLoading } = useSignup();
-  console.log(signup);
 
-  function onSubmit() {
-    //   if (
-    //     !email ||
-    //     !password ||
-    //     !confirmedPassword ||
-    //     password !== confirmedPassword
-    //   )
-    //     return;
-    //   signup({ email, password });
+  function onSubmit({ username, email, password }) {
+    signup({ username, email, password });
   }
 
   return (
@@ -44,19 +29,21 @@ function SignupForm() {
       >
         <FormRow label={"Username"} error={errors?.username?.message}>
           <input
-            className="w-full rounded-md border-2 border-stone-600 bg-stone-800 p-2"
+            className="w-full rounded-md border-2 border-stone-600 bg-stone-800 p-2 disabled:bg-stone-700"
             placeholder="topLifter123"
             type="text"
             id="username"
+            disabled={isLoading}
             {...register("username", { required: "This field is required" })}
           />
         </FormRow>
         <FormRow label={"Email"} error={errors?.email?.message}>
           <input
-            className="w-full rounded-md border-2 border-stone-600 bg-stone-800 p-2"
+            className="w-full rounded-md border-2 border-stone-600 bg-stone-800 p-2 disabled:bg-stone-700"
             placeholder="you@example.com"
             type="email"
             id="email"
+            disabled={isLoading}
             {...register("email", {
               required: "This field is required",
               pattern: {
@@ -69,10 +56,11 @@ function SignupForm() {
 
         <FormRow label={"Password"} error={errors?.password?.message}>
           <input
-            className="flex w-full rounded-md border-2 border-stone-600 bg-stone-800 p-2"
+            className="flex w-full rounded-md border-2 border-stone-600 bg-stone-800 p-2 disabled:bg-stone-700"
             placeholder="*******"
             type="password"
             id="password"
+            disabled={isLoading}
             {...register("password", {
               required: "This field is required",
               minLength: {
@@ -88,10 +76,11 @@ function SignupForm() {
           error={errors?.passwordConfirm?.message}
         >
           <input
-            className="flex w-full rounded-md border-2 border-stone-600 bg-stone-800 p-2"
+            className="flex w-full rounded-md border-2 border-stone-600 bg-stone-800 p-2 disabled:bg-stone-700"
             placeholder="*******"
             type="password"
             id="passwordConfirm"
+            disabled={isLoading}
             {...register("passwordConfirm", {
               required: "This field is required",
               validate: (value) =>
@@ -99,7 +88,7 @@ function SignupForm() {
             })}
           />
         </FormRow>
-        <button className="mt-5 w-full rounded-md border-2 border-green-400 bg-green-900 p-2 hover:bg-green-800">
+        <button className="mt-5 w-full rounded-md border-2 border-green-400 bg-green-900 p-2 hover:bg-green-800 disabled:bg-green-800">
           {isLoading ? <SpinnerMini /> : "Sign up"}
         </button>
       </form>
