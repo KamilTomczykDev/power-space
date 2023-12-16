@@ -2,7 +2,7 @@ import { useState } from "react";
 import { FaBars } from "react-icons/fa6";
 
 import logo from "../../assets/logo.png";
-import NavLink from "../../ui/NavLink";
+import HomepageLink from "../../ui/HomepageLink";
 import { Link } from "react-router-dom";
 
 function Navbar() {
@@ -36,9 +36,9 @@ function Navbar() {
         <img src={logo} className="z-30 w-[100px] md:ml-8" />
         <div className="hidden items-center justify-between md:flex">
           <ul className="flex gap-8 text-sm xl:text-lg">
-            <NavLink to="pricing">Pricing</NavLink>
-            <NavLink to="faq">FAQ</NavLink>
-            <NavLink to="contact">Contact</NavLink>
+            <HomepageLink to="pricing">Pricing</HomepageLink>
+            <HomepageLink to="faq">FAQ</HomepageLink>
+            <HomepageLink to="contact">Contact</HomepageLink>
           </ul>
           <div className="flex gap-5">
             <Link to="login">
@@ -63,15 +63,15 @@ function Navbar() {
           <div className="absolute left-0 top-0 z-20 grid h-screen w-full grid-rows-navMobile bg-stone-800 md:hidden">
             <div className="mt-[60px] flex p-8">
               <ul className="flex w-full flex-col gap-5 text-xl font-semibold tracking-wider">
-                <NavLink onClick={() => setNav(!nav)} to="pricing">
+                <HomepageLink onClick={() => setNav(!nav)} to="pricing">
                   Pricing
-                </NavLink>
-                <NavLink onClick={() => setNav(!nav)} to="faq">
+                </HomepageLink>
+                <HomepageLink onClick={() => setNav(!nav)} to="faq">
                   FAQ
-                </NavLink>
-                <NavLink onClick={() => setNav(!nav)} to="contact">
+                </HomepageLink>
+                <HomepageLink onClick={() => setNav(!nav)} to="contact">
                   Contact
-                </NavLink>
+                </HomepageLink>
               </ul>
             </div>
             <div className="flex items-center justify-center gap-5 bg-stone-900">

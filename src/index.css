@@ -34,12 +34,19 @@
 }
 
 ::-webkit-scrollbar {
-  width: 5px;
+  display: none;
+}
+
+::-webkit-scrollbar:horizontal {
+  height: 5px;
+}
+::-webkit-scrollbar-track:horizontal {
+  background: #f1f1f100;
 }
 
 /* Track */
 ::-webkit-scrollbar-track {
-  background: #f1f1f100;
+  background: #f1f1f151;
 }
 
 /* Handle */
