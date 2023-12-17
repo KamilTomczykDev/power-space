@@ -6,7 +6,7 @@ import Homepage from "./pages/Homepage";
 import PageNotFound from "./pages/PageNotFound";
 import Login from "./pages/Login";
 import LoginForm from "./features/authentication/LoginForm";
-import SignupForm from "./features/authentication/SignupForm";
+import SignupForm from "./features/authentication/SignUpForm";
 import { Toaster } from "react-hot-toast";
 import Dashboard from "./pages/Dashboard";
 import AppLayout from "./ui/AppLayout";

@@ -27,6 +27,7 @@ export default {
       gridTemplateColumns: {
         'headerDesktop' : '40% 1fr',
         'desktop-app' : '15% 1fr',
+        'form-cols' : '30% 1fr',
       }
     },
   },
