@@ -10,7 +10,6 @@ export function useUpdateUser() {
     onSuccess: () => {
       toast.success("Data updated successfully");
       queryClient.invalidateQueries({ queryKey: ["user"] });
-      // queryClient.setQueriesData(["user"], user);
     },
     onError: (err) => {
       toast.error(`Data updated unsuccessfully: ${err}`);
