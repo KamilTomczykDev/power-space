@@ -1,11 +1,24 @@
 import supabase from "./supabase";
 
-export async function getCurrentProfile() {
-  const { data: profile, error } = await supabase.from("profiles").select();
+export async function getProfiles() {
+  let { data, error } = await supabase.from("profiles").select("*");
 
-  console.log(profile);
+  console.log(data);
 
   if (error) throw new Error(Error.message);
 
-  return profile, error;
+  return data;
+}
+
+export async function getProfile(id) {
+  let { data, error } = await supabase
+    .from("profiles")
+    .select("*")
+    .eq("id", id);
+
+  console.log(data);
+
+  if (error) throw new Error(Error.message);
+
+  return data;
 }

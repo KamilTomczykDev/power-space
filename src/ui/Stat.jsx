@@ -4,7 +4,7 @@ function Stat({ src, children, value }) {
       <img src={src} className="w-[50px] sm:w-[60px] lg:w-[100px]" />
       <div className="flex flex-col justify-center">
         <label className="text-xs text-stone-400 lg:text-lg">{children}</label>
-        <span className="text-xl font-semibold lg:text-4xl">{value}</span>
+        <span className="text-xl font-semibold lg:text-4xl">{value} kg</span>
       </div>
     </div>
   );

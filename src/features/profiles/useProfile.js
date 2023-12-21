@@ -1,14 +1,18 @@
 import { useQuery } from "@tanstack/react-query";
-import { getCurrentProfile } from "../../services/apiProfiles";
-// import { useUser } from "../authentication/useUser";
+import { getProfile } from "../../services/apiProfiles";
+import { useUser } from "../authentication/useUser";
+import toast from "react-hot-toast";
 
 export function useProfile() {
-  //   const { user } = useUser();
+  const { user } = useUser();
+  const { data: profile, isLoading } = useQuery({
+    queryKey: ["profile"],
+    queryFn: () => getProfile(user.id),
+    onError: (err) => {
+      console.log("ERROR", err);
+      toast.error("We couldn't get your profile data");
+    },
+  });
 
-  const { isLoading, data, isSuccess } = useQuery(
-    ["profiles"],
-    getCurrentProfile,
-  );
-
-  return { data, isLoading, isSuccess };
+  return { profile, isLoading };
 }
