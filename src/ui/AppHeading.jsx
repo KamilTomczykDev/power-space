@@ -1,8 +1,11 @@
-function AppHeading({ children }) {
+function AppHeading({ children, title }) {
   return (
-    <h2 className="text-4xl font-semibold tracking-wide text-white md:text-6xl">
-      {children}
-    </h2>
+    <div className="flex flex-col">
+      <h2 className="text-lg font-semibold tracking-wide text-green-400 md:text-2xl">
+        {title}
+      </h2>
+      <p className="text-xl text-stone-400 md:text-3xl">{children}</p>
+    </div>
   );
 }
 

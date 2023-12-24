@@ -1,7 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import { getProfiles } from "../../services/apiProfiles";
 
-export function useProfile() {
+export function useProfiles() {
   const { data: profiles, isLoading } = useQuery({
     queryKey: ["profiles"],
     queryFn: getProfiles,

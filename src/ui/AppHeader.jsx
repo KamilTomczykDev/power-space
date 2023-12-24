@@ -24,7 +24,7 @@ function AppHeader() {
           </IconLink>
         </li>
         <li>
-          <label className="text-xl font-semibold text-white">{username}</label>
+          <label className="text-xl text-white">{username}</label>
         </li>
       </ul>
     </nav>

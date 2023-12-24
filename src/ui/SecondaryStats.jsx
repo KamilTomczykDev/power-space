@@ -1,0 +1,88 @@
+// import Stat from "./Stat";
+// import bench from "../assets/bench-icon.png";
+// import squat from "../assets/squat-icon.png";
+// import deadlift from "../assets/deadlift-icon.png";
+import {
+  Cell,
+  Legend,
+  Pie,
+  PieChart,
+  ResponsiveContainer,
+  Tooltip,
+} from "recharts";
+import ProfileEtiquette from "../features/profiles/ProfileEtiquette";
+
+function SecondaryStats({ profile }) {
+  const [{ squat_pr: squatPr, bench_pr: benchPr, deadlift_pr: deadliftPr }] =
+    profile;
+  console.log(profile);
+
+  const competitionLiftsData = [
+    {
+      lift: "Squat",
+      value: squatPr,
+      color: "#0b8437",
+    },
+    {
+      lift: "Bench press",
+      value: benchPr,
+      color: "#22c55e",
+    },
+    {
+      lift: "Deadlift",
+      value: deadliftPr,
+      color: "#7ddda0",
+    },
+  ];
+
+  return (
+    <div className="lg:grid-cols-mobile-chart grid grid-rows-2 gap-4 lg:grid-rows-none">
+      <ProfileEtiquette profile={profile} />
+      {/* <div className="flex flex-col items-center justify-between gap-4 md:gap-0 lg:gap-4 ">
+        <Stat src={squat} value={squatPr}>
+          Squat
+        </Stat>
+        <Stat src={bench} value={benchPr}>
+          Bench
+        </Stat>
+        <Stat src={deadlift} value={deadliftPr}>
+          Deadlift
+        </Stat>
+      </div> */}
+      <div className="flex w-full flex-col gap-4 rounded-md bg-stone-800 p-4 text-2xl text-white">
+        <h2>Competition lifts</h2>
+        <ResponsiveContainer>
+          <PieChart>
+            <Pie
+              data={competitionLiftsData}
+              nameKey="lift"
+              dataKey="value"
+              innerRadius={85}
+              outerRadius={120}
+            >
+              {competitionLiftsData.map((entry) => (
+                <Cell
+                  stroke={entry.color}
+                  fill={entry.color}
+                  key={entry.lift}
+                />
+              ))}
+            </Pie>
+            <Tooltip />
+            <Legend
+              wrapperStyle={{ fontSize: 25, display: "none" }}
+              verticalAlign="middle"
+              align="right"
+              width="35%"
+              layout="vertical"
+              iconSize={12}
+              iconType="circle"
+            />
+          </PieChart>
+        </ResponsiveContainer>
+      </div>
+    </div>
+  );
+}
+
+export default SecondaryStats;
