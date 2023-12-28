@@ -33,7 +33,7 @@ export default {
         'headerDesktop' : '40% 1fr',
         'desktop-app' : '15% 1fr',
         'form-cols' : '30% 1fr',
-        'mobile-chart' : '350px 1fr',
+        'mobile-chart' : '350px 1fr 1fr',
       }
     },
   },

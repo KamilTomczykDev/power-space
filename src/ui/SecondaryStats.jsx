@@ -1,7 +1,7 @@
-// import Stat from "./Stat";
-// import bench from "../assets/bench-icon.png";
-// import squat from "../assets/squat-icon.png";
-// import deadlift from "../assets/deadlift-icon.png";
+import Stat from "./Stat";
+import bench from "../assets/bench-icon.png";
+import squat from "../assets/squat-icon.png";
+import deadlift from "../assets/deadlift-icon.png";
 import {
   Cell,
   Legend,
@@ -38,27 +38,17 @@ function SecondaryStats({ profile }) {
   return (
     <div className="lg:grid-cols-mobile-chart grid grid-rows-2 gap-4 lg:grid-rows-none">
       <ProfileEtiquette profile={profile} />
-      {/* <div className="flex flex-col items-center justify-between gap-4 md:gap-0 lg:gap-4 ">
-        <Stat src={squat} value={squatPr}>
-          Squat
-        </Stat>
-        <Stat src={bench} value={benchPr}>
-          Bench
-        </Stat>
-        <Stat src={deadlift} value={deadliftPr}>
-          Deadlift
-        </Stat>
-      </div> */}
+
       <div className="flex w-full flex-col gap-4 rounded-md bg-stone-800 p-4 text-2xl text-white">
-        <h2>Competition lifts</h2>
-        <ResponsiveContainer>
+        <h2 className="font-semibold">Lifts chart</h2>
+        <ResponsiveContainer width="100%">
           <PieChart>
             <Pie
               data={competitionLiftsData}
               nameKey="lift"
               dataKey="value"
-              innerRadius={85}
-              outerRadius={120}
+              outerRadius={100}
+              innerRadius={75}
             >
               {competitionLiftsData.map((entry) => (
                 <Cell
@@ -72,7 +62,7 @@ function SecondaryStats({ profile }) {
             <Legend
               wrapperStyle={{ fontSize: 25, display: "none" }}
               verticalAlign="middle"
-              align="right"
+              align="left"
               width="35%"
               layout="vertical"
               iconSize={12}
@@ -80,6 +70,17 @@ function SecondaryStats({ profile }) {
             />
           </PieChart>
         </ResponsiveContainer>
+      </div>
+      <div className="flex flex-col items-center justify-between gap-4 ">
+        <Stat src={squat} value={squatPr}>
+          Squat
+        </Stat>
+        <Stat src={bench} value={benchPr}>
+          Bench
+        </Stat>
+        <Stat src={deadlift} value={deadliftPr}>
+          Deadlift
+        </Stat>
       </div>
     </div>
   );

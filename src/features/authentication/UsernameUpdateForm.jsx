@@ -1,9 +1,12 @@
 import { useUser } from "./useUser";
 import { useUpdateUser } from "./useUpdateUser";
 import { useState } from "react";
+// import { useUpdateProfileUsername } from "../profiles/useUpdateProfileUsername";
+import { useProfile } from "../profiles/useProfile";
 
 import AppFormRow from "../../ui/AppFormRow";
 import SpinnerMini from "../../ui/SpinnerMini";
+import { updateProfileUsername } from "../../services/apiProfiles";
 
 function UsernameUpdateForm() {
   const {
@@ -13,14 +16,27 @@ function UsernameUpdateForm() {
     },
   } = useUser();
 
+  const { profile } = useProfile();
+
+  const [{ id }] = profile;
+
   const [username, setUsername] = useState(currentUsername);
 
   const { updateUser, isUpdating } = useUpdateUser();
+  // const { updateProfileUsername } = useUpdateProfileUsername();
 
   function handleSubmit(e) {
     e.preventDefault();
     if (!username) return;
-    updateUser({ username });
+
+    updateUser(
+      { username },
+      {
+        onSuccess: () => {
+          updateProfileUsername(id, username);
+        },
+      },
+    );
   }
 
   function handleCancel() {

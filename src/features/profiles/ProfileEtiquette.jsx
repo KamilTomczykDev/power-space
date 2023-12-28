@@ -1,8 +1,17 @@
 function ProfileEtiquette({ profile }) {
-  const [{ username, age, weight, height }] = profile;
+  const [
+    {
+      username,
+      age,
+      weight,
+      height,
+
+      training_since: since,
+    },
+  ] = profile;
   return (
     <div className="w-full">
-      <div className="grid-rows-stats grid">
+      <div className="grid-rows-stats grid h-[375px]">
         <div className="flex flex-col items-end justify-end rounded-t-md bg-blue-900 p-4 text-xl  text-white">
           <span>Beginner</span>
           <span className="brake-words text-3xl font-semibold">{username}</span>
@@ -22,16 +31,8 @@ function ProfileEtiquette({ profile }) {
             <span>{age}yo</span>
           </div>
           <div className="flex gap-2">
-            <label className="font-semibold">Age:</label>
-            <span>{age}yo</span>
-          </div>
-          <div className="flex gap-2">
-            <label className="font-semibold">Age:</label>
-            <span>{age}yo</span>
-          </div>
-          <div className="flex gap-2">
-            <label className="font-semibold">Age:</label>
-            <span>{age}yo</span>
+            <label className="font-semibold">Training since:</label>
+            <span>{since}y</span>
           </div>
         </div>
       </div>
