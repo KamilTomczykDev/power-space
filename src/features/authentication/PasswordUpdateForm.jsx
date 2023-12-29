@@ -2,7 +2,7 @@ import { useForm } from "react-hook-form";
 import { useUpdateUser } from "./useUpdateUser";
 
 import AppFormRow from "../../ui/AppFormRow";
-import SpinnerMini from "../../ui/SpinnerMini";
+import FormButtons from "../../ui/FormButtons";
 
 function PasswordUpdateForm() {
   const { register, formState, getValues, handleSubmit } = useForm();
@@ -10,6 +10,7 @@ function PasswordUpdateForm() {
   const { updateUser, isUpdating } = useUpdateUser();
 
   function onSubmit({ password }) {
+    console.log({ password });
     updateUser({ password });
   }
 
@@ -55,21 +56,7 @@ function PasswordUpdateForm() {
             })}
           />
         </AppFormRow>
-        <div className="flex gap-2">
-          <button
-            type="reset"
-            disabled={isUpdating}
-            className="flex items-center  justify-center rounded-md border-2 border-stone-500 bg-stone-700 px-4 py-2 text-white hover:bg-stone-600 sm:w-[80px]"
-          >
-            Cancel
-          </button>
-          <button
-            disabled={isUpdating}
-            className="flex items-center justify-center rounded-md border-2 border-green-400 bg-green-900 px-4 py-2 font-semibold text-white hover:bg-green-800 disabled:opacity-60 sm:w-[120px]"
-          >
-            {isUpdating ? <SpinnerMini /> : "Submit"}
-          </button>
-        </div>
+        <FormButtons isUpdating={isUpdating} />
       </form>
     </>
   );

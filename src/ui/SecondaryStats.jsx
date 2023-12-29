@@ -13,24 +13,25 @@ import {
 import ProfileEtiquette from "../features/profiles/ProfileEtiquette";
 
 function SecondaryStats({ profile }) {
-  const [{ squat_pr: squatPr, bench_pr: benchPr, deadlift_pr: deadliftPr }] =
-    profile;
+  const [
+    { squat_pr: squatPr, bench_pr: benchPr, deadlift_pr: deadliftPr, weight },
+  ] = profile;
   console.log(profile);
 
   const competitionLiftsData = [
     {
       lift: "Squat",
-      value: squatPr,
+      value: squatPr / weight,
       color: "#0b8437",
     },
     {
       lift: "Bench press",
-      value: benchPr,
+      value: benchPr / weight,
       color: "#22c55e",
     },
     {
       lift: "Deadlift",
-      value: deadliftPr,
+      value: deadliftPr / weight,
       color: "#7ddda0",
     },
   ];
