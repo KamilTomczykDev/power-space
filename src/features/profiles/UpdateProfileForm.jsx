@@ -1,20 +1,49 @@
 import { useForm } from "react-hook-form";
+import { useProfile } from "./useProfile";
+
 import AppFormRow from "../../ui/AppFormRow";
 import FormButtons from "../../ui/FormButtons";
 
 function UpdateProfileForm() {
-  const { register, formState } = useForm();
+  const { profile } = useProfile();
+  const [
+    {
+      squat_pr: squatPr,
+      bench_pr: benchPr,
+      deadlift_pr: deadliftPr,
+      age,
+      weight,
+      height,
+      training_since: since,
+    },
+  ] = profile;
+  const { register, formState, reset } = useForm({
+    defaultValues: {
+      squat: squatPr,
+      deadlift: deadliftPr,
+      bench: benchPr,
+      age,
+      weight,
+      height,
+      since,
+    },
+  });
   const isUpdating = false;
   const { errors } = formState;
+
+  function handleCancel() {
+    reset();
+  }
+
   return (
-    <>
-      <label className="text-lg font-semibold text-stone-400 sm:text-2xl">
-        Update profile data:
-      </label>
+    <div className="flex w-full flex-col">
       <form className="flex w-full flex-col gap-4 rounded-md bg-stone-800 p-4 sm:items-end sm:p-8 md:gap-8">
-        <AppFormRow error={errors?.squat?.message} label="Squat PR">
+        <AppFormRow
+          error={errors?.squat?.message}
+          label="Squat Personal Record"
+        >
           <input
-            className="w-full rounded-md border-2 border-stone-400 bg-stone-700 p-2 text-white disabled:opacity-60"
+            className="rounded-md border-2 border-stone-400 bg-stone-700 p-2 text-white disabled:opacity-60 sm:max-w-[300px]"
             type="number"
             id="squat"
             placeholder="New squat PR"
@@ -28,9 +57,12 @@ function UpdateProfileForm() {
             })}
           />
         </AppFormRow>
-        <AppFormRow error={errors?.bench?.message} label="Bench PR">
+        <AppFormRow
+          error={errors?.bench?.message}
+          label="Bench Personal Record"
+        >
           <input
-            className="w-full rounded-md border-2 border-stone-400 bg-stone-700 p-2 text-white disabled:opacity-60"
+            className="w-full rounded-md border-2 border-stone-400 bg-stone-700 p-2 text-white disabled:opacity-60 sm:max-w-[300px]"
             type="number"
             id="bench"
             placeholder="New bench PR"
@@ -44,9 +76,12 @@ function UpdateProfileForm() {
             })}
           />
         </AppFormRow>
-        <AppFormRow error={errors?.password?.message} label="Deadlift PR">
+        <AppFormRow
+          error={errors?.deadlift?.message}
+          label="Deadlift Personal Record"
+        >
           <input
-            className="w-full rounded-md border-2 border-stone-400 bg-stone-700 p-2 text-white disabled:opacity-60"
+            className="rounded-md border-2 border-stone-400 bg-stone-700 p-2 text-white disabled:opacity-60 sm:max-w-[300px]"
             type="number"
             id="deadlift"
             placeholder="New deadlift PR"
@@ -60,9 +95,9 @@ function UpdateProfileForm() {
             })}
           />
         </AppFormRow>
-        <AppFormRow error={errors?.password?.message} label="Age (yo)">
+        <AppFormRow error={errors?.age?.message} label="Age (yo)">
           <input
-            className="w-full rounded-md border-2 border-stone-400 bg-stone-700 p-2 text-white disabled:opacity-60"
+            className="rounded-md border-2 border-stone-400 bg-stone-700 p-2 text-white disabled:opacity-60 sm:max-w-[300px]"
             type="number"
             id="age"
             placeholder="Your age"
@@ -76,9 +111,9 @@ function UpdateProfileForm() {
             })}
           />
         </AppFormRow>
-        <AppFormRow error={errors?.password?.message} label="Weight">
+        <AppFormRow error={errors?.weight?.message} label="Weight">
           <input
-            className="w-full rounded-md border-2 border-stone-400 bg-stone-700 p-2 text-white disabled:opacity-60"
+            className="rounded-md border-2 border-stone-400 bg-stone-700 p-2 text-white disabled:opacity-60 sm:max-w-[300px]"
             type="number"
             id="weight"
             placeholder="Your weight"
@@ -92,9 +127,9 @@ function UpdateProfileForm() {
             })}
           />
         </AppFormRow>
-        <AppFormRow error={errors?.password?.message} label="Height">
+        <AppFormRow error={errors?.height?.message} label="Height">
           <input
-            className="w-full rounded-md border-2 border-stone-400 bg-stone-700 p-2 text-white disabled:opacity-60"
+            className="rounded-md border-2 border-stone-400 bg-stone-700 p-2 text-white disabled:opacity-60 sm:max-w-[300px]"
             type="number"
             id="height"
             placeholder="Your height"
@@ -108,14 +143,14 @@ function UpdateProfileForm() {
             })}
           />
         </AppFormRow>
-        <AppFormRow error={errors?.password?.message} label="Training since">
+        <AppFormRow error={errors?.since?.message} label="Training since">
           <input
-            className="w-full rounded-md border-2 border-stone-400 bg-stone-700 p-2 text-white disabled:opacity-60"
+            className="rounded-md border-2 border-stone-400 bg-stone-700 p-2 text-white disabled:opacity-60 sm:max-w-[300px]"
             type="number"
             id="since"
             placeholder="When did you start?"
             disabled={isUpdating}
-            {...register("sincet", {
+            {...register("since", {
               required: "This field is required",
               maxLength: {
                 value: 4,
@@ -125,9 +160,9 @@ function UpdateProfileForm() {
           />
         </AppFormRow>
 
-        <FormButtons isUpdating={isUpdating} />
+        <FormButtons onCancel={handleCancel} isUpdating={isUpdating} />
       </form>
-    </>
+    </div>
   );
 }
 

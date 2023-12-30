@@ -1,13 +1,19 @@
-import UpdateProfile from "../features/profiles/UpdateProfile";
+import { useState } from "react";
 import { useProfile } from "../features/profiles/useProfile";
 
 import AppHeading from "../ui/AppHeading";
 import PrimaryStats from "../ui/PrimaryStats";
 import SecondaryStats from "../ui/SecondaryStats";
 import Spinner from "../ui/Spinner";
+import UpdateProfileForm from "../features/profiles/UpdateProfileForm";
 
 function Dashboard() {
+  const [isFormOpen, setIsFormOpen] = useState(false);
   const { profile, isLoading } = useProfile();
+
+  function handleClick() {
+    setIsFormOpen(!isFormOpen);
+  }
 
   if (isLoading)
     return (
@@ -22,10 +28,21 @@ function Dashboard() {
         <AppHeading title="Dashboard">
           Check out all your statistics.
         </AppHeading>
-        <UpdateProfile />
+        <button
+          onClick={handleClick}
+          className="flex items-center justify-center rounded-md border-2 border-green-400 bg-green-900 px-4 py-2 font-semibold text-white hover:bg-green-800 disabled:opacity-60"
+        >
+          {isFormOpen ? "Show my profile" : "Change lifting values"}
+        </button>
       </div>
-      <PrimaryStats profile={profile} />
-      <SecondaryStats profile={profile} />
+      {isFormOpen ? (
+        <UpdateProfileForm />
+      ) : (
+        <>
+          <PrimaryStats profile={profile} />
+          <SecondaryStats profile={profile} />
+        </>
+      )}
     </>
   );
 }
