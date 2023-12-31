@@ -26,7 +26,9 @@ function Dashboard() {
     <>
       <div className="flex flex-col justify-between gap-8 sm:flex-row sm:items-center sm:gap-0">
         <AppHeading title="Dashboard">
-          Check out all your statistics.
+          {isFormOpen
+            ? "Change your statistics."
+            : "Check out all your statistics."}
         </AppHeading>
         <button
           onClick={handleClick}

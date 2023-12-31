@@ -36,3 +36,17 @@ export async function updateProfileUsername(profileId, newUsername) {
 
   return data;
 }
+
+export async function updateProfile(id, squat, deadlift) {
+  let { data, error } = await supabase
+    .from("profiles")
+    .update({ squat_pr: squat, deadlift_pr: deadlift })
+    .eq("id", id)
+    .select();
+
+  console.log(data);
+
+  if (error) throw new Error(Error.message);
+
+  return data;
+}

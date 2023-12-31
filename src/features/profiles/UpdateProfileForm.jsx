@@ -3,11 +3,14 @@ import { useProfile } from "./useProfile";
 
 import AppFormRow from "../../ui/AppFormRow";
 import FormButtons from "../../ui/FormButtons";
+import { useUpdateProfile } from "./useUpdateProfile";
 
 function UpdateProfileForm() {
   const { profile } = useProfile();
+  const { updateProfile, isUpdating } = useUpdateProfile();
   const [
     {
+      id,
       squat_pr: squatPr,
       bench_pr: benchPr,
       deadlift_pr: deadliftPr,
@@ -17,7 +20,7 @@ function UpdateProfileForm() {
       training_since: since,
     },
   ] = profile;
-  const { register, formState, reset } = useForm({
+  const { register, formState, reset, handleSubmit } = useForm({
     defaultValues: {
       squat: squatPr,
       deadlift: deadliftPr,
@@ -28,16 +31,23 @@ function UpdateProfileForm() {
       since,
     },
   });
-  const isUpdating = false;
   const { errors } = formState;
 
   function handleCancel() {
     reset();
   }
 
+  function onSubmit({ squat, deadlift }) {
+    console.log(squat, deadlift);
+    updateProfile(id, squat, deadlift);
+  }
+
   return (
     <div className="flex w-full flex-col">
-      <form className="flex w-full flex-col gap-4 rounded-md bg-stone-800 p-4 sm:items-end sm:p-8 md:gap-8">
+      <form
+        onSubmit={handleSubmit(onSubmit)}
+        className="flex w-full flex-col gap-4 rounded-md bg-stone-800 p-4 sm:items-end sm:p-8 md:gap-8"
+      >
         <AppFormRow
           error={errors?.squat?.message}
           label="Squat Personal Record"

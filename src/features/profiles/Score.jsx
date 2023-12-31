@@ -3,12 +3,12 @@ function Score({ profile }) {
     { squat_pr: squatPr, bench_pr: benchPr, deadlift_pr: deadliftPr, weight },
   ] = profile;
 
-  const score = Number((squatPr + benchPr + deadliftPr) / weight).toFixed(3);
+  const score = Number((squatPr + benchPr + deadliftPr) / weight);
 
   return (
     <div className="flex gap-4 text-4xl italic tracking-wide text-white lg:text-5xl">
       <label className="font-bold text-green-400">Score:</label>
-      <span className="">{!score ? "0" : score}</span>
+      <span className="">{!score ? "0" : score.toFixed(3)}</span>
     </div>
   );
 }
