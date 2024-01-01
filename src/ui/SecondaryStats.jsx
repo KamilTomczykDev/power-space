@@ -1,7 +1,7 @@
 import Stat from "./Stat";
-import bench from "../assets/bench-icon.png";
-import squat from "../assets/squat-icon.png";
-import deadlift from "../assets/deadlift-icon.png";
+import benchIcon from "../assets/bench-icon.png";
+import squatIcon from "../assets/squat-icon.png";
+import deadliftIcon from "../assets/deadlift-icon.png";
 import {
   Cell,
   Legend,
@@ -13,31 +13,29 @@ import {
 import ProfileEtiquette from "../features/profiles/ProfileEtiquette";
 
 function SecondaryStats({ profile }) {
-  const [
-    { squat_pr: squatPr, bench_pr: benchPr, deadlift_pr: deadliftPr, weight },
-  ] = profile;
+  const [{ squat, bench, deadlift, weight }] = profile;
   console.log(profile);
 
   const competitionLiftsData = [
     {
       lift: "Squat",
-      value: squatPr / weight,
+      value: squat / weight,
       color: "#0b8437",
     },
     {
       lift: "Bench press",
-      value: benchPr / weight,
+      value: bench / weight,
       color: "#22c55e",
     },
     {
       lift: "Deadlift",
-      value: deadliftPr / weight,
+      value: deadlift / weight,
       color: "#7ddda0",
     },
   ];
 
   return (
-    <div className="lg:grid-cols-mobile-chart grid grid-rows-2 gap-4 lg:grid-rows-none">
+    <div className="grid grid-rows-2 gap-4 lg:grid-cols-mobile-chart lg:grid-rows-none">
       <ProfileEtiquette profile={profile} />
 
       <div className="flex w-full flex-col gap-4 rounded-md bg-stone-800 p-4 text-2xl text-white">
@@ -73,13 +71,13 @@ function SecondaryStats({ profile }) {
         </ResponsiveContainer>
       </div>
       <div className="flex flex-col items-center justify-between gap-4 ">
-        <Stat src={squat} value={squatPr}>
+        <Stat src={squatIcon} value={squat}>
           Squat
         </Stat>
-        <Stat src={bench} value={benchPr}>
+        <Stat src={benchIcon} value={bench}>
           Bench
         </Stat>
-        <Stat src={deadlift} value={deadliftPr}>
+        <Stat src={deadliftIcon} value={deadlift}>
           Deadlift
         </Stat>
       </div>

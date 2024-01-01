@@ -8,27 +8,17 @@ import { useUpdateProfile } from "./useUpdateProfile";
 function UpdateProfileForm() {
   const { profile } = useProfile();
   const { updateProfile, isUpdating } = useUpdateProfile();
-  const [
-    {
-      id,
-      squat_pr: squatPr,
-      bench_pr: benchPr,
-      deadlift_pr: deadliftPr,
-      age,
-      weight,
-      height,
-      training_since: since,
-    },
-  ] = profile;
+  const [{ id, squat, bench, deadlift, age, weight, height, training_since }] =
+    profile;
   const { register, formState, reset, handleSubmit } = useForm({
     defaultValues: {
-      squat: squatPr,
-      deadlift: deadliftPr,
-      bench: benchPr,
+      squat,
+      deadlift,
+      bench,
       age,
       weight,
       height,
-      since,
+      training_since,
     },
   });
   const { errors } = formState;
@@ -37,9 +27,8 @@ function UpdateProfileForm() {
     reset();
   }
 
-  function onSubmit({ squat, deadlift }) {
-    console.log(squat, deadlift);
-    updateProfile(id, squat, deadlift);
+  function onSubmit(data) {
+    updateProfile({ stats: data, id });
   }
 
   return (
@@ -153,14 +142,17 @@ function UpdateProfileForm() {
             })}
           />
         </AppFormRow>
-        <AppFormRow error={errors?.since?.message} label="Training since">
+        <AppFormRow
+          error={errors?.training_since?.message}
+          label="Training since"
+        >
           <input
             className="rounded-md border-2 border-stone-400 bg-stone-700 p-2 text-white disabled:opacity-60 sm:max-w-[300px]"
             type="number"
-            id="since"
+            id="training_since"
             placeholder="When did you start?"
             disabled={isUpdating}
-            {...register("since", {
+            {...register("training_since", {
               required: "This field is required",
               maxLength: {
                 value: 4,

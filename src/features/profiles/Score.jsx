@@ -1,9 +1,7 @@
 function Score({ profile }) {
-  const [
-    { squat_pr: squatPr, bench_pr: benchPr, deadlift_pr: deadliftPr, weight },
-  ] = profile;
+  const [{ squat, bench, deadlift, weight }] = profile;
 
-  const score = Number((squatPr + benchPr + deadliftPr) / weight);
+  const score = Number((squat + bench + deadlift) / weight);
 
   return (
     <div className="flex gap-4 text-4xl italic tracking-wide text-white lg:text-5xl">

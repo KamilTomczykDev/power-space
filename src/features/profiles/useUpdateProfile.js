@@ -6,7 +6,7 @@ export function useUpdateProfile() {
   const queryClient = useQueryClient();
 
   const { mutate: updateProfile, isLoading: isUpdating } = useMutation({
-    mutationFn: updateProfileApi,
+    mutationFn: ({ stats, id }) => updateProfileApi(stats, id),
     onSuccess: (data) => {
       console.log(data);
       toast.success("Stats updated successfully");
