@@ -9,7 +9,7 @@ function FormButtons({ onCancel = null, isUpdating }) {
         disabled={isUpdating}
         className="flex items-center justify-center  rounded-md border-2 border-stone-500 bg-stone-700 px-4 py-2 text-white hover:bg-stone-600 disabled:opacity-60 sm:w-[80px]"
       >
-        Cancel
+        Reset
       </button>
       <button
         disabled={isUpdating}

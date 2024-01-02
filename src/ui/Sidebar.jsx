@@ -26,7 +26,7 @@ function Sidebar() {
           title="Workouts"
         />
         <SidebarLink
-          to="dashboard"
+          to="ranking"
           icon={<IoRibbonOutline size={30} />}
           title="Ranking"
         />

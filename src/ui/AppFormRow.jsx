@@ -1,6 +1,6 @@
 function AppFormRow({ label, children, error }) {
   return (
-    <div className="sm:grid-cols-form-cols relative flex w-full flex-col gap-1 sm:grid sm:items-center sm:gap-10 md:text-lg">
+    <div className="relative flex w-full flex-col gap-1 sm:grid sm:grid-cols-form-cols sm:items-center sm:gap-10 md:text-lg">
       {label && <label className="font-semibold text-stone-400">{label}</label>}
       {children}
       {error && (

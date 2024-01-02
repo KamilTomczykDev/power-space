@@ -13,6 +13,7 @@ import AppLayout from "./ui/AppLayout";
 import ProtectedRoute from "./ui/ProtectedRoute";
 import Settings from "./pages/Settings";
 import Account from "./pages/Account";
+import Ranking from "./pages/Ranking";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -46,6 +47,7 @@ function App() {
             <Route path="dashboard" element={<Dashboard />} />
             <Route path="settings" element={<Settings />} />
             <Route path="account" element={<Account />} />
+            <Route path="ranking" element={<Ranking />} />
           </Route>
           <Route path="*" element={<PageNotFound />} />
         </Routes>
