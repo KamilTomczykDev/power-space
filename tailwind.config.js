@@ -34,6 +34,7 @@ export default {
         'desktop-app' : '15% 1fr',
         'form-cols' : '30% 1fr',
         'mobile-chart' : '350px 1fr 1fr',
+        'ranking-table' : '0.4fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr',
       }
     },
   },
