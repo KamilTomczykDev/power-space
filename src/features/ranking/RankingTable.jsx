@@ -2,8 +2,8 @@ import RankingRow from "./RankingRow";
 
 function RankingTable({ profiles }) {
   return (
-    <table className="flex w-full flex-col bg-blue-500">
-      <tr className="grid-cols-ranking-table grid bg-stone-800 p-4 text-xl font-semibold text-white">
+    <table className="flex w-full flex-col rounded-t-md border-1 border-stone-500">
+      <tr className="grid-cols-ranking-table grid items-center bg-stone-800 p-2 text-center text-[0.5rem] text-white lg:p-4 lg:text-xl lg:font-semibold">
         <td></td>
         <td>Username</td>
         <td>Total</td>
