@@ -1,19 +1,20 @@
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { Toaster } from "react-hot-toast";
 
 import Homepage from "./pages/Homepage";
 import PageNotFound from "./pages/PageNotFound";
 import Login from "./pages/Login";
 import LoginForm from "./features/authentication/LoginForm";
 import SignupForm from "./features/authentication/SignUpForm";
-import { Toaster } from "react-hot-toast";
 import Dashboard from "./pages/Dashboard";
 import AppLayout from "./ui/AppLayout";
 import ProtectedRoute from "./ui/ProtectedRoute";
 import Settings from "./pages/Settings";
 import Account from "./pages/Account";
 import Ranking from "./pages/Ranking";
+import Profile from "./features/profiles/Profile";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -48,6 +49,7 @@ function App() {
             <Route path="settings" element={<Settings />} />
             <Route path="account" element={<Account />} />
             <Route path="ranking" element={<Ranking />} />
+            <Route path="ranking/:id" element={<Profile />} />
           </Route>
           <Route path="*" element={<PageNotFound />} />
         </Routes>

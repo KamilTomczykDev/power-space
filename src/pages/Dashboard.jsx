@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useProfile } from "../features/profiles/useProfile";
+import { useCurrentProfile } from "../features/profiles/useCurrentProfile";
 
 import AppHeading from "../ui/AppHeading";
 import PrimaryStats from "../ui/PrimaryStats";
@@ -9,7 +9,7 @@ import UpdateProfileForm from "../features/profiles/UpdateProfileForm";
 
 function Dashboard() {
   const [isFormOpen, setIsFormOpen] = useState(false);
-  const { profile, isLoading } = useProfile();
+  const { profile, isLoading } = useCurrentProfile();
 
   function handleClick() {
     setIsFormOpen(!isFormOpen);

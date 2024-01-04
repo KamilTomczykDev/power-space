@@ -1,6 +1,6 @@
 import { useUser } from "./useUser";
 import { useUpdateUser } from "./useUpdateUser";
-import { useProfile } from "../profiles/useProfile";
+import { useCurrentProfile } from "../profiles/useCurrentProfile";
 import { updateProfileUsername } from "../../services/apiProfiles";
 import { useForm } from "react-hook-form";
 
@@ -18,7 +18,7 @@ function UsernameUpdateForm() {
     },
   } = useUser();
 
-  const { profile } = useProfile();
+  const { profile } = useCurrentProfile();
   const [{ id }] = profile;
   const { updateUser, isUpdating } = useUpdateUser();
 

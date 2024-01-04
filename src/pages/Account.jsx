@@ -1,4 +1,4 @@
-import { useProfile } from "../features/profiles/useProfile";
+import { useCurrentProfile } from "../features/profiles/useCurrentProfile";
 
 import PasswordUpdateForm from "../features/authentication/PasswordUpdateForm";
 import UsernameUpdateForm from "../features/authentication/UsernameUpdateForm";
@@ -6,7 +6,7 @@ import AppHeading from "../ui/AppHeading";
 import Spinner from "../ui/Spinner";
 
 function Account() {
-  const { isLoading } = useProfile();
+  const { isLoading } = useCurrentProfile();
 
   if (isLoading)
     return (

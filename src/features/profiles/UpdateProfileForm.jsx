@@ -1,12 +1,12 @@
 import { useForm } from "react-hook-form";
-import { useProfile } from "./useProfile";
+import { useCurrentProfile } from "./useCurrentProfile";
 
 import AppFormRow from "../../ui/AppFormRow";
 import FormButtons from "../../ui/FormButtons";
 import { useUpdateProfile } from "./useUpdateProfile";
 
 function UpdateProfileForm() {
-  const { profile } = useProfile();
+  const { profile } = useCurrentProfile();
   const { updateProfile, isUpdating } = useUpdateProfile();
   const [{ id, squat, bench, deadlift, age, weight, height, training_since }] =
     profile;

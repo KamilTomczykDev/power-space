@@ -1,10 +1,10 @@
-import { useProfile } from "../features/profiles/useProfile";
+import { useCurrentProfile } from "../features/profiles/useCurrentProfile";
 import SettingsForm from "../features/settings/SettingsForm";
 import AppHeading from "../ui/AppHeading";
 import Spinner from "../ui/Spinner";
 
 function Settings() {
-  const { profile, isLoading } = useProfile();
+  const { profile, isLoading } = useCurrentProfile();
 
   if (isLoading)
     return (

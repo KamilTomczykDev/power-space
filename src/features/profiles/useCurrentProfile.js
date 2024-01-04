@@ -3,7 +3,7 @@ import { getProfile } from "../../services/apiProfiles";
 import { useUser } from "../authentication/useUser";
 import toast from "react-hot-toast";
 
-export function useProfile() {
+export function useCurrentProfile() {
   const { user } = useUser();
   const { data: profile, isLoading } = useQuery({
     queryKey: ["profile"],
