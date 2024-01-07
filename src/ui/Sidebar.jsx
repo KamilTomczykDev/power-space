@@ -31,7 +31,7 @@ function Sidebar() {
           title="Ranking"
         />
         <SidebarLink
-          to="/login"
+          to="friends"
           icon={<IoPeopleOutline size={30} />}
           title="Friends"
         />

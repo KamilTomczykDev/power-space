@@ -25,7 +25,6 @@ function Profile() {
   const profile = profiles.find((profile) => profile.id === id);
 
   const isFriend = friends.some((arrId) => arrId === id);
-  //   console.log(isFriend);
 
   function handleClick() {
     if (!isFriend) {

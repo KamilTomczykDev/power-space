@@ -15,6 +15,7 @@ import Settings from "./pages/Settings";
 import Account from "./pages/Account";
 import Ranking from "./pages/Ranking";
 import Profile from "./features/profiles/Profile";
+import Friends from "./pages/Friends";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -50,6 +51,8 @@ function App() {
             <Route path="account" element={<Account />} />
             <Route path="ranking" element={<Ranking />} />
             <Route path="ranking/:id" element={<Profile />} />
+            <Route path="friends" element={<Friends />} />
+
           </Route>
           <Route path="*" element={<PageNotFound />} />
         </Routes>
