@@ -6,7 +6,7 @@ import toast from "react-hot-toast";
 export function useCurrentProfile() {
   const { user } = useUser();
   const { data: profile, isLoading } = useQuery({
-    queryKey: ["profile"],
+    queryKey: ["currentProfile"],
     queryFn: () => getProfile(user.id),
     onError: (err) => {
       console.log("ERROR", err);

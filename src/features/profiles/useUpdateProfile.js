@@ -10,7 +10,7 @@ export function useUpdateProfile() {
     onSuccess: (data) => {
       console.log(data);
       toast.success("Stats updated successfully");
-      queryClient.invalidateQueries({ queryKey: ["profile"] });
+      queryClient.invalidateQueries({ queryKey: ["currentProfile"] });
     },
     onError: (err) => toast.error(`Stats updated unsuccessfully: ${err}`),
   });
