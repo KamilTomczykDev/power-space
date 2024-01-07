@@ -14,7 +14,6 @@ import ProfileEtiquette from "../features/profiles/ProfileEtiquette";
 
 function SecondaryStats({ profile }) {
   const [{ squat, bench, deadlift, weight }] = profile;
-  console.log(profile);
 
   const competitionLiftsData = [
     {

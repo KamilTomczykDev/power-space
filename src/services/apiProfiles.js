@@ -3,7 +3,7 @@ import supabase from "./supabase";
 export async function getProfiles() {
   let { data, error } = await supabase.from("profiles").select("*");
 
-  console.log(data);
+  // console.log(data);
 
   if (error) throw new Error(Error.message);
 
@@ -16,7 +16,7 @@ export async function getProfile(id) {
     .select("*")
     .eq("id", id);
 
-  console.log(data);
+  // console.log(data);
 
   if (error) throw new Error(Error.message);
 
@@ -30,7 +30,7 @@ export async function updateProfileUsername(profileId, newUsername) {
     .eq("id", profileId)
     .select();
 
-  console.log(data);
+  // console.log(data);
 
   if (error) throw new Error(Error.message);
 
@@ -46,7 +46,7 @@ export async function updateProfile(stats, id) {
 
   if (error) throw new Error(Error.message);
 
-  console.log(stats, id);
+  // console.log(stats, id);
 
   return data;
 }

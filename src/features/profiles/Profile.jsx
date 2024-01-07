@@ -8,39 +8,41 @@ import { useUpdateProfile } from "./useUpdateProfile";
 import { useCurrentProfile } from "./useCurrentProfile";
 function Profile() {
   const { id } = useParams();
-  const { profiles, isLoading } = useProfiles();
-  const {
-    profile: [{ id: currentProfileId, friends }],
-  } = useCurrentProfile();
+  const { profiles, isLoading: areLoading } = useProfiles();
+  const { profile: currentProfile, isLoading } = useCurrentProfile();
 
-  console.log(friends);
-  //   console.log(currentProfile, "siema");
   const { updateProfile, isUpdating } = useUpdateProfile();
-  let profile;
 
-  const isFriend = friends.some((arrId) => arrId === id);
-  console.log(isFriend);
-  let friendsArray = [...friends];
-  const data = {
-    friends: friendsArray,
-  };
-  console.log(data);
-
-  function handleClick() {
-    if (!isFriend) {
-      friendsArray = [...friends, id];
-      updateProfile({ stats: data, currentProfileId });
-    }
-  }
-
-  if (!isLoading) profile = profiles.find((profile) => profile.id === id);
-
-  if (isLoading)
+  if (areLoading || isLoading)
     return (
       <div className="flex h-screen w-full items-center justify-center">
         <Spinner color={"#1be053"} />
       </div>
     );
+
+  const [{ id: currentProfileId, friends }] = currentProfile;
+
+  const profile = profiles.find((profile) => profile.id === id);
+
+  const isFriend = friends.some((arrId) => arrId === id);
+  //   console.log(isFriend);
+
+  function handleClick() {
+    if (!isFriend) {
+      updateProfile({
+        stats: { friends: [...friends, id] },
+        id: currentProfileId,
+      });
+      console.log(friends);
+    } else {
+      const updatedArray = friends.filter((friend) => friend !== id);
+      updateProfile({
+        stats: { friends: [...updatedArray] },
+        id: currentProfileId,
+      });
+      console.log(friends);
+    }
+  }
 
   return (
     <>

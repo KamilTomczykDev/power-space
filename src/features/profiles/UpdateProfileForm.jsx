@@ -28,6 +28,7 @@ function UpdateProfileForm() {
   }
 
   function onSubmit(data) {
+    console.log(data);
     updateProfile({ stats: data, id });
   }
 
