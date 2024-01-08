@@ -1,8 +1,8 @@
 import { useCurrentProfile } from "../features/profiles/useCurrentProfile";
 import { useProfiles } from "../features/profiles/useProfiles";
-import RankingTable from "../features/ranking/RankingTable";
-import AppHeading from "../ui/AppHeading";
 
+import AppHeading from "../ui/AppHeading";
+import FriendsRow from "../features/friends/FriendsRow";
 import Spinner from "../ui/Spinner";
 
 function Friends() {
@@ -31,12 +31,15 @@ function Friends() {
 
   return (
     <>
-      <AppHeading title="Friend">
+      <AppHeading title="Friends">
         {friends.length
           ? "Take a look on your friends group."
           : "We're sorry to say this but You have no friends"}
       </AppHeading>
-      {friends.length && <RankingTable profiles={friendsArray} />}
+      {friends.length !== 0 &&
+        friendsArray.map((profile) => (
+          <FriendsRow key={profile.id} profile={profile} />
+        ))}
     </>
   );
 }

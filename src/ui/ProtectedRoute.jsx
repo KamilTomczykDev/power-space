@@ -2,7 +2,7 @@ import { useNavigate } from "react-router-dom";
 import { useUser } from "../features/authentication/useUser";
 import { useEffect } from "react";
 
-import Spinner from "./Spinner";
+import logo from "../assets/logo.png";
 
 function ProtectedRoute({ children }) {
   const navigate = useNavigate();
@@ -19,7 +19,7 @@ function ProtectedRoute({ children }) {
   if (isLoading)
     return (
       <div className="flex h-screen w-full items-center justify-center">
-        <Spinner color={"#1be053"} />
+        <img src={logo} />
       </div>
     );
 

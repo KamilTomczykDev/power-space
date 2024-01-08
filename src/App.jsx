@@ -52,7 +52,7 @@ function App() {
             <Route path="ranking" element={<Ranking />} />
             <Route path="ranking/:id" element={<Profile />} />
             <Route path="friends" element={<Friends />} />
-
+            <Route path="friends/:id" element={<Profile />} />
           </Route>
           <Route path="*" element={<PageNotFound />} />
         </Routes>
