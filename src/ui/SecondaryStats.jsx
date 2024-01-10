@@ -11,7 +11,7 @@ import {
   Tooltip,
 } from "recharts";
 import ProfileEtiquette from "../features/profiles/ProfileEtiquette";
-import { countScore } from "../utils/helpers";
+// import { countScore } from "../utils/helpers";
 
 function SecondaryStats({ profile }) {
   const [{ squat, bench, deadlift, weight }] = profile;
@@ -38,7 +38,7 @@ function SecondaryStats({ profile }) {
     <div className="grid grid-rows-2 gap-4 lg:grid-cols-mobile-chart lg:grid-rows-none">
       <ProfileEtiquette
         profile={profile}
-        score={countScore(squat, bench, deadlift, weight)}
+        // score={countScore(squat, bench, deadlift, weight)}
       />
 
       <div className="flex w-full flex-col gap-4 rounded-md bg-stone-800 p-4 text-2xl text-white">

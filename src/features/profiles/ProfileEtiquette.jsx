@@ -1,4 +1,4 @@
-function ProfileEtiquette({ profile, score }) {
+function ProfileEtiquette({ profile }) {
   const [
     {
       username,
@@ -9,24 +9,14 @@ function ProfileEtiquette({ profile, score }) {
       training_since: since,
     },
   ] = profile;
-  console.log(typeof score);
-  console.log(score);
-
-  const color = `bg-gray-300`;
-  console.log();
-
   return (
     <div className="w-full">
       <div className="grid h-[375px] grid-rows-stats">
-        <div
-          className={`flex flex-col items-end justify-end rounded-t-md ${color} p-4 text-xl text-white`}
-        >
+        <div className="flex flex-col items-end justify-end rounded-t-md bg-blue-900 p-4 text-xl  text-white">
           <span>Beginner</span>
           <span className="brake-words text-3xl font-semibold">{username}</span>
         </div>
-        <div
-          className={`flex flex-col justify-end gap-2 rounded-b-md p-4 text-2xl text-white bg-${color}-900`}
-        >
+        <div className="flex flex-col justify-end gap-2 rounded-b-md bg-blue-950 p-4 text-2xl text-white">
           <div className="flex gap-2">
             <label className="font-semibold">Weight:</label>
             <span>{weight}kg</span>
