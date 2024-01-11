@@ -20,7 +20,7 @@ function RankingRow({ profile, index }) {
   if (!visible) return null;
 
   return (
-    <tr className="grid-cols-ranking-table grid w-full items-center border-t-2 border-stone-500 px-2 py-2 text-center text-[0.5rem] text-stone-400 even:bg-stone-900 md:py-4 md:text-base">
+    <tr className="grid-cols-ranking-table grid w-full items-center border-t-2 border-stone-500 px-2 py-2 text-center text-[0.5rem] text-stone-400 md:py-4 md:text-base">
       <td>{index + 1}</td>
       <td>
         <RankingUsername score={score}>

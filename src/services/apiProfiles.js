@@ -1,7 +1,10 @@
 import supabase from "./supabase";
 
 export async function getProfiles() {
-  let { data, error } = await supabase.from("profiles").select("*");
+  let { data, error } = await supabase
+    .from("profiles")
+    .select("*")
+    .eq("visible", "true");
 
   // console.log(data);
 
