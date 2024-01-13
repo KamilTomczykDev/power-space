@@ -26,15 +26,21 @@ function Pagination({ count }) {
     setSearchParams(searchParams);
   }
 
+  if (count <= PAGE_SIZE) return null;
+
   return (
     <tr className="flex border-t-2 border-stone-400 bg-stone-800 p-2 text-[0.5rem] text-white md:p-4 md:text-base">
       <td className="flex w-full items-center justify-between">
         <p>
           Showing{" "}
           <span className="font-semibold">
-            {(currentPage - 1) * (PAGE_SIZE + 1)}
+            {(currentPage - 1) * PAGE_SIZE + 1}
           </span>{" "}
-          to <span className="font-semibold">{currentPage * PAGE_SIZE}</span> of
+          to{" "}
+          <span className="font-semibold">
+            {currentPage === pageCount ? count : currentPage * PAGE_SIZE}
+          </span>{" "}
+          of
           <span className="font-semibold"> {count}</span> results
         </p>
         <div className="flex gap-2">

@@ -23,7 +23,7 @@ function RankingTable({ profiles }) {
         ))}
       </tbody>
       <tfoot>
-        <Pagination count={10} />
+        <Pagination count={profiles.length} />
       </tfoot>
     </table>
   );
