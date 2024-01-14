@@ -1,13 +1,18 @@
 import supabase from "./supabase";
 
-export async function getProfiles() {
-  let { data, error } = await supabase
-    .from("profiles")
-    .select("*")
-    .eq("visible", "true");
+export async function getProfiles({ filter, sortBy }) {
+  let query = supabase.from("profiles").select("*").eq("visible", "true");
 
   // console.log(data);
+  if (filter.queryKey.at(1).value === "juniors") query = query.lte("age", 23);
+  if (filter.queryKey.at(1).value === "seniors") query = query.gte("age", 24);
+  console.log(filter.value);
 
+  console.log(sortBy);
+  console.log(filter);
+
+  const { data, error } = await query;
+  console.log(query);
   if (error) throw new Error(Error.message);
 
   return data;

@@ -18,16 +18,6 @@ function Ranking() {
       </div>
     );
 
-  const filterValue = searchParams.get("filter") || "all";
-
-  let filteredProfiles;
-
-  if (filterValue === "all") filteredProfiles = profiles;
-  if (filterValue === "juniors")
-    filteredProfiles = profiles.filter((profile) => profile.age <= 23);
-  if (filterValue === "seniors")
-    filteredProfiles = profiles.filter((profile) => profile.age > 23);
-
   const sortBy = searchParams.get("sortBy") || "score-desc";
   const [field, direction] = sortBy.split("-");
   const modifier = direction === "desc" ? -1 : 1;
@@ -35,7 +25,7 @@ function Ranking() {
   let sortedProfiles;
 
   if (field === "score")
-    sortedProfiles = filteredProfiles.sort(function (a, b) {
+    sortedProfiles = profiles.sort(function (a, b) {
       const firstScore = countScore(a.squat, a.bench, a.deadlift, a.weight);
       const secondScore = countScore(b.squat, b.bench, b.deadlift, b.weight);
 
@@ -43,7 +33,7 @@ function Ranking() {
     });
 
   if (field === "total")
-    sortedProfiles = filteredProfiles.sort(function (a, b) {
+    sortedProfiles = profiles.sort(function (a, b) {
       const firstTotal = countTotal(a.squat, a.bench, a.deadlift);
       const secondTotal = countTotal(b.squat, b.bench, b.deadlift);
 
@@ -51,9 +41,7 @@ function Ranking() {
     });
 
   if (field !== "score" && field !== "total")
-    sortedProfiles = filteredProfiles.sort(
-      (a, b) => (a[field] - b[field]) * modifier,
-    );
+    sortedProfiles = profiles.sort((a, b) => (a[field] - b[field]) * modifier);
 
   console.log(sortedProfiles);
 
