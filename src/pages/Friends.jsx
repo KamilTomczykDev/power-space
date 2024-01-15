@@ -34,7 +34,7 @@ function Friends() {
       <AppHeading title="Friends">
         {friends.length
           ? "Take a look on your friends group."
-          : "We're sorry to say this but You have no friends"}
+          : "We're sorry to say this but You have no friends :("}
       </AppHeading>
       {friends.length !== 0 &&
         friendsArray.map((profile) => (

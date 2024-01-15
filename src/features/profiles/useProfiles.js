@@ -6,9 +6,10 @@ export function useProfiles() {
   const [searchParams] = useSearchParams();
 
   const filterValue = searchParams.get("filter");
+  console.log(filterValue);
   const filter =
     !filterValue || filterValue === "all"
-      ? null
+      ? { field: "filter", value: "all" }
       : { field: "filter", value: filterValue };
 
   const { data: profiles, isLoading } = useQuery({

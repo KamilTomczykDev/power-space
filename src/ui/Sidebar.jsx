@@ -24,6 +24,7 @@ function Sidebar() {
           to="/login"
           icon={<IoBarbellOutline size={30} />}
           title="Workouts"
+          disabled={true}
         />
         <SidebarLink
           to="ranking"

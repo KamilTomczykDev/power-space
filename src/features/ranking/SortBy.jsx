@@ -9,6 +9,8 @@ function SortBy({ options }) {
   function handleChange(e) {
     searchParams.set("sortBy", e.target.value);
     setSearchParams(searchParams);
+    searchParams.set("page", 1);
+    setSearchParams(searchParams);
   }
 
   return <Select options={options} value={sortBy} onChange={handleChange} />;

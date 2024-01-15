@@ -3,14 +3,8 @@ import { HiChevronRight } from "react-icons/hi";
 import { useSearchParams } from "react-router-dom";
 import { PAGE_SIZE } from "../../utils/config";
 
-function Pagination({ count }) {
+function Pagination({ count, currentPage, pageCount }) {
   const [searchParams, setSearchParams] = useSearchParams();
-
-  const currentPage = !searchParams.get("page")
-    ? 1
-    : Number(searchParams.get("page"));
-
-  const pageCount = Math.ceil(count / PAGE_SIZE);
 
   function nextPage() {
     const next = currentPage === pageCount ? currentPage : currentPage + 1;
@@ -24,8 +18,6 @@ function Pagination({ count }) {
     searchParams.set("page", prev);
     setSearchParams(searchParams);
   }
-
-  if (count <= PAGE_SIZE) return null;
 
   return (
     <tr className="flex border-t-2 border-stone-400 bg-stone-800 p-2 text-[0.5rem] text-white md:p-4 md:text-base">

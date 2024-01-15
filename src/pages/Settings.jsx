@@ -2,6 +2,7 @@ import { useCurrentProfile } from "../features/profiles/useCurrentProfile";
 import SettingsForm from "../features/settings/SettingsForm";
 import AppHeading from "../ui/AppHeading";
 import Spinner from "../ui/Spinner";
+import UnitChange from "../features/units/UnitChange";
 
 function Settings() {
   const { profile, isLoading } = useCurrentProfile();
@@ -17,6 +18,7 @@ function Settings() {
       <AppHeading title="Settings">
         Change public informations about your profile.
       </AppHeading>
+      <UnitChange />
       <SettingsForm profile={profile} />
     </>
   );

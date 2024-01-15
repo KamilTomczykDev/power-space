@@ -54,7 +54,7 @@ function Ranking() {
         <RankingTableOperations />
       </div>
 
-      <RankingTable profiles={sortedProfiles} />
+      <RankingTable profiles={sortedProfiles} defaultProfiles={profiles} />
     </>
   );
 }
