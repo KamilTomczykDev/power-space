@@ -1,15 +1,19 @@
 import { useForm } from "react-hook-form";
 import { useCurrentProfile } from "./useCurrentProfile";
+import { useUpdateProfile } from "./useUpdateProfile";
+import useUnits from "../../hooks/useUnits";
 
 import AppFormRow from "../../ui/AppFormRow";
 import FormButtons from "../../ui/FormButtons";
-import { useUpdateProfile } from "./useUpdateProfile";
 
 function UpdateProfileForm() {
+  const { unit } = useUnits();
+
   const { profile } = useCurrentProfile();
-  const { updateProfile, isUpdating } = useUpdateProfile();
   const [{ id, squat, bench, deadlift, age, weight, height, training_since }] =
     profile;
+  const { updateProfile, isUpdating } = useUpdateProfile();
+
   const { register, formState, reset, handleSubmit } = useForm({
     defaultValues: {
       squat,
@@ -40,7 +44,7 @@ function UpdateProfileForm() {
       >
         <AppFormRow
           error={errors?.squat?.message}
-          label="Squat Personal Record"
+          label={`Squat Personal Record (${unit})`}
         >
           <input
             className="rounded-md border-2 border-stone-400 bg-stone-700 p-2 text-white disabled:opacity-60 sm:max-w-[300px]"
@@ -59,7 +63,7 @@ function UpdateProfileForm() {
         </AppFormRow>
         <AppFormRow
           error={errors?.bench?.message}
-          label="Bench Personal Record"
+          label={`Bench Personal Record (${unit})`}
         >
           <input
             className="w-full rounded-md border-2 border-stone-400 bg-stone-700 p-2 text-white disabled:opacity-60 sm:max-w-[300px]"
@@ -78,7 +82,7 @@ function UpdateProfileForm() {
         </AppFormRow>
         <AppFormRow
           error={errors?.deadlift?.message}
-          label="Deadlift Personal Record"
+          label={`Deadlift Personal Record (${unit})`}
         >
           <input
             className="rounded-md border-2 border-stone-400 bg-stone-700 p-2 text-white disabled:opacity-60 sm:max-w-[300px]"
@@ -111,7 +115,7 @@ function UpdateProfileForm() {
             })}
           />
         </AppFormRow>
-        <AppFormRow error={errors?.weight?.message} label="Weight">
+        <AppFormRow error={errors?.weight?.message} label={`Weight (${unit})`}>
           <input
             className="rounded-md border-2 border-stone-400 bg-stone-700 p-2 text-white disabled:opacity-60 sm:max-w-[300px]"
             type="number"
@@ -127,7 +131,7 @@ function UpdateProfileForm() {
             })}
           />
         </AppFormRow>
-        <AppFormRow error={errors?.height?.message} label="Height">
+        <AppFormRow error={errors?.height?.message} label="Height (cm)">
           <input
             className="rounded-md border-2 border-stone-400 bg-stone-700 p-2 text-white disabled:opacity-60 sm:max-w-[300px]"
             type="number"
@@ -145,7 +149,7 @@ function UpdateProfileForm() {
         </AppFormRow>
         <AppFormRow
           error={errors?.training_since?.message}
-          label="Training since"
+          label="Training since (yyyy)"
         >
           <input
             className="rounded-md border-2 border-stone-400 bg-stone-700 p-2 text-white disabled:opacity-60 sm:max-w-[300px]"

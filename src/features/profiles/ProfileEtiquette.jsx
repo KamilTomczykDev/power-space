@@ -1,4 +1,7 @@
+import useUnits from "../../hooks/useUnits";
+
 function ProfileEtiquette({ profile }) {
+  const { unit, calculateWeight } = useUnits();
   const [
     {
       username,
@@ -9,6 +12,7 @@ function ProfileEtiquette({ profile }) {
       training_since: since,
     },
   ] = profile;
+
   return (
     <div className="w-full">
       <div className="grid h-[375px] grid-rows-stats">
@@ -19,7 +23,10 @@ function ProfileEtiquette({ profile }) {
         <div className="flex flex-col justify-end gap-2 rounded-b-md bg-blue-950 p-4 text-2xl text-white">
           <div className="flex gap-2">
             <label className="font-semibold">Weight:</label>
-            <span>{weight}kg</span>
+            <span>
+              {calculateWeight(weight)}
+              {unit}
+            </span>
           </div>
 
           <div className="flex gap-2">
