@@ -1,4 +1,7 @@
 import useUnits from "../../hooks/useUnits";
+import { countScore } from "../../utils/helpers";
+
+import ExperienceLevel from "./ExperienceLevel";
 
 function ProfileEtiquette({ profile }) {
   const { unit, calculateWeight } = useUnits();
@@ -8,16 +11,23 @@ function ProfileEtiquette({ profile }) {
       age,
       weight,
       height,
+      squat,
+      bench,
+      deadlift,
 
       training_since: since,
     },
   ] = profile;
 
+  const score = countScore(squat, bench, deadlift, weight);
+
   return (
     <div className="w-full">
       <div className="grid h-[375px] grid-rows-stats">
         <div className="flex flex-col items-end justify-end rounded-t-md bg-blue-900 p-4 text-xl  text-white">
-          <span>Beginner</span>
+          <span>
+            <ExperienceLevel score={score} />
+          </span>
           <span className="brake-words text-3xl font-semibold">{username}</span>
         </div>
         <div className="flex flex-col justify-end gap-2 rounded-b-md bg-blue-950 p-4 text-2xl text-white">

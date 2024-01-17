@@ -9,10 +9,10 @@ export function useUpdateProfile() {
     mutationFn: ({ stats, id }) => updateProfileApi(stats, id),
     onSuccess: (data) => {
       console.log(data);
-      toast.success("Stats updated successfully");
+      toast.success("Data updated successfully");
       queryClient.invalidateQueries({ queryKey: ["currentProfile"] });
     },
-    onError: (err) => toast.error(`Stats updated unsuccessfully: ${err}`),
+    onError: (err) => toast.error(`Data updated unsuccessfully: ${err}`),
   });
 
   return { updateProfile, isUpdating };

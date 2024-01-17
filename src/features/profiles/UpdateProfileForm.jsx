@@ -1,6 +1,7 @@
 import { useForm } from "react-hook-form";
 import { useCurrentProfile } from "./useCurrentProfile";
 import { useUpdateProfile } from "./useUpdateProfile";
+import { convertToKilos } from "../../utils/helpers";
 import useUnits from "../../hooks/useUnits";
 
 import AppFormRow from "../../ui/AppFormRow";
@@ -27,13 +28,23 @@ function UpdateProfileForm() {
   });
   const { errors } = formState;
 
-  function handleCancel() {
-    reset();
+  function onSubmit(data) {
+    console.log(Object.entries(data));
+    const convertedData = structuredClone(data);
+    if (unit === "lbs") {
+      for (let [key, value] of Object.entries(convertedData)) {
+        if (key !== "age" && key !== "training_since" && key !== "height") {
+          value = convertToKilos(value);
+          console.log(value);
+        }
+      }
+    }
+    console.log(convertedData);
+    updateProfile({ stats: convertedData, id });
   }
 
-  function onSubmit(data) {
-    console.log(data);
-    updateProfile({ stats: data, id });
+  function handleCancel() {
+    reset();
   }
 
   return (

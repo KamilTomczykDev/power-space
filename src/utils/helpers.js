@@ -8,3 +8,7 @@ export function countTotal(squat, bench, deadlift) {
   const total = squat + bench + deadlift;
   return total;
 }
+
+export function convertToKilos(weight) {
+  return (weight / 2.20462262).toFixed(0);
+}
