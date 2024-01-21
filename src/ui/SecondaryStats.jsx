@@ -34,6 +34,18 @@ function SecondaryStats({ profile }) {
     },
   ];
 
+  const CustomTooltip = ({ active, payload }) => {
+    if (active && payload && payload.length) {
+      return (
+        <div className="rounded-md bg-stone-700 p-2">
+          <p className="">{`${payload[0].value.toFixed(2)}`}</p>
+        </div>
+      );
+    }
+
+    return null;
+  };
+
   return (
     <div className="grid grid-rows-2 gap-4 lg:grid-cols-mobile-chart lg:grid-rows-none">
       <ProfileEtiquette
@@ -60,7 +72,7 @@ function SecondaryStats({ profile }) {
                 />
               ))}
             </Pie>
-            <Tooltip />
+            <Tooltip content={<CustomTooltip />} />
             <Legend
               wrapperStyle={{ fontSize: 25, display: "none" }}
               verticalAlign="middle"

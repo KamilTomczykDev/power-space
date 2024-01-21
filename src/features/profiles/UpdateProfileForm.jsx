@@ -35,7 +35,6 @@ function UpdateProfileForm() {
       for (let [key, value] of Object.entries(convertedData)) {
         if (key !== "age" && key !== "training_since" && key !== "height") {
           value = convertToKilos(value);
-          convertedData.key = value;
         }
       }
     }
