@@ -29,18 +29,18 @@ function UpdateProfileForm() {
   const { errors } = formState;
 
   function onSubmit(data) {
-    console.log(Object.entries(data));
-    const convertedData = structuredClone(data);
     if (unit === "lbs") {
-      for (let [key, value] of Object.entries(convertedData)) {
-        if (key !== "age" && key !== "training_since" && key !== "height") {
-          value = convertToKilos(value);
-          console.log(convertedData);
+      Object.entries(data).forEach((entry) => {
+        if (
+          entry[0] !== "age" &&
+          entry[0] !== "training_since" &&
+          entry[0] !== "height"
+        ) {
+          data[entry[0]] = convertToKilos(Number(data[entry[0]]));
         }
-      }
+      });
     }
-    console.log(convertedData);
-    updateProfile({ stats: convertedData, id });
+    updateProfile({ stats: data, id });
   }
 
   function handleCancel() {
