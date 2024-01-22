@@ -35,6 +35,7 @@ function UpdateProfileForm() {
       for (let [key, value] of Object.entries(convertedData)) {
         if (key !== "age" && key !== "training_since" && key !== "height") {
           value = convertToKilos(value);
+          console.log(convertedData);
         }
       }
     }
@@ -64,7 +65,7 @@ function UpdateProfileForm() {
             disabled={isUpdating}
             {...register("squat", {
               required: "This field is required",
-              maxLenght: {
+              maxLength: {
                 value: 3,
                 message: "Max. 3 numbers",
               },
@@ -83,7 +84,7 @@ function UpdateProfileForm() {
             disabled={isUpdating}
             {...register("bench", {
               required: "This field is required",
-              maxLenght: {
+              maxLength: {
                 value: 3,
                 message: "Max. 3 numbers",
               },
@@ -102,7 +103,7 @@ function UpdateProfileForm() {
             disabled={isUpdating}
             {...register("deadlift", {
               required: "This field is required",
-              maxLenght: {
+              maxLength: {
                 value: 3,
                 message: "Max. 3 numbers",
               },
@@ -118,7 +119,7 @@ function UpdateProfileForm() {
             disabled={isUpdating}
             {...register("age", {
               required: "This field is required",
-              maxLenght: {
+              maxLength: {
                 value: 2,
                 message: "Max. 99 years old",
               },
@@ -134,9 +135,9 @@ function UpdateProfileForm() {
             disabled={isUpdating}
             {...register("weight", {
               required: "This field is required",
-              maxLenght: {
+              maxLength: {
                 value: 3,
-                message: "Max. 999lbs",
+                message: `Max. 999${unit}`,
               },
             })}
           />
@@ -150,7 +151,7 @@ function UpdateProfileForm() {
             disabled={isUpdating}
             {...register("height", {
               required: "This field is required",
-              maxLenght: {
+              maxLength: {
                 value: 3,
                 message: "Max. 3 numbers",
               },
@@ -169,7 +170,7 @@ function UpdateProfileForm() {
             disabled={isUpdating}
             {...register("training_since", {
               required: "This field is required",
-              maxLength: {
+              maxLenght: {
                 value: 4,
                 message: "Max. 4 numbers",
               },

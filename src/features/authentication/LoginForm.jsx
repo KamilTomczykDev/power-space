@@ -24,6 +24,10 @@ function LoginForm() {
     );
   }
 
+  function handleClick() {
+    login({ email: "test.test@test.pl", password: "testtest" });
+  }
+
   return (
     <>
       <div>
@@ -69,7 +73,16 @@ function LoginForm() {
           {isLoading ? <SpinnerMini /> : "Log in"}
         </button>
       </form>
-      <span className="text-sm">
+      <div className="my-[-1rem] flex justify-center text-stone-500">OR</div>
+      <button
+        disabled={isLoading}
+        onClick={handleClick}
+        className="flex w-full items-center justify-center rounded-md border-2 border-green-400 bg-green-900 p-2 hover:bg-green-800"
+      >
+        {isLoading ? <SpinnerMini /> : "TEST"}
+      </button>
+
+      <span className="flex gap-1 text-sm">
         {`Don't have an account? `}
         <LinkButton to="signup">Sign Up Now</LinkButton>
       </span>

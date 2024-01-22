@@ -1,11 +1,15 @@
 import { useParams } from "react-router-dom";
 import { useProfiles } from "./useProfiles";
+import { useUpdateProfile } from "./useUpdateProfile";
+import { useCurrentProfile } from "./useCurrentProfile";
+import { FaArrowLeft } from "react-icons/fa6";
+
 import Spinner from "../../ui/Spinner";
 import AppHeading from "../../ui/AppHeading";
 import PrimaryStats from "../../ui/PrimaryStats";
 import SecondaryStats from "../../ui/SecondaryStats";
-import { useUpdateProfile } from "./useUpdateProfile";
-import { useCurrentProfile } from "./useCurrentProfile";
+import LinkButton from "../../ui/LinkButton";
+
 function Profile() {
   const { id } = useParams();
   const { profiles, isLoading: areLoading } = useProfiles();
@@ -45,6 +49,10 @@ function Profile() {
 
   return (
     <>
+      <LinkButton to={-1}>
+        <FaArrowLeft />
+        Go back
+      </LinkButton>
       <div className="flex flex-col justify-between gap-8 sm:flex-row sm:items-center sm:gap-0">
         <AppHeading title={`${profile.username}'s profile`}></AppHeading>
         <button

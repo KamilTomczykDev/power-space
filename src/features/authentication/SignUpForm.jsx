@@ -92,7 +92,7 @@ function SignupForm() {
           {isLoading ? <SpinnerMini /> : "Sign up"}
         </button>
       </form>
-      <span className="text-sm">
+      <span className="flex gap-1 text-sm">
         {`Already registered? `}
         <LinkButton to="/login">Log in now</LinkButton>
       </span>
