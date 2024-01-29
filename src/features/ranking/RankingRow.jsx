@@ -35,9 +35,7 @@ function RankingRow({ profile, index }) {
         {total}
         {unit}
       </td>
-
       <td>{score}</td>
-
       <td>
         {calculateWeight(squat)}
         {unit}
@@ -46,12 +44,10 @@ function RankingRow({ profile, index }) {
         {calculateWeight(bench)}
         {unit}
       </td>
-
       <td>
         {calculateWeight(deadlift)}
         {unit}
       </td>
-
       <td>{age}</td>
       <td>
         <IconLink onClick={handleClick}>
