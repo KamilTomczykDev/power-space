@@ -12,3 +12,8 @@ export function countTotal(squat, bench, deadlift) {
 export function convertToKilos(weight) {
   return (weight / 2.20462262).toFixed(0);
 }
+
+export function formatDate(dateParam) {
+  const formatedDate = dateParam.slice(0, 10).replaceAll("-", ".");
+  return formatedDate;
+}

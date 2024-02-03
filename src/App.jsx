@@ -17,6 +17,7 @@ import Account from "./pages/Account";
 import Ranking from "./pages/Ranking";
 import Profile from "./features/profiles/Profile";
 import Friends from "./pages/Friends";
+import Wall from "./pages/Wall";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -47,8 +48,9 @@ function App() {
                 </ProtectedRoute>
               }
             >
-              <Route index element={<Navigate replace to="dashboard" />} />
+              <Route index element={<Navigate replace to="wall" />} />
               <Route path="dashboard" element={<Dashboard />} />
+              <Route path="wall" element={<Wall />} />
               <Route path="settings" element={<Settings />} />
               <Route path="account" element={<Account />} />
               <Route path="ranking" element={<Ranking />} />

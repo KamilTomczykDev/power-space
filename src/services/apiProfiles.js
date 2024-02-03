@@ -20,8 +20,6 @@ export async function getProfile(id) {
     .select("*")
     .eq("id", id);
 
-  // console.log(data);
-
   if (error) throw new Error(Error.message);
 
   return data;
@@ -33,8 +31,6 @@ export async function updateProfileUsername(profileId, newUsername) {
     .update({ username: newUsername })
     .eq("id", profileId)
     .select();
-
-  // console.log(data);
 
   if (error) throw new Error(Error.message);
 
@@ -49,8 +45,6 @@ export async function updateProfile(stats, id) {
     .select();
 
   if (error) throw new Error(Error.message);
-
-  // console.log(stats, id);
 
   return data;
 }

@@ -1,10 +1,10 @@
 import {
-  IoBarbellOutline,
   IoHomeOutline,
   IoOptionsOutline,
   IoPeopleOutline,
   IoRibbonOutline,
 } from "react-icons/io5";
+import { GoNote } from "react-icons/go";
 
 import logo from "../assets/logo.png";
 import SidebarLink from "./SidebarLink";
@@ -21,20 +21,7 @@ function Sidebar() {
           title="Dashboard"
         />
         {/* Work in progress - workout functionality */}
-        {/* <SidebarLink
-          to="/login"
-          icon={<IoBarbellOutline size={30} />}
-          title="Workouts"
-        /> */}
-        <div
-          disabled={true}
-          className="flex h-full w-[65px] cursor-not-allowed flex-col items-center justify-center rounded-md text-stone-700 transition duration-200 xl:h-auto xl:w-full xl:flex-row xl:justify-start xl:gap-8 xl:p-2"
-        >
-          <IoBarbellOutline size={30} />
-          <span className="text-center text-[10px] tracking-tight xl:text-lg xl:font-semibold 2xl:text-xl">
-            Workouts
-          </span>
-        </div>
+        <SidebarLink to="wall" icon={<GoNote size={30} />} title="Wall" />
         <SidebarLink
           to="ranking"
           icon={<IoRibbonOutline size={30} />}

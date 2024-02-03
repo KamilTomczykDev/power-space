@@ -5,7 +5,7 @@ import toast from "react-hot-toast";
 export function useProfile() {
   const queryClient = useQueryClient();
   const { mutate: getProfile, isLoading } = useMutation({
-    mutationFn: getProfileApi,
+    mutationFn: (id) => getProfileApi(id),
     onSuccess: (data) => {
       queryClient.invalidateQueries({ queryKey: ["profile"] });
       console.log(data);
