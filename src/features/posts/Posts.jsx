@@ -1,10 +1,10 @@
 import PostsItem from "./PostsItem";
 
-function Posts({ posts }) {
+function Posts({ posts, profiles }) {
   return (
     <div className="flex flex-col items-center gap-6">
       {posts.map((post) => (
-        <PostsItem post={post} key={post.id} />
+        <PostsItem post={post} profiles={profiles} key={post.id} />
       ))}
     </div>
   );

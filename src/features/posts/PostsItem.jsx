@@ -1,26 +1,28 @@
-import SpinnerMini from "../../ui/SpinnerMini";
 import { formatDate } from "../../utils/helpers";
-import { useProfiles } from "../profiles/useProfiles";
+import { useCurrentProfile } from "../profiles/useCurrentProfile";
+import DeletePost from "./DeletePost";
+import PostContent from "./PostContent";
 
 function PostsItem({ post }) {
-  const { profileId, content, createdAt } = post;
+  const { id: postId, content, createdAt, profileUsername, profileId } = post;
+  const { profile, isLoading } = useCurrentProfile();
 
-  const { profiles, isLoading } = useProfiles();
+  if (isLoading) return;
 
-  if (isLoading) return <SpinnerMini />;
-
-  console.log(profiles);
-  const profile = profiles.find((profile) => profile.id === profileId);
+  const [{ id }] = profile;
+  const isAuthor = id === profileId;
+  console.log(isAuthor);
 
   return (
-    <div className="flex max-w-[800px] flex-col gap-4 rounded-md bg-stone-700 p-4">
-      <div className="flex justify-between">
+    <div className="flex w-full max-w-[800px] flex-col items-start justify-start gap-4 rounded-md bg-stone-700 p-4">
+      <div className="flex w-full justify-between gap-10">
         <label className="font-semibold text-green-400 md:text-lg">
-          {profile.username}
+          {profileUsername}
         </label>
         <span className="text-stone-400">{formatDate(createdAt)}</span>
       </div>
-      <div className="text-white md:text-xl">{content}</div>
+      <PostContent content={content} />
+      {isAuthor && <DeletePost id={postId} />}
     </div>
   );
 }

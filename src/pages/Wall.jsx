@@ -1,4 +1,5 @@
 import { usePosts } from "../features/posts/usePosts";
+import { useProfiles } from "../features/profiles/useProfiles";
 
 import AddPost from "../features/posts/AddPost";
 import Posts from "../features/posts/Posts";
@@ -7,8 +8,9 @@ import Spinner from "../ui/Spinner";
 
 function Wall() {
   const { posts, isLoading } = usePosts();
+  const { profiles, arePostsLoading } = useProfiles();
 
-  if (isLoading)
+  if (isLoading || arePostsLoading)
     return (
       <div className="flex h-screen w-full items-center justify-center">
         <Spinner color={"#1be053"} />
@@ -21,7 +23,7 @@ function Wall() {
       </AppHeading>
       <div className="flex flex-col gap-10">
         <AddPost />
-        <Posts posts={posts} />
+        <Posts posts={posts} profiles={profiles} />
       </div>
     </>
   );
