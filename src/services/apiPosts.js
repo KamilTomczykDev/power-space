@@ -1,4 +1,4 @@
-import supabase from "./supabase";
+import supabase, { supabaseUrl } from "./supabase";
 
 export async function getPosts() {
   let { data, error } = await supabase.from("posts").select("*");
@@ -9,10 +9,32 @@ export async function getPosts() {
 }
 
 export async function insertPost(newPost) {
-  let { data, error } = await supabase.from("posts").insert([newPost]).select();
-  console.log(newPost, data);
-  if (error) throw new Error(error.message);
+  const imageName = `${Math.random()}-${newPost.image?.name}`.replaceAll(
+    "/",
+    "",
+  );
+  const imageUrl = `${supabaseUrl}/storage/v1/object/public/postImages/${imageName}`;
 
+  let { data, error } = await supabase
+    .from("posts")
+    .insert([{ ...newPost, image: imageUrl }])
+    .select();
+
+  if (error) {
+    console.error(error);
+    throw new Error(error.message);
+  }
+
+  if (!newPost.image) return data;
+
+  const { storageError } = await supabase.storage
+    .from("postImages")
+    .upload(imageName, newPost.image);
+
+  if (storageError) {
+    console.error(storageError);
+    await supabase.from("posts").delete().eq("id", data.id);
+  }
   return data;
 }
 

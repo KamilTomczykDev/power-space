@@ -4,14 +4,20 @@ import DeletePost from "./DeletePost";
 import PostContent from "./PostContent";
 
 function PostsItem({ post }) {
-  const { id: postId, content, createdAt, profileUsername, profileId } = post;
+  const {
+    id: postId,
+    content,
+    createdAt,
+    profileUsername,
+    profileId,
+    image,
+  } = post;
   const { profile, isLoading } = useCurrentProfile();
 
   if (isLoading) return;
 
   const [{ id }] = profile;
   const isAuthor = id === profileId;
-  console.log(isAuthor);
 
   return (
     <div className="flex w-full max-w-[800px] flex-col items-start justify-start gap-4 rounded-md bg-stone-700 p-4">
@@ -21,7 +27,7 @@ function PostsItem({ post }) {
         </label>
         <span className="text-stone-400">{formatDate(createdAt)}</span>
       </div>
-      <PostContent content={content} />
+      <PostContent image={image} content={content} />
       {isAuthor && <DeletePost id={postId} />}
     </div>
   );

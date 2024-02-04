@@ -1,16 +1,19 @@
 import { RiDeleteBin2Line } from "react-icons/ri";
-import { deletePost } from "../../services/apiPosts";
+import { useDeletePost } from "./useDeletePost";
+import SpinnerMini from "../../ui/SpinnerMini";
 
 function DeletePost({ id }) {
+  const { deletePost, isDeleting } = useDeletePost();
+
   function handleClick() {
     deletePost(id);
   }
   return (
     <div
       onClick={handleClick}
-      className="flex cursor-pointer items-start hover:opacity-70"
+      className="flex cursor-pointer items-start text-green-400 hover:opacity-70"
     >
-      <RiDeleteBin2Line size={25} color={"#969696"} />
+      {isDeleting ? <SpinnerMini /> : <RiDeleteBin2Line size={25} />}
     </div>
   );
 }

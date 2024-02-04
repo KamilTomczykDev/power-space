@@ -1,6 +1,5 @@
 import { usePosts } from "../features/posts/usePosts";
 import { useProfiles } from "../features/profiles/useProfiles";
-
 import AddPost from "../features/posts/AddPost";
 import Posts from "../features/posts/Posts";
 import AppHeading from "../ui/AppHeading";
