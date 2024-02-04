@@ -9,6 +9,23 @@ export async function getPosts() {
 }
 
 export async function insertPost(newPost) {
+  //if theres no imageFile selected insert null into image column;
+  if (!newPost.image) {
+    let { data, error } = await supabase
+      .from("posts")
+      .insert([{ ...newPost, image: null }])
+      .select();
+
+    if (error) {
+      console.error(error);
+      throw new Error(error.message);
+    }
+
+    return data;
+  }
+
+  //if theres an actual imageFile insert image with new url and upload it to storage
+
   const imageName = `${Math.random()}-${newPost.image?.name}`.replaceAll(
     "/",
     "",
