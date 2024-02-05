@@ -3,6 +3,7 @@ import { useCurrentProfile } from "../profiles/useCurrentProfile";
 import { useInsertPost } from "./useInsertPost";
 
 import SpinnerMini from "../../ui/SpinnerMini";
+import Spinner from "../../ui/Spinner";
 
 function AddPost() {
   const { handleSubmit, register, formState } = useForm();
@@ -13,8 +14,8 @@ function AddPost() {
 
   if (isLoading)
     return (
-      <div className="text-white">
-        <SpinnerMini color="white" />
+      <div className="text-green-400">
+        <Spinner />
       </div>
     );
 
