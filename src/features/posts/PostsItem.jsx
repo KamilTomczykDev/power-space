@@ -1,6 +1,7 @@
 import { Suspense, lazy } from "react";
 import { countScore, formatDate } from "../../utils/helpers";
 import { useCurrentProfile } from "../profiles/useCurrentProfile";
+import { FaUserFriends } from "react-icons/fa";
 
 import DeletePost from "./DeletePost";
 import Spinner from "../../ui/Spinner";
@@ -14,7 +15,7 @@ function PostsItem({ post, profiles }) {
 
   if (isLoading) return;
 
-  const [{ id: currentProfileId }] = currentProfile;
+  const [{ id: currentProfileId, friends }] = currentProfile;
   const {
     username: authorsUsername,
     squat,
@@ -24,6 +25,7 @@ function PostsItem({ post, profiles }) {
   } = profiles.find((profile) => profile.id === profileId);
   const authorsScore = countScore(squat, bench, deadlift, weight);
   const isAuthor = currentProfileId === profileId;
+  const isFriend = friends.some((friendId) => friendId === profileId);
 
   return (
     <div className="flex w-full max-w-[800px] flex-col items-start justify-start gap-4 rounded-sm bg-stone-800 p-2 md:p-4">
@@ -33,8 +35,10 @@ function PostsItem({ post, profiles }) {
             {authorsUsername}
           </RankingUsername>
         </label>
-        <div className="flex gap-2">
+        <div className="flex items-center gap-2 text-green-400">
+          {isFriend && <FaUserFriends />}
           {isAuthor && <DeletePost id={postId} />}
+
           <span className="text-stone-400">{formatDate(createdAt)}</span>
         </div>
       </div>

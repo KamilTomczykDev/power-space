@@ -1,6 +1,5 @@
 import { useParams } from "react-router-dom";
 import { useProfiles } from "./useProfiles";
-import { useUpdateProfile } from "./useUpdateProfile";
 import { useCurrentProfile } from "./useCurrentProfile";
 import { FaArrowLeft } from "react-icons/fa6";
 
@@ -9,13 +8,12 @@ import AppHeading from "../../ui/AppHeading";
 import PrimaryStats from "../../ui/PrimaryStats";
 import SecondaryStats from "../../ui/SecondaryStats";
 import LinkButton from "../../ui/LinkButton";
+import AddFriendButton from "../friends/AddFriendButton";
 
 function Profile() {
   const { id } = useParams();
   const { profiles, isLoading: areLoading } = useProfiles();
   const { profile: currentProfile, isLoading } = useCurrentProfile();
-
-  const { updateProfile, isUpdating } = useUpdateProfile();
 
   if (areLoading || isLoading)
     return (
@@ -25,27 +23,7 @@ function Profile() {
     );
 
   const [{ id: currentProfileId, friends }] = currentProfile;
-
   const profile = profiles.find((profile) => profile.id === id);
-
-  const isFriend = friends.some((arrId) => arrId === id);
-
-  function handleClick() {
-    if (!isFriend) {
-      updateProfile({
-        stats: { friends: [...friends, id] },
-        id: currentProfileId,
-      });
-      console.log(friends);
-    } else {
-      const updatedArray = friends.filter((friend) => friend !== id);
-      updateProfile({
-        stats: { friends: [...updatedArray] },
-        id: currentProfileId,
-      });
-      console.log(friends);
-    }
-  }
 
   return (
     <>
@@ -55,13 +33,11 @@ function Profile() {
       </LinkButton>
       <div className="flex flex-col justify-between gap-8 sm:flex-row sm:items-center sm:gap-0">
         <AppHeading title={`${profile.username}'s profile`}></AppHeading>
-        <button
-          onClick={handleClick}
-          disabled={isUpdating}
-          className="flex items-center justify-center rounded-md border-2 border-green-400 bg-green-900 px-4 py-2 font-semibold text-white hover:bg-green-800 disabled:opacity-60"
-        >
-          {isFriend ? "Remove friend" : "Add friend"}
-        </button>
+        <AddFriendButton
+          currentProfileId={currentProfileId}
+          friends={friends}
+          id={id}
+        />
       </div>
       <PrimaryStats profile={[profile]} />
       <SecondaryStats profile={[profile]} />
