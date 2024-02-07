@@ -6,8 +6,8 @@ import AppHeading from "../ui/AppHeading";
 import Spinner from "../ui/Spinner";
 
 function Wall() {
-  const { posts, isLoading } = usePosts();
-  const { profiles, arePostsLoading } = useProfiles();
+  const { posts, arePostsLoading } = usePosts();
+  const { profiles, isLoading } = useProfiles();
 
   if (isLoading || arePostsLoading)
     return (

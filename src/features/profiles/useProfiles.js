@@ -6,7 +6,6 @@ export function useProfiles() {
   const [searchParams] = useSearchParams();
 
   const filterValue = searchParams.get("filter");
-  console.log(filterValue);
   const filter =
     !filterValue || filterValue === "all"
       ? { field: "filter", value: "all" }

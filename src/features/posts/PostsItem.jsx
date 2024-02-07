@@ -1,33 +1,37 @@
 import { Suspense, lazy } from "react";
-import { formatDate } from "../../utils/helpers";
+import { countScore, formatDate } from "../../utils/helpers";
 import { useCurrentProfile } from "../profiles/useCurrentProfile";
 
 import DeletePost from "./DeletePost";
 import Spinner from "../../ui/Spinner";
+import RankingUsername from "../ranking/RankingUsername";
 
 const PostContent = lazy(() => import("./PostContent"));
 
-function PostsItem({ post }) {
-  const {
-    id: postId,
-    content,
-    createdAt,
-    profileUsername,
-    profileId,
-    image,
-  } = post;
-  const { profile, isLoading } = useCurrentProfile();
+function PostsItem({ post, profiles }) {
+  const { id: postId, content, createdAt, profileId, image } = post;
+  const { profile: currentProfile, isLoading } = useCurrentProfile();
 
   if (isLoading) return;
 
-  const [{ id }] = profile;
-  const isAuthor = id === profileId;
+  const [{ id: currentProfileId }] = currentProfile;
+  const {
+    username: authorsUsername,
+    squat,
+    bench,
+    deadlift,
+    weight,
+  } = profiles.find((profile) => profile.id === profileId);
+  const authorsScore = countScore(squat, bench, deadlift, weight);
+  const isAuthor = currentProfileId === profileId;
 
   return (
     <div className="flex w-full max-w-[800px] flex-col items-start justify-start gap-4 rounded-sm bg-stone-800 p-2 md:p-4">
       <div className="flex w-full justify-between gap-10">
         <label className="font-semibold text-green-400 md:text-lg">
-          {profileUsername}
+          <RankingUsername score={authorsScore} id={profileId}>
+            {authorsUsername}
+          </RankingUsername>
         </label>
         <div className="flex gap-2">
           {isAuthor && <DeletePost id={postId} />}
