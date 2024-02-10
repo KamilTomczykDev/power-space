@@ -37,7 +37,7 @@ function ProfileEtiquette({ profile }) {
           <span>
             <ExperienceLevel score={score} />
           </span>
-          <span className="brake-words text-3xl font-semibold">{username}</span>
+          <span className="brake-words font-semibold  text-3xl">{username}</span>
         </div>
         <div
           className={`flex flex-col justify-end gap-2 rounded-b-md ${color.at(

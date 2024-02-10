@@ -29,7 +29,7 @@ function PostsItem({ post, profiles }) {
 
   return (
     <div className="flex w-full max-w-[800px] flex-col items-start justify-start gap-4 rounded-sm bg-stone-800 p-2 md:p-4">
-      <div className="flex w-full justify-between gap-10">
+      <div className="flex w-full justify-between">
         <label className="font-semibold text-green-400 md:text-lg">
           <RankingUsername score={authorsScore} id={profileId}>
             {authorsUsername}
