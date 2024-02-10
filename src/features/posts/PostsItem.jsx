@@ -38,7 +38,6 @@ function PostsItem({ post, profiles }) {
         <div className="flex items-center gap-2 text-green-400">
           {isFriend && <FaUserFriends />}
           {isAuthor && <DeletePost id={postId} />}
-
           <span className="text-stone-400">{formatDate(createdAt)}</span>
         </div>
       </div>
