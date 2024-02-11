@@ -11,11 +11,13 @@ const PostContent = lazy(() => import("./PostContent"));
 
 function PostsItem({ post, profiles }) {
   const { id: postId, content, createdAt, profileId, image } = post;
+
   const { profile: currentProfile, isLoading } = useCurrentProfile();
 
   if (isLoading) return;
 
   const [{ id: currentProfileId, friends }] = currentProfile;
+
   const {
     username: authorsUsername,
     squat,
@@ -23,8 +25,11 @@ function PostsItem({ post, profiles }) {
     deadlift,
     weight,
   } = profiles.find((profile) => profile.id === profileId);
+
   const authorsScore = countScore(squat, bench, deadlift, weight);
+
   const isAuthor = currentProfileId === profileId;
+
   const isFriend = friends.some((friendId) => friendId === profileId);
 
   return (

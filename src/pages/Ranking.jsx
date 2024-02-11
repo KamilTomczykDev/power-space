@@ -43,7 +43,8 @@ function Ranking() {
   if (field !== "score" && field !== "total")
     sortedProfiles = profiles.sort((a, b) => (a[field] - b[field]) * modifier);
 
-  console.log(sortedProfiles);
+  //showing only visible accounts
+  sortedProfiles = sortedProfiles.filter((profile) => profile.visible === true);
 
   return (
     <>

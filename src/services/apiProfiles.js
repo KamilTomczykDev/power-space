@@ -1,7 +1,7 @@
 import supabase from "./supabase";
 
 export async function getProfiles({ filter }) {
-  let query = supabase.from("profiles").select("*").eq("visible", "true");
+  let query = supabase.from("profiles").select("*");
 
   // console.log(data);
   if (filter.queryKey.at(1).value === "juniors") query = query.lte("age", 23);

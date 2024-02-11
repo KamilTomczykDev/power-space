@@ -9,12 +9,14 @@ function Wall() {
   const { posts, isLoading: arePostsLoading } = usePosts();
   const { profiles, isLoading } = useProfiles();
 
-  if (isLoading || arePostsLoading)
+  if (isLoading || arePostsLoading) {
     return (
       <div className="flex h-screen w-full items-center justify-center">
         <Spinner color={"#1be053"} />
       </div>
     );
+  }
+
   return (
     <>
       <AppHeading title="Wall">

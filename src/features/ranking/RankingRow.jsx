@@ -5,13 +5,10 @@ import useUnits from "../../hooks/useUnits";
 
 function RankingRow({ profile, index }) {
   const { unit, calculateWeight } = useUnits();
-  const { id, squat, deadlift, bench, username, age, weight, visible } =
-    profile;
+  const { id, squat, deadlift, bench, username, age, weight } = profile;
 
   const score = countScore(squat, bench, deadlift, weight);
   const total = calculateWeight(countTotal(squat, bench, deadlift));
-
-  if (!visible) return null;
 
   return (
     <tr className="grid w-full grid-cols-ranking-table items-center border-t-2 border-stone-500 px-2 py-2 text-center text-[0.5rem] text-stone-400 md:py-4 md:text-base">
