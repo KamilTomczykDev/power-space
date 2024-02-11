@@ -6,6 +6,7 @@ import { FaUserFriends } from "react-icons/fa";
 import DeletePost from "./DeletePost";
 import Spinner from "../../ui/Spinner";
 import RankingUsername from "../ranking/RankingUsername";
+import HoverInfo from "../../ui/HoverInfo";
 
 const PostContent = lazy(() => import("./PostContent"));
 
@@ -41,7 +42,11 @@ function PostsItem({ post, profiles }) {
           </RankingUsername>
         </label>
         <div className="flex items-center gap-2 text-green-400">
-          {isFriend && <FaUserFriends />}
+          {isFriend && (
+            <HoverInfo text={"You are friends"}>
+              <FaUserFriends />
+            </HoverInfo>
+          )}
           {isAuthor && <DeletePost id={postId} />}
 
           <span className="text-stone-400">{formatDate(createdAt)}</span>
