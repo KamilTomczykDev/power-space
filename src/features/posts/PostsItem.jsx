@@ -43,7 +43,7 @@ function PostsItem({ post, profiles }) {
         </label>
         <div className="flex items-center gap-2 text-green-400">
           {isFriend && (
-            <HoverInfo text={"You are friends"}>
+            <HoverInfo text={"Friend"}>
               <FaUserFriends />
             </HoverInfo>
           )}

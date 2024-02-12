@@ -1,7 +1,6 @@
 import { IoReloadCircle } from "react-icons/io5";
 import { useSearchParams } from "react-router-dom";
 import { usePosts } from "./usePosts";
-import { useState } from "react";
 
 function LoadMore() {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -9,7 +8,6 @@ function LoadMore() {
     ? 1
     : Number(searchParams.get("page"));
 
-  const [state, setState] = useState(false);
   const { posts, isLoading } = usePosts();
   if (isLoading) return;
 
@@ -17,8 +15,6 @@ function LoadMore() {
     searchParams.set("page", currentPage + 1);
     setSearchParams(searchParams);
     console.log(posts);
-    //forcing compmonent to rerender
-    setState(!state);
   }
   return (
     <button

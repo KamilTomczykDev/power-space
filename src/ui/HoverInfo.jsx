@@ -9,7 +9,7 @@ function HoverInfo({ children, text }) {
   return (
     <div className="relative">
       {isVisible && (
-        <div className="absolute bottom-5 w-[100px] border-2 border-stone-500 bg-stone-800 p-1 text-center text-xs md:text-sm">
+        <div className="absolute bottom-10 right-[-30px] border-2 border-stone-500 bg-stone-800 px-4 py-1 text-center text-xs">
           {text}
         </div>
       )}
