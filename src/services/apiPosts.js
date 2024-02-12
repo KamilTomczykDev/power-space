@@ -1,7 +1,12 @@
+import { POSTS_NUMBER } from "../utils/config";
 import supabase, { supabaseUrl } from "./supabase";
 
-export async function getPosts() {
-  let { data, error } = await supabase.from("posts").select("*");
+export async function getPosts(currentPage) {
+  let { data, error } = await supabase
+    .from("posts")
+    .select("*")
+    .order("createdAt", { ascending: false })
+    .range(0, currentPage * POSTS_NUMBER);
 
   if (error) throw new Error(error.message);
 
