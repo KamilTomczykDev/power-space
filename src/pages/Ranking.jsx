@@ -48,7 +48,7 @@ function Ranking() {
 
   return (
     <>
-      <div className="flex flex-col justify-between gap-2 md:flex-row md:items-end">
+      <div className="flex flex-col justify-between gap-2">
         <AppHeading title="Ranking">
           Find friends or meet your rivals on the leaderboard.
         </AppHeading>

@@ -13,7 +13,7 @@ function AppHeader() {
     },
   } = useUser();
   return (
-    <nav className="fixed top-0 z-10 flex h-[40px] w-full max-w-[1275px] items-center border-b-2 border-stone-600 bg-stone-800 xl:border-r-2">
+    <nav className="fixed top-0 z-10 flex h-[40px] w-full max-w-[1275px] items-center border-b-2 border-stone-700 bg-stone-800 xl:border-r-2">
       <ul className="flex items-center gap-2 pl-2">
         <li className="flex items-center justify-center text-white">
           <Logout />

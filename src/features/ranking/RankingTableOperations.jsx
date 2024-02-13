@@ -3,7 +3,7 @@ import SortBy from "./SortBy";
 
 function RankingTableOperations() {
   return (
-    <div className="flex flex-col gap-4 md:flex-row">
+    <div className="z-10 flex flex-col gap-4 md:flex-row md:justify-end">
       <Filter
         filterField="filter"
         options={[

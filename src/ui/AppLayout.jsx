@@ -13,7 +13,7 @@ function AppLayout() {
   return (
     <div className="flex min-h-screen w-full justify-center bg-stone-800">
       <div className="grid h-screen w-full max-w-[1500px] grid-rows-mobile-app xl:grid-cols-desktop-app xl:grid-rows-none">
-        <main className="relative flex w-full flex-col justify-start overflow-scroll border-r-2 bg-stone-900 xl:order-last xl:border-stone-600">
+        <main className="relative flex w-full flex-col justify-start overflow-scroll border-r-2 bg-stone-900 xl:order-last xl:border-stone-700">
           <AppHeader />
           <AppContainer>
             <Outlet />
