@@ -3,10 +3,11 @@ import { countScore, formatDate } from "../../utils/helpers";
 import { useCurrentProfile } from "../profiles/useCurrentProfile";
 import { FaUserFriends } from "react-icons/fa";
 
-import DeletePost from "./DeletePost";
+// import DeletePost from "./DeletePost";
 import Spinner from "../../ui/Spinner";
 import RankingUsername from "../ranking/RankingUsername";
 import HoverInfo from "../../ui/HoverInfo";
+import PostContextMenu from "./PostContextMenu";
 
 const PostContent = lazy(() => import("./PostContent"));
 
@@ -47,9 +48,8 @@ function PostsItem({ post, profiles }) {
               <FaUserFriends />
             </HoverInfo>
           )}
-          {isAuthor && <DeletePost id={postId} />}
-
           <span className="text-stone-400">{formatDate(createdAt)}</span>
+          {isAuthor && <PostContextMenu postId={postId} />}
         </div>
       </div>
       <Suspense

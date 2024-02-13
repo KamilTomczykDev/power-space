@@ -11,7 +11,7 @@ function DeletePost({ id }) {
   return (
     <div
       onClick={handleClick}
-      className="flex cursor-pointer items-start text-green-400 hover:opacity-70"
+      className="flex cursor-pointer items-start text-green-400 transition duration-300 hover:text-green-700"
     >
       {isDeleting ? <SpinnerMini /> : <RiDeleteBin2Line size={25} />}
     </div>
