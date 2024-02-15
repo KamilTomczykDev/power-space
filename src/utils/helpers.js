@@ -1,3 +1,6 @@
+import clsx from "clsx";
+import { twMerge } from "tailwind-merge";
+
 export function countScore(squat, bench, deadlift, weight) {
   const score = Number((squat + bench + deadlift) / weight).toFixed(3);
   if (isNaN(score)) return 0;
@@ -16,4 +19,8 @@ export function convertToKilos(weight) {
 export function formatDate(dateParam) {
   const formatedDate = dateParam.slice(0, 10).replaceAll("-", ".");
   return formatedDate;
+}
+
+export function cn(...inputs) {
+  return twMerge(clsx(inputs));
 }
