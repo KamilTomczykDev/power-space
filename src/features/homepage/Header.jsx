@@ -2,15 +2,13 @@ import { Link } from "react-router-dom";
 import headerImg from "../../assets/header-image.jpg";
 import stripes from "../../assets/stripes.svg";
 import { useInView } from "react-intersection-observer";
+import Button from "../../ui/Button";
 
 function Header() {
   const { inView, ref } = useInView();
 
   return (
-    <div
-      ref={ref}
-      className="flex justify-center overflow-hidden bg-stone-900 "
-    >
+    <div ref={ref} className="flex justify-center overflow-hidden">
       <div className="relative w-full max-w-[1500px] md:grid md:grid-cols-headerDesktop">
         <img
           src={stripes}
@@ -24,7 +22,7 @@ function Header() {
             <div
               className={`${
                 inView ? "" : "translate-x-10 opacity-0"
-              } flex max-w-[400px] flex-col items-start gap-1 px-4 text-stone-100 transition duration-[2000ms] sm:max-w-[500px] md:mb-[100px] md:px-0 xl:max-w-[600px] xl:gap-3 2xl:mb-[200px] 2xl:max-w-[1200px]`}
+              } flex max-w-[400px] flex-col items-start gap-1 px-4 text-primary-100 transition duration-[2000ms] sm:max-w-[500px] md:mb-[100px] md:px-0 xl:max-w-[600px] xl:gap-3 2xl:mb-[200px] 2xl:max-w-[1200px]`}
             >
               <h2 className="sm:text-md xl:text-md text-sm 2xl:text-lg">
                 Put your belt on and
@@ -33,16 +31,15 @@ function Header() {
                 className={`text-3xl font-semibold tracking-wide sm:text-4xl xl:text-5xl xl:leading-[55px]  2xl:text-[70px] 2xl:leading-[82px]`}
               >
                 Unleash your{" "}
-                <span className="text-green-500">powerlifting</span> potential.
+                <span className="text-secondary-500">powerlifting</span>{" "}
+                potential.
               </h1>
               <h2 className="sm:text-md xl:text-md max-w-[400px] text-sm 2xl:max-w-[500px] 2xl:text-xl">
                 Meet your friends and approach new rivals. Everything is
                 possible buddy. We love you.
               </h2>
               <Link to="login">
-                <button className="text-md mt-4 rounded border-2 border-green-500 bg-green-900 px-4 py-2 font-semibold text-white hover:bg-green-800 md:px-6">
-                  Start now
-                </button>
+                <Button className="mt-4 md:px-6">Start now</Button>
               </Link>
             </div>
           </div>

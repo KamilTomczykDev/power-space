@@ -4,9 +4,9 @@ import SOBIE_DESIGN from "../../assets/sobie-design.png";
 
 function Sponsors() {
   return (
-    <div className="flex w-full justify-center border-y-[1px] border-stone-600">
+    <div className="border-main flex w-full justify-center border-y-1">
       <div className="flex w-full max-w-[800px] flex-wrap items-center justify-center gap-7 p-2 md:justify-between">
-        <h4 className="border-[4px] border-stone-700 px-3 py-1 text-xl font-bold text-stone-700">
+        <h4 className="border-[4px] border-primary-700 px-3 py-1 text-xl font-bold text-primary-700">
           PWR-LFT
         </h4>
         <img src={STAY_FIT} className="w-[120px] opacity-60" />

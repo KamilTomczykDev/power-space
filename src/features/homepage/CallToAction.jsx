@@ -1,6 +1,8 @@
 import { useInView } from "react-intersection-observer";
 import { Link } from "react-router-dom";
 
+import Button from "../../ui/Button";
+
 function CallToAction() {
   const [ref, inView] = useInView({
     threshold: 0.2,
@@ -17,9 +19,9 @@ function CallToAction() {
           The best way to improve is to take action.
         </h3>
         <Link to="login">
-          <button className="text-md mt-4 rounded border-2 border-green-500 bg-green-900 px-4 py-2 font-semibold text-white hover:bg-green-800 md:px-6 md:py-3 md:text-2xl xl:px-8 xl:py-4">
+          <Button className="text-md mt-4 px-4 py-2 md:px-6 md:py-3 md:text-2xl xl:px-8 xl:py-4">
             Start now
-          </button>
+          </Button>
         </Link>
       </div>
     </div>
