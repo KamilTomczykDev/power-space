@@ -5,6 +5,28 @@ export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
+        colors: {
+          'primary-950' : '#0C0A09',
+          'primary-900' : '#171717',
+          'primary-800' : '#292524',
+          'primary-700' : '#44403C',
+          'primary-600' : '#57534E',
+          'primary-500' : '#78716C',
+          'primary-400' : '#A8A29E',
+          'primary-300' : '#D6D3D1',
+          'primary-200' : '#E7E5E4',
+          'primary-100' : '#F5F5F4',
+          'secondary-950': '#052E16',
+          'secondary-900': '#14532D',
+          'secondary-800': '#166534',
+          'secondary-700': '#15803D',
+          'secondary-600': '#16A34A',
+          'secondary-500': '#22C55E',
+          'secondary-400': '#4ADE80',
+          'secondary-300': '#86EFAC',
+          'secondary-200': '#BBF7D0',
+          'secondary-100': '#DCFCE7',
+        },
       maxWidth: {
         'main' : "800px",
 
