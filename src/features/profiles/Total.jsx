@@ -8,8 +8,8 @@ function Total({ profile }) {
   const totalValue = calculateWeight(countTotal(squat, bench, deadlift));
   return (
     <div className="flex gap-4 text-4xl tracking-wide text-white lg:text-5xl">
-      <label className="font-bold text-green-400">TOTAL:</label>
-      <span className="">
+      <label className="font-bold text-secondary-400">TOTAL:</label>
+      <span >
         {totalValue} {unit}
       </span>
     </div>

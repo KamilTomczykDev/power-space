@@ -22,10 +22,10 @@ function SettingsForm({ profile }) {
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
-      className="flex w-full flex-col items-end gap-4 rounded-md bg-stone-800 p-4 sm:p-8 md:gap-8"
+      className="flex w-full flex-col items-end gap-4 rounded-md bg-primary-800 p-4 sm:p-8 md:gap-8"
     >
       <div className="flex w-full gap-10">
-        <label className="font-semibold text-stone-400">
+        <label className="font-semibold text-primary-400">
           Allow other users to see your profile
         </label>
         <input

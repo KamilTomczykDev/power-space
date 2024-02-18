@@ -11,7 +11,6 @@ import {
   Tooltip,
 } from "recharts";
 import ProfileEtiquette from "../features/profiles/ProfileEtiquette";
-// import { countScore } from "../utils/helpers";
 
 function SecondaryStats({ profile }) {
   const [{ squat, bench, deadlift, weight }] = profile;
@@ -37,7 +36,7 @@ function SecondaryStats({ profile }) {
   const CustomTooltip = ({ active, payload }) => {
     if (active && payload && payload.length) {
       return (
-        <div className="rounded-md bg-stone-700 p-2">
+        <div className="rounded-md bg-primary-700 p-2">
           <p className="">{`${payload[0].value.toFixed(2)}`}</p>
         </div>
       );
@@ -53,7 +52,7 @@ function SecondaryStats({ profile }) {
         // score={countScore(squat, bench, deadlift, weight)}
       />
 
-      <div className="flex w-full flex-col gap-4 rounded-md bg-stone-800 p-4 text-2xl text-white">
+      <div className="flex w-full flex-col gap-4 rounded-md bg-primary-800 p-4 text-2xl text-white">
         <h2 className="font-semibold">Lifts chart</h2>
         <ResponsiveContainer width="100%">
           <PieChart>

@@ -19,9 +19,9 @@ function RankingTable({ profiles }) {
   const paginatedProfiles = profiles.slice(startIndex, endIndex);
 
   return (
-    <table className="flex w-full flex-col rounded-b-md rounded-t-md border-1 border-stone-500  shadow-middle shadow-green-800">
+    <table className="flex w-full flex-col rounded-b-md rounded-t-md border-1 border-main shadow-middle shadow-secondary-800">
       <thead>
-        <tr className="grid grid-cols-ranking-table items-center bg-stone-800 p-2 text-center text-[0.7rem] text-white md:p-4 md:text-xl md:font-semibold">
+        <tr className="grid grid-cols-ranking-table items-center bg-primary-800 p-2 text-center text-[0.7rem] text-white md:p-4 md:text-xl md:font-semibold">
           <td>#</td>
           <td>Username</td>
           <td>Total</td>

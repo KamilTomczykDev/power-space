@@ -21,7 +21,7 @@ function ProfileEtiquette({ profile }) {
 
   const score = countScore(squat, bench, deadlift, weight);
 
-  let color = ["bg-stone-800", "bg-stone-700"];
+  let color = ["bg-primary-800", "bg-primary-700"];
   if (score > 3) color = ["bg-blue-900", "bg-blue-950"];
   if (score > 5) color = ["bg-red-900", "bg-red-950"];
   if (score > 7) color = ["bg-green-900", "bg-green-950"];
@@ -37,7 +37,9 @@ function ProfileEtiquette({ profile }) {
           <span>
             <ExperienceLevel score={score} />
           </span>
-          <span className="brake-words font-semibold  text-3xl">{username}</span>
+          <span className="brake-words text-3xl  font-semibold">
+            {username}
+          </span>
         </div>
         <div
           className={`flex flex-col justify-end gap-2 rounded-b-md ${color.at(

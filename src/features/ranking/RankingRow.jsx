@@ -11,7 +11,7 @@ function RankingRow({ profile, index }) {
   const total = calculateWeight(countTotal(squat, bench, deadlift));
 
   return (
-    <tr className="grid w-full grid-cols-ranking-table items-center border-t-2 border-stone-500 px-2 py-2 text-center text-[0.6rem] text-stone-400 md:py-4 md:text-lg">
+    <tr className="grid w-full grid-cols-ranking-table items-center border-t-1 border-main px-2 py-2 text-center text-[0.6rem] text-primary-400 md:py-4 md:text-lg">
       <td>{index + 1}</td>
       <td>
         <RankingUsername id={id} score={score}>

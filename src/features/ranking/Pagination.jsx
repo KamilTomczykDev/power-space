@@ -20,7 +20,7 @@ function Pagination({ count, currentPage, pageCount }) {
   }
 
   return (
-    <tr className="flex border-t-2 border-stone-400 bg-stone-800 p-2 text-[0.5rem] text-white md:p-4 md:text-base">
+    <tr className="flex border-t-1 border-main bg-stone-800 p-2 text-[0.5rem] text-white md:p-4 md:text-base">
       <td className="flex w-full items-center justify-between">
         <p>
           Showing{" "}
@@ -38,7 +38,7 @@ function Pagination({ count, currentPage, pageCount }) {
           <button
             onClick={prevPage}
             disabled={currentPage === 1}
-            className="flex items-center gap-2 rounded-md px-2 py-1 transition-all duration-100 hover:bg-green-500 disabled:opacity-60"
+            className="flex items-center gap-2 rounded-md px-2 py-1 transition-all duration-100 hover:bg-secondary-500 disabled:opacity-60"
           >
             <HiChevronLeft size={20} />
             <span>Previous</span>
@@ -46,7 +46,7 @@ function Pagination({ count, currentPage, pageCount }) {
           <button
             onClick={nextPage}
             disabled={currentPage === pageCount}
-            className="flex items-center gap-2 rounded-md px-2 py-1 transition-all duration-100 hover:bg-green-500 disabled:opacity-60"
+            className="flex items-center gap-2 rounded-md px-2 py-1 transition-all duration-100 hover:bg-secondary-500 disabled:opacity-60"
           >
             <span>Next</span>
             <HiChevronRight size={20} />

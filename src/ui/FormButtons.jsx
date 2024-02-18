@@ -1,22 +1,21 @@
 import SpinnerMini from "./SpinnerMini";
+import Button from "./Button";
 
 function FormButtons({ onCancel = null, isUpdating }) {
   return (
     <div className="mt-5 flex gap-2">
-      <button
+      <Button
+        variant="secondary"
         type={!onCancel ? "reset" : "button"}
         onClick={onCancel}
         disabled={isUpdating}
-        className="flex items-center justify-center  rounded-md border-2 border-stone-500 bg-stone-700 px-4 py-2 text-white hover:bg-stone-600 disabled:opacity-60 sm:w-[80px]"
+        className="sm:w-[80px]"
       >
         Reset
-      </button>
-      <button
-        disabled={isUpdating}
-        className="flex items-center justify-center rounded-md border-2 border-green-400 bg-green-900 px-4 py-2 font-semibold text-white hover:bg-green-800 disabled:opacity-60 sm:w-[120px]"
-      >
+      </Button>
+      <Button disabled={isUpdating} className="sm:w-[120px]">
         {isUpdating ? <SpinnerMini /> : "Submit"}
-      </button>
+      </Button>
     </div>
   );
 }

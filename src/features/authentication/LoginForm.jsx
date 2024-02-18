@@ -3,6 +3,7 @@ import { useLogin } from "./useLogin";
 
 import LinkButton from "../../ui/LinkButton";
 import SpinnerMini from "../../ui/SpinnerMini";
+import Button from "../../ui/Button";
 
 function LoginForm() {
   const [email, setEmail] = useState("");
@@ -32,7 +33,7 @@ function LoginForm() {
     <>
       <div>
         <h3 className="text-4xl font-semibold">Hello!</h3>
-        <label className="font-semibold text-stone-400">
+        <label className="font-semibold text-primary-400">
           Log in to your account
         </label>
       </div>
@@ -42,9 +43,9 @@ function LoginForm() {
         className="flex w-full flex-col items-start gap-3"
       >
         <div className="flex w-full flex-col gap-1">
-          <label className="font-semibold text-stone-400">Email</label>
+          <label className="font-semibold text-primary-400">Email</label>
           <input
-            className="w-full rounded-md border-2 border-stone-600 bg-stone-800 p-2 disabled:bg-stone-700"
+            className="w-full rounded-md border-1 border-main bg-primary-800 p-2 disabled:bg-primary-700"
             placeholder="you@example.com"
             type="email"
             id="email"
@@ -55,9 +56,9 @@ function LoginForm() {
         </div>
 
         <div className="flex w-full flex-col gap-1">
-          <label className="font-semibold text-stone-400">Password</label>
+          <label className="font-semibold text-primary-400">Password</label>
           <input
-            className="flex w-full rounded-md border-2 border-stone-600 bg-stone-800 p-2 disabled:bg-stone-700"
+            className="flex w-full rounded-md border-1 border-main bg-primary-800 p-2 disabled:bg-primary-700"
             placeholder="*******"
             type="password"
             id="password"
@@ -66,21 +67,14 @@ function LoginForm() {
             disabled={isLoading}
           />
         </div>
-        <button
-          disabled={isLoading}
-          className="flex w-full items-center justify-center rounded-md border-2 border-green-400 bg-green-900 p-2 hover:bg-green-800"
-        >
+        <Button disabled={isLoading} className="w-full">
           {isLoading ? <SpinnerMini /> : "Log in"}
-        </button>
+        </Button>
       </form>
-      <div className="my-[-1rem] flex justify-center text-stone-500">OR</div>
-      <button
-        disabled={isLoading}
-        onClick={handleClick}
-        className="flex w-full items-center justify-center rounded-md border-2 border-green-400 bg-green-900 p-2 hover:bg-green-800"
-      >
+      <div className="my-[-1rem] flex justify-center text-primary-500">OR</div>
+      <Button disabled={isLoading} onClick={handleClick}>
         {isLoading ? <SpinnerMini /> : "TEST"}
-      </button>
+      </Button>
 
       <span className="flex gap-1 text-sm">
         {`Don't have an account? `}

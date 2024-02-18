@@ -35,26 +35,26 @@ function PostsItem({ post, profiles }) {
   const isFriend = friends.some((friendId) => friendId === profileId);
 
   return (
-    <div className="flex w-full max-w-[800px] flex-col items-start justify-start gap-4 rounded-sm bg-stone-800 p-2 md:p-4">
+    <div className="flex w-full max-w-[800px] flex-col items-start justify-start gap-4 rounded-sm bg-primary-800 p-2 md:p-4">
       <div className="flex w-full justify-between">
-        <label className="font-semibold text-green-400 md:text-lg">
+        <label className="font-semibold text-secondary-400 md:text-lg">
           <RankingUsername score={authorsScore} id={profileId}>
             {authorsUsername}
           </RankingUsername>
         </label>
-        <div className="flex items-center gap-2 text-green-400">
+        <div className="flex items-center gap-2 text-secondary-400">
           {isFriend && (
             <HoverInfo text={"Friend"}>
               <FaUserFriends />
             </HoverInfo>
           )}
-          <span className="text-stone-400">{formatDate(createdAt)}</span>
+          <span className="text-primary-400">{formatDate(createdAt)}</span>
           {isAuthor && <PostContextMenu postId={postId} />}
         </div>
       </div>
       <Suspense
         fallback={
-          <div className="flex w-full items-center justify-center text-green-400">
+          <div className="flex w-full items-center justify-center text-secondary-400">
             <Spinner />
           </div>
         }

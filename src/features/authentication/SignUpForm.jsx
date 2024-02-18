@@ -5,6 +5,7 @@ import { useForm } from "react-hook-form";
 import LinkButton from "../../ui/LinkButton";
 import SpinnerMini from "../../ui/SpinnerMini";
 import FormRow from "../../ui/FormRow";
+import Button from "../../ui/Button";
 
 function SignupForm() {
   const { register, formState, getValues, handleSubmit } = useForm();
@@ -19,7 +20,7 @@ function SignupForm() {
     <>
       <div>
         <h3 className="text-4xl font-semibold">Welcome!</h3>
-        <label className="font-semibold text-stone-400">
+        <label className="font-semibold text-primary-400">
           Create new account
         </label>
       </div>
@@ -29,7 +30,7 @@ function SignupForm() {
       >
         <FormRow label={"Username"} error={errors?.username?.message}>
           <input
-            className="w-full rounded-md border-2 border-stone-600 bg-stone-800 p-2 disabled:bg-stone-700"
+            className="w-full rounded-md border-1 border-main bg-primary-800 p-2 disabled:bg-primary-700"
             placeholder="topLifter123"
             type="text"
             id="username"
@@ -39,7 +40,7 @@ function SignupForm() {
         </FormRow>
         <FormRow label={"Email"} error={errors?.email?.message}>
           <input
-            className="w-full rounded-md border-2 border-stone-600 bg-stone-800 p-2 disabled:bg-stone-700"
+            className="w-full rounded-md border-1 border-main bg-primary-800 p-2 disabled:bg-primary-700"
             placeholder="you@example.com"
             type="email"
             id="email"
@@ -56,7 +57,7 @@ function SignupForm() {
 
         <FormRow label={"Password"} error={errors?.password?.message}>
           <input
-            className="flex w-full rounded-md border-2 border-stone-600 bg-stone-800 p-2 disabled:bg-stone-700"
+            className="flex w-full rounded-md border-1 border-main bg-primary-800 p-2 disabled:bg-primary-700"
             placeholder="*******"
             type="password"
             id="password"
@@ -76,7 +77,7 @@ function SignupForm() {
           error={errors?.passwordConfirm?.message}
         >
           <input
-            className="flex w-full rounded-md border-2 border-stone-600 bg-stone-800 p-2 disabled:bg-stone-700"
+            className="flex w-full rounded-md border-1 border-main bg-primary-800 p-2 disabled:bg-primary-700"
             placeholder="*******"
             type="password"
             id="passwordConfirm"
@@ -88,9 +89,9 @@ function SignupForm() {
             })}
           />
         </FormRow>
-        <button className="mt-5 w-full rounded-md border-2 border-green-400 bg-green-900 p-2 hover:bg-green-800 disabled:bg-green-800">
+        <Button className="mt-5 w-full">
           {isLoading ? <SpinnerMini /> : "Sign up"}
-        </button>
+        </Button>
       </form>
       <span className="flex gap-1 text-sm">
         {`Already registered? `}
