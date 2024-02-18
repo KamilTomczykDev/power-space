@@ -10,7 +10,7 @@
 
 @layer base {
   body {
-    @apply bg-stone-900 font-[Poppins];
+    @apply bg-primary-900 font-[Poppins];
   }
   * {
     padding: 0;
@@ -18,21 +18,21 @@
     box-sizing: border-box;
   }
   .nav-item {
-    @apply border-b-[1px] border-stone-700 p-2;
+    @apply border-b-1 border-primary-700 p-2;
   }
   .card-item {
-    @apply flex items-center gap-2 text-xl text-stone-400;
+    @apply flex items-center gap-2 text-xl text-primary-400;
   }
 }
 
 .active {
-  @apply bg-stone-700 text-white hover:bg-stone-600;
+  @apply bg-primary-700 text-white hover:bg-primary-600;
 }
 .active svg {
-  @apply text-green-400;
+  @apply text-secondary-400;
 }
 .active:hover {
-  @apply bg-stone-600;
+  @apply bg-primary-600;
 }
 
 ::-webkit-scrollbar {

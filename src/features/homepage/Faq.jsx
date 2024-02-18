@@ -7,7 +7,7 @@ function Faq() {
       className="flex w-full items-center justify-center py-[50px] md:py-[100px]"
     >
       <div className="flex w-full max-w-[1500px] flex-col items-center justify-center gap-5 p-4 md:gap-10">
-        <div className="rounded-full border-2 border-green-500 bg-green-900 px-4 py-1 text-sm text-white">
+        <div className="rounded-full border-1 border-secondary-500 bg-secondary-900 px-4 py-1 text-sm text-white">
           FAQ
         </div>
         <FaqDropdown title="Is Power Space for everybody?">

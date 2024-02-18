@@ -23,7 +23,7 @@ function Pricing() {
           src={sun}
           className="translate absolute bottom-[-100px] left-[-400px] w-[1000px] opacity-[0.03] md:flex"
         />
-        <div className="rounded-full border-2 border-green-500 bg-green-900 px-4 py-1 text-sm">
+        <div className="border-secondary rounded-full border-1 bg-secondary-900 px-4 py-1 text-sm">
           Pricing
         </div>
         <h2 className="max-w-[900px] text-center text-4xl font-semibold tracking-wide sm:text-7xl sm:leading-[70px]">
@@ -36,10 +36,10 @@ function Pricing() {
         <div className="flex w-full flex-col gap-8 sm:hidden">
           <div
             onClick={() => setPersonalOpen(!personalOpen)}
-            className="z-20 flex w-full flex-col gap-10 rounded-md border-[1px] border-stone-700 bg-stone-900 p-6"
+            className="border-main z-20 flex w-full flex-col gap-10 rounded-md border-1 bg-primary-800 p-6"
           >
             <div className="flex w-full justify-between">
-              <div className="flex items-center rounded-full border-[1px] border-stone-700 bg-stone-800 px-3 py-1">
+              <div className="border-main flex items-center rounded-full border-1 bg-primary-800 px-3 py-1">
                 Personal
               </div>
               <div className="flex items-center gap-2">
@@ -67,7 +67,7 @@ function Pricing() {
                     <FaCheck size={20} /> Free E-book
                   </div>
                 </div>
-                <button className="rounded-md border-2 border-stone-600 bg-stone-800 p-2 hover:bg-stone-700">
+                <button className="border-main rounded-md border-1 bg-primary-800 p-2 hover:bg-primary-700">
                   Learn more
                 </button>
               </>
@@ -75,10 +75,10 @@ function Pricing() {
           </div>
           <div
             onClick={() => setProOpen(!proOpen)}
-            className="z-10 flex w-full flex-col gap-10 rounded-md border-[1px] border-stone-700 bg-stone-900 p-6 shadow-middle shadow-green-700"
+            className="z-10 flex w-full flex-col gap-10 rounded-md border-1 border-primary-700 bg-primary-800 p-6 shadow-middle shadow-secondary-700"
           >
             <div className="flex w-full justify-between">
-              <div className="flex items-center rounded-full border-2 border-green-500 bg-green-900 px-3 py-1">
+              <div className="flex items-center rounded-full border-1 border-secondary-500 bg-secondary-900 px-3 py-1">
                 Pro
               </div>
               <div className="flex items-center gap-2">
@@ -104,7 +104,7 @@ function Pricing() {
                     <FaCheck size={20} /> Free E-book
                   </div>
                 </div>
-                <button className="rounded-md border-[1px] border-green-500 bg-gradient-to-t from-green-800 p-2 hover:from-green-600">
+                <button className="rounded-md border-1 border-secondary-500 bg-gradient-to-t from-secondary-800 p-2 hover:from-secondary-600">
                   Buy now
                 </button>
               </>
@@ -115,19 +115,19 @@ function Pricing() {
         <div className="mt-10 hidden w-full justify-center gap-10 sm:flex">
           {/*card  */}
           <div
-            className={`z-10 flex h-[450px] w-[290px] flex-col items-start gap-5 rounded border-2 border-stone-600 bg-stone-900 p-4 transition duration-[2000ms] ${
+            className={`border-main z-10 flex h-[450px] w-[290px] flex-col items-start gap-5 rounded border-1 bg-primary-900 p-4 transition duration-[2000ms] ${
               inView ? "" : "translate-x-[-100px] opacity-0"
             }`}
           >
-            <div className="flex items-center rounded-full border-2 border-stone-600 bg-stone-800 px-3 py-1">
+            <div className="border-main flex items-center rounded-full border-1 bg-primary-800 px-3 py-1">
               Personal
             </div>
             <h4 className="text-5xl font-semibold">Free</h4>
-            <p className=" max-w-[200px] text-xs text-stone-400">
+            <p className=" max-w-[200px] text-xs text-primary-400">
               Start for free now. Trial offers all main features of the
               platform.
             </p>
-            <div className="flex h-full w-full flex-col border-t-[1px] border-stone-600 pt-10">
+            <div className="border-main flex h-full w-full flex-col border-t-1 pt-10">
               <div className="card-item">
                 <FaCheck size={20} /> Maximum 20 workouts
               </div>
@@ -141,30 +141,30 @@ function Pricing() {
                 <FaCheck size={20} /> Free E-book
               </div>
             </div>
-            <button className="w-full rounded-md border-2 border-stone-700 bg-stone-800 p-2 hover:bg-stone-700">
+            <button className="w-full rounded-md border-1 border-primary-700 bg-primary-800 p-2 hover:bg-primary-700">
               Learn more
             </button>
           </div>
 
           <div
-            className={`flex h-[450px] w-[290px] flex-col items-start justify-between gap-5 rounded border-2 border-stone-600 p-4 shadow-middle shadow-green-700 transition duration-[2000ms] ${
+            className={`border-main flex h-[450px] w-[290px] flex-col items-start justify-between gap-5 rounded border-1 p-4 shadow-middle shadow-secondary-700 transition duration-[2000ms] ${
               inView ? "" : "translate-x-[100px] opacity-0"
             }`}
           >
-            <div className="flex items-center rounded-full border-2 border-green-500 bg-green-900 px-3 py-1">
+            <div className="flex items-center rounded-full border-1 border-secondary-500 bg-secondary-900 px-3 py-1">
               Pro
             </div>
             <h4 className="text-5xl font-semibold">
               10$
-              <span className="text-sm font-medium text-stone-400">
+              <span className="text-sm font-medium text-primary-400">
                 {" "}
                 per month
               </span>
             </h4>
-            <p className=" max-w-[200px] text-xs text-stone-400">
+            <p className=" max-w-[200px] text-xs text-primary-400">
               Ideal plan for those who value independency
             </p>
-            <div className="w-full border-t-[1px] border-stone-600 pt-8">
+            <div className="border-main w-full border-t-1 pt-8">
               <div className="card-item">
                 <FaCheck size={20} color={"#1be053"} /> Unlimited workouts
               </div>
@@ -181,7 +181,7 @@ function Pricing() {
                 <FaCheck size={20} color={"#1be053"} /> Free diet coach
               </div>
             </div>
-            <button className="w-full rounded-md border-2 border-green-500 bg-gradient-to-t from-green-900 p-2 hover:from-green-700">
+            <button className="w-full rounded-md border-1 border-secondary-500 bg-gradient-to-t from-secondary-900 p-2 hover:from-secondary-700">
               Buy now
             </button>
           </div>

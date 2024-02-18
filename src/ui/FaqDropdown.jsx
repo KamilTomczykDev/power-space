@@ -8,7 +8,7 @@ function FaqDropdown({ title, children }) {
   const hasTransitionedIn = useMountTransition(isOpen, 0);
   return (
     <>
-      <div className="flex w-full max-w-[1000px] flex-col items-center rounded-sm border-[1px] border-stone-600 bg-stone-800 hover:bg-stone-700">
+      <div className="border-main hover:bg-main flex w-full max-w-[1000px] flex-col items-center rounded-sm border-1 bg-primary-800 transition duration-300">
         <div
           onClick={() => setIsOpen(!isOpen)}
           className="flex w-full cursor-pointer items-center justify-between gap-2 p-3 sm:p-6"
