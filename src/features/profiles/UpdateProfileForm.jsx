@@ -51,14 +51,14 @@ function UpdateProfileForm() {
     <div className="flex w-full flex-col">
       <form
         onSubmit={handleSubmit(onSubmit)}
-        className="flex w-full flex-col gap-4 rounded-md bg-stone-800 p-4 sm:items-end sm:p-8 md:gap-8"
+        className="flex w-full flex-col gap-4 rounded-md bg-primary-800 p-4 sm:items-end sm:p-8 md:gap-8"
       >
         <AppFormRow
           error={errors?.squat?.message}
           label={`Squat Personal Record (${unit})`}
         >
           <input
-            className="rounded-md border-2 border-stone-400 bg-stone-700 p-2 text-white disabled:opacity-60 sm:max-w-[300px]"
+            className="rounded-md border-1 border-main bg-primary-700 p-2 text-white disabled:opacity-60 sm:max-w-[300px]"
             type="number"
             id="squat"
             placeholder="New squat PR"
@@ -77,7 +77,7 @@ function UpdateProfileForm() {
           label={`Bench Personal Record (${unit})`}
         >
           <input
-            className="w-full rounded-md border-2 border-stone-400 bg-stone-700 p-2 text-white disabled:opacity-60 sm:max-w-[300px]"
+            className="w-full rounded-md border-1 border-main bg-primary-700 p-2 text-white disabled:opacity-60 sm:max-w-[300px]"
             type="number"
             id="bench"
             placeholder="New bench PR"
@@ -96,7 +96,7 @@ function UpdateProfileForm() {
           label={`Deadlift Personal Record (${unit})`}
         >
           <input
-            className="rounded-md border-2 border-stone-400 bg-stone-700 p-2 text-white disabled:opacity-60 sm:max-w-[300px]"
+            className="rounded-md border-1 border-main bg-primary-700 p-2 text-white disabled:opacity-60 sm:max-w-[300px]"
             type="number"
             id="deadlift"
             placeholder="New deadlift PR"
@@ -112,7 +112,7 @@ function UpdateProfileForm() {
         </AppFormRow>
         <AppFormRow error={errors?.age?.message} label="Age (yo)">
           <input
-            className="rounded-md border-2 border-stone-400 bg-stone-700 p-2 text-white disabled:opacity-60 sm:max-w-[300px]"
+            className="rounded-md border-1 border-main bg-primary-700 p-2 text-white disabled:opacity-60 sm:max-w-[300px]"
             type="number"
             id="age"
             placeholder="Your age"
@@ -128,7 +128,7 @@ function UpdateProfileForm() {
         </AppFormRow>
         <AppFormRow error={errors?.weight?.message} label={`Weight (${unit})`}>
           <input
-            className="rounded-md border-2 border-stone-400 bg-stone-700 p-2 text-white disabled:opacity-60 sm:max-w-[300px]"
+            className="rounded-md border-1 border-main bg-primary-700 p-2 text-white disabled:opacity-60 sm:max-w-[300px]"
             type="number"
             id="weight"
             placeholder="Your weight"
@@ -144,7 +144,7 @@ function UpdateProfileForm() {
         </AppFormRow>
         <AppFormRow error={errors?.height?.message} label="Height (cm)">
           <input
-            className="rounded-md border-2 border-stone-400 bg-stone-700 p-2 text-white disabled:opacity-60 sm:max-w-[300px]"
+            className="rounded-md border-1 border-main bg-primary-700 p-2 text-white disabled:opacity-60 sm:max-w-[300px]"
             type="number"
             id="height"
             placeholder="Your height"
@@ -163,7 +163,7 @@ function UpdateProfileForm() {
           label="Training since (yyyy)"
         >
           <input
-            className="rounded-md border-2 border-stone-400 bg-stone-700 p-2 text-white disabled:opacity-60 sm:max-w-[300px]"
+            className="rounded-md border-1 border-main bg-primary-700 p-2 text-white disabled:opacity-60 sm:max-w-[300px]"
             type="number"
             id="training_since"
             placeholder="When did you start?"

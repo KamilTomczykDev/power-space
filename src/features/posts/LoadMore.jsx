@@ -19,7 +19,7 @@ function LoadMore() {
   return (
     <button
       onClick={handleClick}
-      className="flex items-center gap-4 bg-stone-800 p-4 text-3xl text-green-400 transition duration-300 hover:bg-stone-700"
+      className="flex items-center gap-4 bg-primary-800 p-4 text-3xl text-secondary-400 transition duration-300 hover:bg-primary-700"
     >
       load more <IoReloadCircle size={50} />
     </button>
