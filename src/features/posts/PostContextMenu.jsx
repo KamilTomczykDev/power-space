@@ -5,7 +5,7 @@ import DeletePost from "./DeletePost";
 import HoverInfo from "../../ui/HoverInfo";
 import EditPost from "./EditPost";
 
-function PostContextMenu({ postId }) {
+function PostContextMenu({ postId, setIsEditing }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   function handleClick() {
@@ -25,7 +25,7 @@ function PostContextMenu({ postId }) {
             <DeletePost id={postId} />
           </HoverInfo>
           <HoverInfo text="Edit post">
-            <EditPost />
+            <EditPost setIsEditing={setIsEditing} />
           </HoverInfo>
         </div>
       )}

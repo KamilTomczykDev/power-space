@@ -1,4 +1,4 @@
-import { Suspense, lazy } from "react";
+import { Suspense, lazy, useState } from "react";
 import { countScore, formatDate } from "../../utils/helpers";
 import { useCurrentProfile } from "../profiles/useCurrentProfile";
 import { FaUserFriends } from "react-icons/fa";
@@ -12,6 +12,7 @@ import PostContextMenu from "./PostContextMenu";
 const PostContent = lazy(() => import("./PostContent"));
 
 function PostsItem({ post, profiles }) {
+  const [isEditing, setIsEditing] = useState(false);
   const { id: postId, content, createdAt, profileId, image } = post;
 
   const { profile: currentProfile, isLoading } = useCurrentProfile();
@@ -35,7 +36,7 @@ function PostsItem({ post, profiles }) {
   const isFriend = friends.some((friendId) => friendId === profileId);
 
   return (
-    <div className="flex w-full max-w-[800px] flex-col items-start justify-start gap-4 rounded-sm bg-primary-800 p-2 md:p-4">
+    <div className="flex w-full max-w-[800px] flex-col justify-start gap-4 rounded-sm bg-primary-800 p-2 md:p-4">
       <div className="flex w-full justify-between">
         <label className="font-semibold text-secondary-400 md:text-lg">
           <RankingUsername score={authorsScore} id={profileId}>
@@ -49,7 +50,9 @@ function PostsItem({ post, profiles }) {
             </HoverInfo>
           )}
           <span className="text-primary-400">{formatDate(createdAt)}</span>
-          {isAuthor && <PostContextMenu postId={postId} />}
+          {isAuthor && (
+            <PostContextMenu postId={postId} setIsEditing={setIsEditing} />
+          )}
         </div>
       </div>
       <Suspense
@@ -59,7 +62,13 @@ function PostsItem({ post, profiles }) {
           </div>
         }
       >
-        <PostContent image={image} content={content} />
+        <PostContent
+          postId={postId}
+          setIsEditing={setIsEditing}
+          isEditing={isEditing}
+          image={image}
+          content={content}
+        />
       </Suspense>
     </div>
   );
