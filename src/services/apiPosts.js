@@ -67,3 +67,14 @@ export async function deletePost(id) {
 
   return data;
 }
+
+export async function editPost(id, newData) {
+  let { data, error } = await supabase
+    .from("posts")
+    .update(newData)
+    .eq("id", id);
+
+  if (error) throw new Error(error.message);
+
+  return data;
+}

@@ -7,8 +7,11 @@ import Spinner from "../../ui/Spinner";
 import Button from "../../ui/Button";
 
 function AddPost() {
-  const { handleSubmit, register, formState } = useForm();
-  const { errors } = formState;
+  const {
+    handleSubmit,
+    register,
+    formState: { errors },
+  } = useForm();
   const { profile, isLoading } = useCurrentProfile();
   const { insertPost, isPosting } = useInsertPost();
   console.log(profile);
