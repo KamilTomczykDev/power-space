@@ -4,7 +4,7 @@ import { useEditPost } from "./useEditPost";
 import Button from "../../ui/Button";
 import SpinnerMini from "../../ui/SpinnerMini";
 
-function EditPostForm({ content, setIsEditing, postId }) {
+function EditPostForm({ content, postId: id }) {
   const {
     register,
     formState: { errors },
@@ -13,10 +13,9 @@ function EditPostForm({ content, setIsEditing, postId }) {
 
   const { editPost, isEditing } = useEditPost();
 
-  function onSubmit(data) {
-    editPost(postId, data);
-    setIsEditing(false);
-    console.log(data);
+  function onSubmit(newData) {
+    editPost({ id, newData });
+    console.log(id, newData);
   }
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
