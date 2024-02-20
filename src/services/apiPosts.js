@@ -71,8 +71,10 @@ export async function deletePost(id) {
 export async function editPost(id, newData) {
   let { data, error } = await supabase
     .from("posts")
-    .update(newData)
+    .update({ ...newData })
     .eq("id", id);
+
+  console.log(newData);
 
   if (error) throw new Error(error.message);
 
