@@ -27,8 +27,7 @@ export default {
           'secondary-200': '#BBF7D0',
           'secondary-100': '#DCFCE7',
           /// borders
-          // 'main': '#44403C',
-          'main': '#000000',
+          'main': '#44403C',
           'secondary': '#22C55E',
         },
       maxWidth: {
