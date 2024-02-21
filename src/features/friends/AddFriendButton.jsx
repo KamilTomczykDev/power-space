@@ -1,4 +1,5 @@
 import Button from "../../ui/Button";
+import SpinnerMini from "../../ui/SpinnerMini";
 import { useUpdateProfile } from "../profiles/useUpdateProfile";
 
 function AddFriendButton({ friends, currentProfileId, id }) {
@@ -24,7 +25,7 @@ function AddFriendButton({ friends, currentProfileId, id }) {
 
   return (
     <Button onClick={handleClick} disabled={isUpdating}>
-      {isFriend ? "Remove friend" : "Add friend"}
+      {isUpdating ? <SpinnerMini /> : isFriend ? "Remove friend" : "Add friend"}
     </Button>
   );
 }

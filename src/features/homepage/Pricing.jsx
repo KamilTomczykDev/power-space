@@ -23,7 +23,7 @@ function Pricing() {
           src={sun}
           className="translate absolute bottom-[-100px] left-[-400px] w-[1000px] opacity-[0.03] md:flex"
         />
-        <div className="border-secondary rounded-full border-1 bg-secondary-900 px-4 py-1 text-sm">
+        <div className="rounded-full border-1 border-secondary bg-secondary-900 px-4 py-1 text-sm">
           Pricing
         </div>
         <h2 className="max-w-[900px] text-center text-4xl font-semibold tracking-wide sm:text-7xl sm:leading-[70px]">
@@ -36,10 +36,10 @@ function Pricing() {
         <div className="flex w-full flex-col gap-8 sm:hidden">
           <div
             onClick={() => setPersonalOpen(!personalOpen)}
-            className="border-main z-20 flex w-full flex-col gap-10 rounded-md border-1 bg-primary-800 p-6"
+            className="z-20 flex w-full flex-col gap-10 rounded-md border-1 border-main bg-primary-900 p-6"
           >
             <div className="flex w-full justify-between">
-              <div className="border-main flex items-center rounded-full border-1 bg-primary-800 px-3 py-1">
+              <div className="flex items-center rounded-full border-1 border-main bg-primary-800 px-3 py-1">
                 Personal
               </div>
               <div className="flex items-center gap-2">
@@ -67,7 +67,7 @@ function Pricing() {
                     <FaCheck size={20} /> Free E-book
                   </div>
                 </div>
-                <button className="border-main rounded-md border-1 bg-primary-800 p-2 hover:bg-primary-700">
+                <button className="rounded-md border-1 border-main bg-primary-800 p-2 hover:bg-primary-700">
                   Learn more
                 </button>
               </>
@@ -75,7 +75,7 @@ function Pricing() {
           </div>
           <div
             onClick={() => setProOpen(!proOpen)}
-            className="z-10 flex w-full flex-col gap-10 rounded-md border-1 border-primary-700 bg-primary-800 p-6 shadow-middle shadow-secondary-700"
+            className="z-10 flex w-full flex-col gap-10 rounded-md border-1 border-primary-700 bg-primary-900 p-6 shadow-middle shadow-secondary-700"
           >
             <div className="flex w-full justify-between">
               <div className="flex items-center rounded-full border-1 border-secondary-500 bg-secondary-900 px-3 py-1">
@@ -115,11 +115,11 @@ function Pricing() {
         <div className="mt-10 hidden w-full justify-center gap-10 sm:flex">
           {/*card  */}
           <div
-            className={`border-main z-10 flex h-[450px] w-[290px] flex-col items-start gap-5 rounded border-1 bg-primary-900 p-4 transition duration-[2000ms] ${
+            className={`z-20 flex h-[450px] w-[290px] flex-col items-start gap-5 rounded border-1 border-main bg-primary-900 p-4 transition duration-[2000ms] ${
               inView ? "" : "translate-x-[-100px] opacity-0"
             }`}
           >
-            <div className="border-main flex items-center rounded-full border-1 bg-primary-800 px-3 py-1">
+            <div className="flex items-center rounded-full border-1 border-main bg-primary-800 px-3 py-1">
               Personal
             </div>
             <h4 className="text-5xl font-semibold">Free</h4>
@@ -127,7 +127,7 @@ function Pricing() {
               Start for free now. Trial offers all main features of the
               platform.
             </p>
-            <div className="border-main flex h-full w-full flex-col border-t-1 pt-10">
+            <div className="flex h-full w-full flex-col border-t-1 border-main pt-10">
               <div className="card-item">
                 <FaCheck size={20} /> Maximum 20 workouts
               </div>
@@ -147,7 +147,7 @@ function Pricing() {
           </div>
 
           <div
-            className={`border-main flex h-[450px] w-[290px] flex-col items-start justify-between gap-5 rounded border-1 p-4 shadow-middle shadow-secondary-700 transition duration-[2000ms] ${
+            className={`z-10 flex h-[450px] w-[290px] flex-col items-start justify-between gap-5 rounded border-1 border-main bg-primary-900 p-4 shadow-middle shadow-secondary-700 transition duration-[2000ms] ${
               inView ? "" : "translate-x-[100px] opacity-0"
             }`}
           >
@@ -164,7 +164,7 @@ function Pricing() {
             <p className=" max-w-[200px] text-xs text-primary-400">
               Ideal plan for those who value independency
             </p>
-            <div className="border-main w-full border-t-1 pt-8">
+            <div className="w-full border-t-1 border-main pt-8">
               <div className="card-item">
                 <FaCheck size={20} color={"#1be053"} /> Unlimited workouts
               </div>

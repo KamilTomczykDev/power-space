@@ -18,7 +18,7 @@ function PostContent({ content, image, isEditing, setIsEditing, postId }) {
           content={content}
         />
       ) : (
-        <div className="text-white md:text-xl">
+        <div className="text-white md:text-lg">
           {fullText ? content : `${content.slice(0, 100)}`}
           {content.length > 100 && (
             <button

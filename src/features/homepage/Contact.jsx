@@ -16,10 +16,10 @@ function Contact() {
 
         <div className="z-[5] flex items-center">
           <img
-            className="border-main hidden h-[400px] rounded-l-xl border-1 border-r-0 lg:flex"
+            className="hidden h-[400px] rounded-l-xl border-1 border-r-0 border-main lg:flex"
             src={contactImg}
           />
-          <div className="border-main flex max-w-[400px] flex-col items-center gap-6 rounded-md border-1 p-2 sm:p-6">
+          <div className="flex max-w-[400px] flex-col items-center gap-6 rounded-md border-1 border-main bg-primary-900 p-2 sm:p-6">
             {/* form */}
             <div className="rounded-full border-1 border-secondary-500 bg-secondary-900 px-4 py-1 text-sm text-white">
               Contact

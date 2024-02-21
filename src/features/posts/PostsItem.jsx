@@ -36,7 +36,7 @@ function PostsItem({ post, profiles }) {
   const isFriend = friends.some((friendId) => friendId === profileId);
 
   return (
-    <div className="flex w-full max-w-[800px] flex-col justify-start gap-4 rounded-sm bg-primary-800 p-2 md:p-4">
+    <div className="flex w-full max-w-[600px] flex-col justify-start gap-4 rounded-sm bg-primary-800 p-2 md:p-4">
       <div className="flex w-full justify-between">
         <label className="font-semibold text-secondary-400 md:text-lg">
           <RankingUsername score={authorsScore} id={profileId}>
