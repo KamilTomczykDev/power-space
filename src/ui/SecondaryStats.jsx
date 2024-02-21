@@ -73,11 +73,11 @@ function SecondaryStats({ profile }) {
             </Pie>
             <Tooltip content={<CustomTooltip />} />
             <Legend
-              wrapperStyle={{ fontSize: 25, display: "none" }}
-              verticalAlign="middle"
-              align="left"
-              width="35%"
-              layout="vertical"
+              wrapperStyle={{ fontSize: 15 }}
+              verticalAlign="bottom"
+              align="middle"
+              width="100%"
+              layout="horizontal"
               iconSize={12}
               iconType="circle"
             />

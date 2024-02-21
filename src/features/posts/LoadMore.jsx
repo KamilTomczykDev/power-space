@@ -2,6 +2,8 @@ import { IoReloadCircle } from "react-icons/io5";
 import { useSearchParams } from "react-router-dom";
 import { usePosts } from "./usePosts";
 
+import Button from "../../ui/Button";
+
 function LoadMore() {
   const [searchParams, setSearchParams] = useSearchParams();
   const currentPage = !searchParams.get("page")
@@ -17,12 +19,9 @@ function LoadMore() {
     console.log(posts);
   }
   return (
-    <button
-      onClick={handleClick}
-      className="flex items-center gap-4 bg-primary-800 p-4 text-3xl text-secondary-400 transition duration-300 hover:bg-primary-700"
-    >
-      load more <IoReloadCircle size={50} />
-    </button>
+    <Button onClick={handleClick} className="flex items-center gap-4 text-3xl">
+      Load more <IoReloadCircle size={50} />
+    </Button>
   );
 }
 

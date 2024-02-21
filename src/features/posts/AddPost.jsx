@@ -45,7 +45,7 @@ function AddPost() {
         </div>
       )}
       <textarea
-        className="w-full resize-none rounded-md border-1 border-main bg-primary-900 p-2 text-white disabled:opacity-60"
+        className="w-full resize-none rounded-md bg-primary-800 p-2 text-white disabled:opacity-60"
         id="content"
         disabled={isPosting}
         placeholder="Your toughts about last workout..."
