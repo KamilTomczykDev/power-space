@@ -2,7 +2,7 @@ import { cva } from "class-variance-authority";
 import { cn } from "../utils/helpers";
 
 const buttonVariants = cva(
-  "flex items-center justify-center rounded-md transition duration-300 border-1 px-4 py-2 font-semibold disabled:opacity-60",
+  "flex items-center justify-center rounded-md transition duration-300 border-1 px-4 py-2 font-semibold disabled:cursor-not-allowed disabled:opacity-60",
   {
     variants: {
       variant: {

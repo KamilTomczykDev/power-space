@@ -1,11 +1,15 @@
 import { useCurrentProfile } from "../features/profiles/useCurrentProfile";
 import { useProfiles } from "../features/profiles/useProfiles";
+import { useInView } from "react-intersection-observer";
 
 import AppHeading from "../ui/AppHeading";
 import FriendsRow from "../features/friends/FriendsRow";
 import Spinner from "../ui/Spinner";
 
 function Friends() {
+  const [ref, inView] = useInView({
+    threshold: 0.2,
+  });
   const { profile, isLoading } = useCurrentProfile();
   const { profiles, isLoading: areLoading } = useProfiles();
   let friendsArray = [];
@@ -36,10 +40,17 @@ function Friends() {
           ? "Take a look on your friends group."
           : "We're sorry to say this but You have no friends :("}
       </AppHeading>
-      {friends.length !== 0 &&
-        friendsArray.map((profile) => (
-          <FriendsRow key={profile.id} profile={profile} />
-        ))}
+      <div
+        ref={ref}
+        className={`flex flex-col gap-4 transition duration-1000 ${
+          inView ? "" : "translate-y-10 opacity-0"
+        }`}
+      >
+        {friends.length !== 0 &&
+          friendsArray.map((profile) => (
+            <FriendsRow key={profile.id} profile={profile} />
+          ))}
+      </div>
     </>
   );
 }
