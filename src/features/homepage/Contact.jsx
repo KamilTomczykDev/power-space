@@ -1,8 +1,18 @@
+import { toast } from "react-hot-toast";
+import { useState } from "react";
+
 import contactImg from "../../assets/contact-img2.jpg";
 import rectangles from "../../assets/rectangles.svg";
 import Button from "../../ui/Button";
 
 function Contact() {
+  const [isDisabled, setIsDisabled] = useState(false);
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    toast.success("Message sent successfully");
+    setIsDisabled(true);
+  };
+
   return (
     <div
       name="contact"
@@ -19,7 +29,7 @@ function Contact() {
             className="hidden h-[400px] rounded-l-xl border-1 border-r-0 border-main lg:flex"
             src={contactImg}
           />
-          <div className="flex max-w-[400px] flex-col items-center gap-6 rounded-md border-1 border-main bg-primary-900 p-2 sm:p-6">
+          <div className="flex max-w-[400px] flex-col items-center gap-6 rounded-md border-1 border-main bg-primary-900 px-2 py-6 sm:px-6">
             {/* form */}
             <div className="rounded-full border-1 border-secondary-500 bg-secondary-900 px-4 py-1 text-sm text-white">
               Contact
@@ -35,7 +45,10 @@ function Contact() {
                 {"Contact us and let's figure it out together!"}
               </h2>
             </div>
-            <form className="flex w-full flex-col gap-2">
+            <form
+              onSubmit={handleSubmit}
+              className="flex w-full flex-col gap-2"
+            >
               <input
                 type="email"
                 className="w-full bg-primary-800 p-2 text-white"
@@ -46,7 +59,9 @@ function Contact() {
                 placeholder="Message"
                 className="w-full resize-none bg-primary-800 p-2 text-white"
               />
-              <Button variant="secondary">Send message</Button>
+              <Button disabled={isDisabled} variant="secondary">
+                Send message
+              </Button>
             </form>
           </div>
         </div>

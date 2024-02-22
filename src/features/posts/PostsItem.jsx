@@ -1,4 +1,4 @@
-import React, { lazy, Suspense, useState } from "react";
+import { lazy, memo, Suspense, useState } from "react";
 import { FaUserFriends } from "react-icons/fa";
 import { useCurrentProfile } from "../profiles/useCurrentProfile";
 import { countScore, formatDate } from "../../utils/helpers";
@@ -9,7 +9,7 @@ import PostContextMenu from "./PostContextMenu";
 
 const PostContent = lazy(() => import("./PostContent"));
 
-const PostsItem = ({ post, profiles }) => {
+const PostsItem = memo(function PostsItem({ post, profiles }) {
   const [isEditing, setIsEditing] = useState(false);
   const { id: postId, content, createdAt, profileId, image } = post;
   const { profile: currentProfile, isLoading } = useCurrentProfile();
@@ -65,6 +65,6 @@ const PostsItem = ({ post, profiles }) => {
       </Suspense>
     </div>
   );
-};
+});
 
 export default PostsItem;
