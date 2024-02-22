@@ -1,10 +1,15 @@
 import { useCurrentProfile } from "../features/profiles/useCurrentProfile";
+import { useInView } from "react-intersection-observer";
+
 import SettingsForm from "../features/settings/SettingsForm";
 import AppHeading from "../ui/AppHeading";
 import Spinner from "../ui/Spinner";
 import UnitChange from "../features/units/UnitChange";
 
 function Settings() {
+  const [ref, inView] = useInView({
+    threshold: 0.2,
+  });
   const { profile, isLoading } = useCurrentProfile();
 
   if (isLoading)
@@ -18,8 +23,15 @@ function Settings() {
       <AppHeading title="Settings">
         Change public informations about your profile.
       </AppHeading>
-      <UnitChange />
-      <SettingsForm profile={profile} />
+      <div
+        ref={ref}
+        className={`flex flex-col gap-4 transition duration-1000 ${
+          inView ? "" : "translate-y-10 opacity-0"
+        } `}
+      >
+        <UnitChange />
+        <SettingsForm profile={profile} />
+      </div>
     </>
   );
 }

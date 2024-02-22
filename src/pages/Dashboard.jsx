@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useCurrentProfile } from "../features/profiles/useCurrentProfile";
+import { useInView } from "react-intersection-observer";
 
 import AppHeading from "../ui/AppHeading";
 import PrimaryStats from "../ui/PrimaryStats";
@@ -11,6 +12,9 @@ import Button from "../ui/Button";
 function Dashboard() {
   const [isFormOpen, setIsFormOpen] = useState(false);
   const { profile, isLoading } = useCurrentProfile();
+  const [ref, inView] = useInView({
+    threshold: 0.2,
+  });
 
   function handleClick() {
     setIsFormOpen(!isFormOpen);
@@ -25,7 +29,7 @@ function Dashboard() {
 
   return (
     <>
-      <div className="flex flex-col justify-between gap-8 sm:flex-row sm:items-center sm:gap-0">
+      <div className="flex flex-col justify-between gap-8 transition duration-1000 sm:flex-row sm:items-center sm:gap-0">
         <AppHeading title="Dashboard">
           {isFormOpen
             ? "Change your statistics."
@@ -38,10 +42,15 @@ function Dashboard() {
       {isFormOpen ? (
         <UpdateProfileForm />
       ) : (
-        <>
+        <div
+          ref={ref}
+          className={`flex flex-col gap-4 transition duration-1000 ${
+            inView ? "" : "translate-y-10 opacity-0"
+          }`}
+        >
           <PrimaryStats profile={profile} />
           <SecondaryStats profile={profile} />
-        </>
+        </div>
       )}
     </>
   );

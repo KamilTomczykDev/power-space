@@ -1,9 +1,7 @@
-import { Suspense, lazy, useState } from "react";
-import { countScore, formatDate } from "../../utils/helpers";
-import { useCurrentProfile } from "../profiles/useCurrentProfile";
+import React, { lazy, Suspense, useState } from "react";
 import { FaUserFriends } from "react-icons/fa";
-
-// import DeletePost from "./DeletePost";
+import { useCurrentProfile } from "../profiles/useCurrentProfile";
+import { countScore, formatDate } from "../../utils/helpers";
 import Spinner from "../../ui/Spinner";
 import RankingUsername from "../ranking/RankingUsername";
 import HoverInfo from "../../ui/HoverInfo";
@@ -11,16 +9,14 @@ import PostContextMenu from "./PostContextMenu";
 
 const PostContent = lazy(() => import("./PostContent"));
 
-function PostsItem({ post, profiles }) {
+const PostsItem = ({ post, profiles }) => {
   const [isEditing, setIsEditing] = useState(false);
   const { id: postId, content, createdAt, profileId, image } = post;
-
   const { profile: currentProfile, isLoading } = useCurrentProfile();
 
-  if (isLoading) return;
+  if (isLoading) return null;
 
   const [{ id: currentProfileId, friends }] = currentProfile;
-
   const {
     username: authorsUsername,
     squat,
@@ -28,12 +24,9 @@ function PostsItem({ post, profiles }) {
     deadlift,
     weight,
   } = profiles.find((profile) => profile.id === profileId);
-
   const authorsScore = countScore(squat, bench, deadlift, weight);
-
   const isAuthor = currentProfileId === profileId;
-
-  const isFriend = friends.some((friendId) => friendId === profileId);
+  const isFriend = friends.includes(profileId);
 
   return (
     <div className="flex w-full max-w-[600px] flex-col justify-start gap-4 rounded-sm bg-primary-800 p-2 md:p-4">
@@ -72,6 +65,6 @@ function PostsItem({ post, profiles }) {
       </Suspense>
     </div>
   );
-}
+};
 
 export default PostsItem;

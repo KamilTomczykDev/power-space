@@ -1,6 +1,7 @@
 import { useSearchParams } from "react-router-dom";
 import { useProfiles } from "../features/profiles/useProfiles";
 import { countScore, countTotal } from "../utils/helpers";
+import { useInView } from "react-intersection-observer";
 
 import RankingTable from "../features/ranking/RankingTable";
 import RankingTableOperations from "../features/ranking/RankingTableOperations";
@@ -8,6 +9,9 @@ import AppHeading from "../ui/AppHeading";
 import Spinner from "../ui/Spinner";
 
 function Ranking() {
+  const [ref, inView] = useInView({
+    threshold: 0.2,
+  });
   const { profiles, isLoading } = useProfiles();
   const [searchParams] = useSearchParams();
 
@@ -55,7 +59,14 @@ function Ranking() {
         <RankingTableOperations />
       </div>
 
-      <RankingTable profiles={sortedProfiles} defaultProfiles={profiles} />
+      <div
+        ref={ref}
+        className={`flex flex-col gap-4 transition duration-1000 ${
+          inView ? "" : "translate-y-10 opacity-0"
+        } `}
+      >
+        <RankingTable profiles={sortedProfiles} defaultProfiles={profiles} />
+      </div>
     </>
   );
 }

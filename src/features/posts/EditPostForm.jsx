@@ -4,7 +4,7 @@ import { useEditPost } from "./useEditPost";
 import Button from "../../ui/Button";
 import SpinnerMini from "../../ui/SpinnerMini";
 
-function EditPostForm({ content, postId: id }) {
+function EditPostForm({ content, setIsEditing, postId: id }) {
   const {
     register,
     formState: { errors },
@@ -15,6 +15,7 @@ function EditPostForm({ content, postId: id }) {
 
   function onSubmit(newData) {
     editPost({ id, newData });
+    setTimeout(() => setIsEditing(false), 1000);
     console.log(id, newData);
   }
   return (
