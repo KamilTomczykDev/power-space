@@ -22,13 +22,12 @@ function AddPost() {
       </div>
     );
 
-  const [{ id, username }] = profile;
+  const [{ id }] = profile;
 
   function onSubmit(data) {
     insertPost({
       ...data,
       profileId: id,
-      profileUsername: username,
       image: data?.image[0],
     });
   }

@@ -7,6 +7,7 @@ function Posts({ posts, profiles }) {
       {posts.map((post) => (
         <PostsItem post={post} profiles={profiles} key={post.id} />
       ))}
+
       <LoadMore />
     </div>
   );

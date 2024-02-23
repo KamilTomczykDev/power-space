@@ -2,4 +2,4 @@
 export const PAGE_SIZE = 10;
 
 //Number of elements displayed in wall
-export const POSTS_NUMBER = 2;
+export const POSTS_NUMBER = 3;

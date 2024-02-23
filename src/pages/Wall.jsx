@@ -8,9 +8,7 @@ import AppHeading from "../ui/AppHeading";
 import Spinner from "../ui/Spinner";
 
 function Wall() {
-  const [ref, inView] = useInView({
-    threshold: 0.2,
-  });
+  const [ref, inView] = useInView();
   const { posts, isLoading: arePostsLoading } = usePosts();
   const { profiles, isLoading } = useProfiles();
 
