@@ -10,7 +10,7 @@ export function useCurrentProfile() {
     queryFn: () => getProfile(user.id),
     onError: (err) => {
       console.log("ERROR", err);
-      toast.error("We couldn't get your profile data");
+      toast.error(`We couldn't get your profile data: ${err}`);
     },
   });
 

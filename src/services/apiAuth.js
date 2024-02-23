@@ -13,7 +13,6 @@ export async function signup({ username, email, password }) {
 
   if (error) throw new Error(Error.message);
 
-  console.log(data);
   return data;
 }
 
@@ -25,7 +24,6 @@ export async function login({ email, password }) {
 
   if (error) throw new Error(Error.message);
 
-  console.log(data);
   return data;
 }
 

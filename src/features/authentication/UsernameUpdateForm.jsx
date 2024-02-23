@@ -23,8 +23,6 @@ function UsernameUpdateForm() {
   const { updateUser, isUpdating } = useUpdateUser();
 
   function onSubmit({ username }) {
-    console.log({ username });
-
     updateUser(
       { username },
       {

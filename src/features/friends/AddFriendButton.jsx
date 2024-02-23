@@ -19,7 +19,6 @@ function AddFriendButton({ friends, currentProfileId, id }) {
         stats: { friends: [...updatedArray] },
         id: currentProfileId,
       });
-      console.log(friends);
     }
   }
 

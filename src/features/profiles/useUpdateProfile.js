@@ -7,8 +7,7 @@ export function useUpdateProfile() {
 
   const { mutate: updateProfile, isLoading: isUpdating } = useMutation({
     mutationFn: ({ stats, id }) => updateProfileApi(stats, id),
-    onSuccess: (data) => {
-      console.log(data);
+    onSuccess: () => {
       toast.success("Data updated successfully");
       queryClient.invalidateQueries({ queryKey: ["currentProfile"] });
     },

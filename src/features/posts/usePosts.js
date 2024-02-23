@@ -8,7 +8,6 @@ export function usePosts() {
   const { data: posts, isLoading } = useQuery({
     queryKey: ["posts", currentPage],
     queryFn: () => getPosts(currentPage),
-    onSuccess: (data) => console.log(data),
   });
 
   return { posts, isLoading };

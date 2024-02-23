@@ -9,13 +9,16 @@ import FormButtons from "../../ui/FormButtons";
 
 function UpdateProfileForm() {
   const { unit } = useUnits();
-
   const { profile } = useCurrentProfile();
   const [{ id, squat, bench, deadlift, age, weight, height, training_since }] =
     profile;
   const { updateProfile, isUpdating } = useUpdateProfile();
-
-  const { register, formState, reset, handleSubmit } = useForm({
+  const {
+    register,
+    formState: { errors },
+    reset,
+    handleSubmit,
+  } = useForm({
     defaultValues: {
       squat,
       deadlift,
@@ -26,7 +29,6 @@ function UpdateProfileForm() {
       training_since,
     },
   });
-  const { errors } = formState;
 
   function onSubmit(data) {
     if (unit === "lbs") {
