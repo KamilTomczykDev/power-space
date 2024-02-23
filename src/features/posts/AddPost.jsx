@@ -14,7 +14,6 @@ function AddPost() {
   } = useForm();
   const { profile, isLoading } = useCurrentProfile();
   const { insertPost, isPosting } = useInsertPost();
-  console.log(profile);
 
   if (isLoading)
     return (
@@ -26,7 +25,6 @@ function AddPost() {
   const [{ id, username }] = profile;
 
   function onSubmit(data) {
-    console.log(data);
     insertPost({
       ...data,
       profileId: id,
@@ -65,9 +63,6 @@ function AddPost() {
           className="text-primary-400 transition duration-300 file:rounded-md file:border-solid file:border-main file:bg-primary-700 file:px-2 file:py-1 file:text-white hover:file:cursor-pointer hover:file:bg-primary-600"
           {...register("image")}
         />
-        {/* <button className="hover:opacity-70">
-          <RiImageAddFill size={30} color={"#616161"} />
-        </button> */}
       </div>
     </form>
   );

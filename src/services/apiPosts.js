@@ -74,8 +74,6 @@ export async function editPost(id, newData) {
     .update({ ...newData })
     .eq("id", id);
 
-  console.log(newData);
-
   if (error) throw new Error(error.message);
 
   return data;

@@ -8,8 +8,7 @@ export function useSignup() {
 
   const { mutate: signup, isLoading } = useMutation({
     mutationFn: signupApi,
-    onSuccess: (user) => {
-      console.log(user);
+    onSuccess: () => {
       navigate("/login");
       toast.success("Account created successfully!");
     },

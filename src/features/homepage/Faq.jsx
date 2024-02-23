@@ -15,9 +15,9 @@ function Faq() {
           Power Space platform without any problems. One and only requirment is
           basic knowlege about strength training.
         </FaqDropdown>
-        <FaqDropdown title="Will I lose my messages after my pro access expires?">
-          Absolutely not, all messages stay in your mailbox. The only way to
-          lose them is to delete your account.
+        <FaqDropdown title="Will I lose my posts after my pro access expires?">
+          Absolutely not, all posts stay in your wall. The only way to lose them
+          is to delete them or to delete your account.
         </FaqDropdown>
         <FaqDropdown title="Where can I get informations about upcoming events?">
           The best way to be up to date is to follow our facebook and instagram.

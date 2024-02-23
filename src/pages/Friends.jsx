@@ -22,8 +22,6 @@ function Friends() {
     );
 
   const [{ friends }] = profile;
-  console.log(friends.length);
-  console.log(friends);
 
   if (friends.length) {
     friends.forEach((id) => {

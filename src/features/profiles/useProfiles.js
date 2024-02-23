@@ -16,7 +16,5 @@ export function useProfiles() {
     queryFn: (filter) => getProfiles({ filter }),
   });
 
-  console.log(profiles);
-
   return { profiles, isLoading };
 }

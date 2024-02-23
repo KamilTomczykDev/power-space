@@ -10,14 +10,15 @@ function LoadMore() {
     ? 1
     : Number(searchParams.get("page"));
 
-  const { posts, isLoading } = usePosts();
-  if (isLoading) return;
+  const { isLoading } = usePosts();
 
   function handleClick() {
     searchParams.set("page", currentPage + 1);
     setSearchParams(searchParams);
-    console.log(posts);
   }
+
+  if (isLoading) return;
+
   return (
     <Button onClick={handleClick} className="flex items-center gap-4 text-3xl">
       Load more <IoReloadCircle size={50} />

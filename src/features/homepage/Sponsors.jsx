@@ -4,7 +4,7 @@ import SOBIE_DESIGN from "../../assets/sobie-design.png";
 
 function Sponsors() {
   return (
-    <div className="border-main flex w-full justify-center border-y-1">
+    <div className="flex w-full justify-center border-y-1 border-main bg-primary-900">
       <div className="flex w-full max-w-[800px] flex-wrap items-center justify-center gap-7 p-2 md:justify-between">
         <h4 className="border-[4px] border-primary-700 px-3 py-1 text-xl font-bold text-primary-700">
           PWR-LFT

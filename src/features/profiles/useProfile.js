@@ -8,7 +8,6 @@ export function useProfile() {
     mutationFn: (id) => getProfileApi(id),
     onSuccess: (data) => {
       queryClient.invalidateQueries({ queryKey: ["profile"] });
-      console.log(data);
     },
     onError: (err) => {
       console.log("ERROR", err);
