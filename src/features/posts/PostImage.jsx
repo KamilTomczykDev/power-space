@@ -12,7 +12,7 @@ function PostImage({ image }) {
       <img
         onClick={handleClick}
         src={image}
-        className="max-h-[500px] w-full cursor-pointer rounded-sm object-cover transition duration-300 hover:opacity-70"
+        className="max-h-[500px] w-full cursor-pointer rounded-sm object-cover transition duration-300 hover:opacity-60"
       />
       {isModalOpen && (
         <Modal onClose={handleClick}>
