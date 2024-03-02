@@ -15,7 +15,7 @@ function Header() {
           className="translate absolute right-[-400px] top-[-400px] hidden w-[1000px] opacity-10 md:flex"
         />
         <div className="relative hidden h-screen max-h-[900px] px-10 py-4 md:flex">
-          <img src={headerImg} className="w-full rounded-md object-cover" />
+          <img src={headerImg} className="w-full object-cover" />
         </div>
         <div className="z-10 flex h-screen max-h-[900px] w-full flex-col items-start justify-end">
           <div className="flex w-full max-w-[1300px] pb-4">
@@ -31,7 +31,9 @@ function Header() {
                 className={`text-3xl font-semibold tracking-wide sm:text-4xl xl:text-5xl xl:leading-[55px]  2xl:text-[70px] 2xl:leading-[82px]`}
               >
                 Unleash your{" "}
-                <span className="text-secondary-500">powerlifting</span>{" "}
+                <span className="bg-gradient-to-br from-secondary-400 to-secondary-900 bg-clip-text text-transparent">
+                  powerlifting
+                </span>{" "}
                 potential.
               </h1>
               <h2 className="sm:text-md xl:text-md max-w-[400px] text-sm 2xl:max-w-[500px] 2xl:text-xl">
