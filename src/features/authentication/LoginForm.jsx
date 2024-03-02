@@ -71,7 +71,11 @@ function LoginForm() {
           {isLoading ? <SpinnerMini /> : "Log in"}
         </Button>
       </form>
-      <div className="my-[-1rem] flex justify-center text-primary-500">OR</div>
+      <div className=" my-[-20px] flex items-center justify-between gap-2 text-primary-500">
+        <span className="h-0 w-full border-1 border-main"></span>
+        <span>or</span>
+        <span className="h-0 w-full border-1 border-main"></span>
+      </div>
       <Button disabled={isLoading} onClick={handleClick}>
         {isLoading ? <SpinnerMini /> : "TEST"}
       </Button>
