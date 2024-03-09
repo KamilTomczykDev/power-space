@@ -46,7 +46,9 @@ function Navbar() {
           </ul>
           <div className="flex gap-5">
             <Link to="login">
-              <Button className="hidden sm:flex md:px-6">Log in</Button>
+              <Button className="hidden sm:flex md:px-6" data-testid="button">
+                Log in
+              </Button>
             </Link>
             <Link to="login/signup">
               <Button variant="secondary" className="hidden sm:flex md:px-6">
