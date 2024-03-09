@@ -23,9 +23,7 @@ function AppHeader() {
             <MdOutlineManageAccounts size={30} />
           </IconLink>
         </li>
-        <li>
-          <label className="text-xl font-semibold text-white">{username}</label>
-        </li>
+        <li className="text-xl font-semibold text-white">{username}</li>
       </ul>
     </nav>
   );
