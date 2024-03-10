@@ -20,9 +20,7 @@ function SignupForm() {
     <>
       <div>
         <h3 className="text-4xl font-semibold">Welcome!</h3>
-        <label className="font-semibold text-primary-400">
-          Create new account
-        </label>
+        <h4 className="font-semibold text-primary-400">Create new account</h4>
       </div>
       <form
         onSubmit={handleSubmit(onSubmit)}

@@ -13,7 +13,7 @@ export default defineConfig({
       "**/cypress/**",
       "**/.{idea,git,cache,output,temp}/**",
       "./src/config/**",
-      "./src/__tests__/utils.jsx",
+      "./src/__tests__/utils/**",
     ],
     globals: true,
     setupFiles: "src/setupTests",

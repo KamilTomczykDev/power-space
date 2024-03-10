@@ -33,6 +33,7 @@ function Navbar() {
     >
       <nav className="flex h-[60px] w-full max-w-[1500px] items-center justify-between gap-4 px-4 text-primary-300 md:grid md:h-[80px] md:grid-cols-headerDesktop md:gap-0">
         <img
+          alt="logo"
           src={logo}
           className={`z-30 w-[50px] transition duration-500 md:ml-8 md:w-[70px] ${
             color ? "md:opacity-1" : "md:opacity-0"
