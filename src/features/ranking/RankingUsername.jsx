@@ -13,12 +13,12 @@ function RankingUsername({ score, children, id }) {
   }
 
   return (
-    <div
+    <button
       onClick={handleClick}
       className={`cursor-pointer hover:underline ${color}`}
     >
       {children}
-    </div>
+    </button>
   );
 }
 

@@ -13,12 +13,12 @@ function PostContextMenu({ postId, setIsEditing }) {
   }
   return (
     <div className="relative">
-      <div
+      <button
         onClick={handleClick}
         className="relative cursor-pointer rounded-md p-1 text-secondary-400 transition duration-300 hover:bg-primary-900 hover:text-secondary-600"
       >
         <HiDotsVertical size={20} />
-      </div>
+      </button>
       {isMenuOpen && (
         <div className="absolute bottom-10 left-[-40px] flex gap-2 border-1 border-main bg-primary-800 p-2 md:left-[-20px]">
           <HoverInfo text="Delete post">

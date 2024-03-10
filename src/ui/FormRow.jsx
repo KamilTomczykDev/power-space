@@ -2,7 +2,12 @@ function FormRow({ label, error, children }) {
   return (
     <div className="relative flex w-full flex-col gap-1">
       {label && (
-        <label className="font-semibold text-primary-400">{label}</label>
+        <label
+          htmlFor={children.props.id}
+          className="font-semibold text-primary-400"
+        >
+          {label}
+        </label>
       )}
       {children}
       {error && (

@@ -2,7 +2,6 @@ import { screen } from "@testing-library/react";
 import LoginForm from "../../features/authentication/LoginForm";
 import { test, describe, expect } from "vitest";
 import { renderWithClient } from "../utils/helpers";
-/* eslint-disable react/display-name */
 
 describe("LoginForm component", () => {
   describe("correctly renders", () => {
