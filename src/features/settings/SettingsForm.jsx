@@ -25,11 +25,12 @@ function SettingsForm({ profile }) {
       className="flex w-full flex-col items-end gap-4 rounded-md bg-primary-800 p-4 sm:p-8 md:gap-8"
     >
       <div className="flex w-full gap-10">
-        <label className="font-semibold text-primary-400">
+        <label htmlFor="visible" className="font-semibold text-primary-400">
           Allow other users to see your profile
         </label>
         <input
           type="checkbox"
+          id="visible"
           disabled={isUpdating}
           className="max-w-[30px] disabled:opacity-40"
           {...register("visible")}

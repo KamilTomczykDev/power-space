@@ -15,7 +15,11 @@ function Header() {
           className="translate absolute right-[-400px] top-[-400px] hidden w-[1000px] opacity-10 md:flex"
         />
         <div className="relative hidden h-screen max-h-[900px] px-10 py-4 md:flex">
-          <img src={headerImg} className="w-full object-cover" />
+          <img
+            src={headerImg}
+            alt="Header image"
+            className="w-full object-cover"
+          />
         </div>
         <div className="z-10 flex h-screen max-h-[900px] w-full flex-col items-start justify-end">
           <div className="flex w-full max-w-[1300px] pb-4">

@@ -33,9 +33,9 @@ function LoginForm() {
     <>
       <div>
         <h3 className="text-4xl font-semibold">Hello!</h3>
-        <label className="font-semibold text-primary-400">
+        <h3 className="font-semibold text-primary-400">
           Log in to your account
-        </label>
+        </h3>
       </div>
 
       <form
@@ -43,7 +43,9 @@ function LoginForm() {
         className="flex w-full flex-col items-start gap-3"
       >
         <div className="flex w-full flex-col gap-1">
-          <label className="font-semibold text-primary-400">Email</label>
+          <label htmlFor="email" className="font-semibold text-primary-400">
+            Email
+          </label>
           <input
             className="w-full rounded-md border-1 border-main bg-primary-800 p-2 disabled:bg-primary-700"
             placeholder="you@example.com"
@@ -56,7 +58,9 @@ function LoginForm() {
         </div>
 
         <div className="flex w-full flex-col gap-1">
-          <label className="font-semibold text-primary-400">Password</label>
+          <label htmlFor="password" className="font-semibold text-primary-400">
+            Password
+          </label>
           <input
             className="flex w-full rounded-md border-1 border-main bg-primary-800 p-2 disabled:bg-primary-700"
             placeholder="*******"
