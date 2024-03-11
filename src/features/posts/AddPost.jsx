@@ -8,6 +8,7 @@ import Button from "../../ui/Button";
 
 function AddPost() {
   const {
+    reset,
     handleSubmit,
     register,
     formState: { errors },
@@ -30,6 +31,7 @@ function AddPost() {
       profileId: id,
       image: data?.image[0],
     });
+    reset();
   }
   return (
     <form
@@ -45,7 +47,7 @@ function AddPost() {
         className="w-full resize-none rounded-md bg-primary-800 p-2 text-white disabled:opacity-60"
         id="content"
         disabled={isPosting}
-        placeholder="Your toughts about last workout..."
+        placeholder="Your thoughts about last workout..."
         {...register("content", {
           required: "Insert text",
         })}
