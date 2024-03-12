@@ -1,7 +1,7 @@
 import { screen } from "@testing-library/react";
-import SignUpForm from "../../features/authentication/SignUpForm";
+import SignUpForm from "../../../features/authentication/SignUpForm";
 import { test, describe, expect } from "vitest";
-import { renderWithClient } from "../utils/helpers";
+import { renderWithClient } from "../../utils/helpers";
 
 describe("SignUpForm component", () => {
   describe("correctly renders", () => {

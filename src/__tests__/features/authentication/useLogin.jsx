@@ -2,7 +2,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { renderHook, waitFor } from "@testing-library/react";
 import { BrowserRouter } from "react-router-dom";
 import { describe, expect, test } from "vitest";
-import { useLogin } from "../../features/authentication/useLogin";
+import { useLogin } from "../../../features/authentication/useLogin";
 
 const wrapper = ({ children }) => {
   const queryClient = new QueryClient({

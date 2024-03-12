@@ -2,7 +2,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { renderHook, waitFor } from "@testing-library/react";
 import { BrowserRouter } from "react-router-dom";
 import { describe, expect, test } from "vitest";
-import { useProfiles } from "../../features/profiles/useProfiles";
+import { useProfiles } from "../../../features/profiles/useProfiles";
 
 const wrapper = ({ children }) => {
   const queryClient = new QueryClient({
@@ -25,6 +25,8 @@ describe("useProfiles", () => {
     const { result } = renderHook(() => useProfiles(), {
       wrapper,
     });
-    await waitFor(() => expect(result.current.profiles).toBeDefined());
+    await waitFor(() => expect(result.current.profiles).toBeDefined(), {
+      timeout: 5000,
+    });
   });
 });

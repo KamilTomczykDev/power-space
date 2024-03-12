@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import { describe, expect, test } from "vitest";
-import Header from "../../features/homepage/Header";
+import Header from "../../../features/homepage/Header";
 import { BrowserRouter } from "react-router-dom";
 import { mockAllIsIntersecting } from "react-intersection-observer/test-utils";
 
