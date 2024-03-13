@@ -56,7 +56,6 @@ function LoginForm() {
             disabled={isLoading}
           />
         </div>
-
         <div className="flex w-full flex-col gap-1">
           <label htmlFor="password" className="font-semibold text-primary-400">
             Password
