@@ -5,12 +5,11 @@
 # Power Space - React project
 Power Space jest platformą społecznościową dla trójboistów, przy pomocy której możemy aktualizować swoje wyniki siłowe. Wszyscy użytkownicy aplikacji są punktowani i stawiani obok siebie w rankingu. Dodatkowo możemy publikować posty wraz ze zdjęciami na wallu oraz dodawać innych użytkowników do listy znajomych. Stworzyłem ten projekt aby nauczyć się pracy przy użyciu reacta oraz innych bibliotek niezbędnych do tworzenia wydajnego, utrzymywalnego kodu o wysokiej jakości.
 
-# [Live DEMO](https:power-space.vercel.app)
+# [Live DEMO](https://power-space.vercel.app)
 
-<p align="center">
-  <img src="src/assets/app-preview.gif" width="550" height="300" />
-</p>
-
+| Project preview           |
+:-------------------------:
+|<img src="src/assets/app-preview.gif" width="550" height="300" />|
 <br>
 <br>
 
@@ -43,6 +42,7 @@ npm run dev
 <br>
 
 # Requirements
+<br>
 
 ## General:
 - Build a real world application from the scratch.
@@ -57,6 +57,7 @@ npm run dev
 ## Authentication:
 
 - Users of the app are people intrested in lifting weights, allow them to create an account or log in to an existing one.<br>
+- Keep the session alive until user loggs out or clears cache memory.
 
 ## Wall:
 - App needs a view on newest posts added by the community.
@@ -83,14 +84,14 @@ npm run dev
  ## Friends:
 - Users can add each other to friends list via button on the profile page.
 - Display a list of profiles that user added to his friends list.
-- In each of them user has to find a button to navigate to that profiles details.
+- In each of them user has to find a button to navigate to that profiles details.<br>
   
 ## Account:
 - Allow users to change account data such as username and password.<br>
   
 ## Settings:
 - Some users may want to use pounds instead of kilograms, allow them to change the unit.
-- Create an option to hide a profile in a ranking leaderboard.
+- Create an option to hide a profile in a ranking leaderboard.<br>
 
 
 ## Back-end
