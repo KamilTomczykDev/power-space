@@ -224,3 +224,14 @@ jobs:
       - name: Deploy Project Artifacts to Vercel
         run: vercel deploy --prebuilt --prod --token=${{ secrets.VERCEL_TOKEN }}
 ```
+
+# Upcoming features:
+
+### Live chat:
+Huge part of every social media platform is a communication. That's why my next move is to build responsive and fast live chat.
+
+# Contact
+
+## [LinkedIn](https://www.linkedin.com/in/kamil-tomczyk-a118952b3/)
+I'm currently spending a lot of time on that platform so feel free to ask any questions about my projects or about anything else by messaging me on LinkedIn :)
+
