@@ -93,8 +93,17 @@ npm run dev
 - Some users may want to use pounds instead of kilograms, allow them to change the unit.
 - Create an option to hide a profile in a ranking leaderboard.<br>
 
+# Implementation
+<br>
 
 ## Back-end
+As a person currently focused on front-end development, I decided to build my own back-end with Supabase. Using a pre-existing (in my opinion, overused) weather API or crypto API was out of the question, as from the beginning, I wanted to create a product tailored to my needs. Supabase offers intuitive GUI to create a database and provides access to an extensive API. Learning back-end development to bring the project to completion would certainly have taken at least a few months, and that was not an option for me in this case.
+
 ## Problems
+<br>
+### Authentication
+### Filtering
+### Adding posts:
+- Aby utworzyć post wystarczy wypełnić text area oraz opcjonalnie dodać plik ze zdjęciem. Następnie submitujemy formularz i post zostaje dodany do naszej bazy danych. Koncepcja wydaję się być prosta jednak w praktyce przyspożyła mi dużo trudność. Mianowicie nie wiedziałem gdzie ta "opcjonalność" powinna się znajdować. Finalnie postawiłem na duży if statement, który decydował o tym, że asynchroniczna funkcja <code>insertPost()</code> nie dodawała obrazu do storage bucketa wraz ze specjalnie wygenerowaną nazwą. Kiedy już mogliśmy otrzymać opcjonalny <code>null</code> to komponent, który odpowiada za wyświetlanie postów na ekranie renderował warunkowo obraz o ile był on wartością truthy.
 ## Testing
 ## CI/CD
