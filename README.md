@@ -78,8 +78,8 @@ npm run dev
 - Allow users to sort the table by score, total and weight.
 - Create pagination or infinite loading to display only readable amount of profiles.
 - Show adequate medal for top 3 lifters in each category.
-- Display profile of each user of the app.
- <br>
+- Display profile of each user of the app.<br>
+ 
 
  ## Friends:
 - Users can add each other to friends list via button on the profile page.
@@ -100,9 +100,8 @@ npm run dev
 As a person currently focused on front-end development, I decided to build my own back-end with Supabase. Using a pre-existing (in my opinion, overused) weather API or crypto API was out of the question, as from the beginning, I wanted to create a product tailored to my needs. Supabase offers intuitive GUI to create a database and provides access to an extensive API. Learning back-end development to bring the project to completion would certainly have taken at least a few months, and that was not an option for me in this case.
 
 ## Problems
-<br>
 
-### Authentication
+### Authentication:
 - Uwierzytelnianie towarzyszy nam na codzień i stanowi podstawe obecnych usług i serwisów internetowych. Ja również chciałem zaimplementować taką funkcjonalność i pomogło mi w tym API supabase, które zapisuje aktywną sesję w <code>localstorage</code> (o ile użytkownik podał prawidłowe dane do logowania) tymsamym udostępniając dostęp do aplikacji zapiętej w protected route. <br>
 ```
 //if theres no imageFile selected insert null into image column;
@@ -186,4 +185,12 @@ export default ProtectedRoute;
 ```
 
 ## Testing
+
+Jeśli chodzi o testowanie aplikacji zdecydowałem się na użycie vitesta i testing library. Skupiłem się na testowaniu kluczowych komponentów z perspektywy użytkownika (głównie poprawne ich renderowanie) oraz kilka ważniejszych hooków. Żałuję, że nie zacząłem pisać testów szybciej, ponieważ wydaje mi się, że mogłoby to przynieść bardzo dużo wartości dla projektu oraz pozwoliłoby mi to szybciej nabrać szerszej perspektywy na wytwarzanie oprogramowania.
+
 ## CI/CD
+
+Wcześniej wymienione testy wykorzystałem aby przygotować proste workflow przy użyciu gitHub actions i vercela: 
+- Przy każdym pull requescie kod który wprowadza jakieś zmiany w projekcie jest testowany.
+- Potem o ile testy przebiegną pomyślnie tworzony jest nowy build.
+- Na końcu build jest deployowany przy użyciu vercela i aplikacja w paredziesiąt sekund jest gotowa to użytkowania na produkcji.
