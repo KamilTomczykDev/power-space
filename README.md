@@ -101,8 +101,28 @@ As a person currently focused on front-end development, I decided to build my ow
 
 ## Problems
 <br>
+
 ### Authentication
+- Uwierzytelnianie towarzyszy nam na codzień i stanowi podstawe obecnych usług i serwisów internetowych. Ja również chciałem zaimplementować taką funkcjonalność i pomogło mi w tym API supabase, które zapisuje aktywną sesję w <code>localstorage</code> (o ile użytkownik podał prawidłowe dane do logowania) tymsamym udostępniając dostęp do aplikacji zapiętej w protected route. <br>
+```
+//if theres no imageFile selected insert null into image column;
+  if (!newPost.image) {
+    let { data, error } = await supabase
+      .from("posts")
+      .insert([{ ...newPost, image: null }])
+      .select();
+
+    if (error) {
+      console.error(error);
+      throw new Error(error.message);
+    }
+
+    return data;
+  }
+```
+
 ### Filtering
+
 ### Adding posts:
 - Aby utworzyć post wystarczy wypełnić text area oraz opcjonalnie dodać plik ze zdjęciem. Następnie submitujemy formularz i post zostaje dodany do naszej bazy danych. Koncepcja wydaję się być prosta jednak w praktyce przyspożyła mi dużo trudność. Mianowicie nie wiedziałem gdzie ta "opcjonalność" powinna się znajdować. Finalnie postawiłem na duży if statement, który decydował o tym, że asynchroniczna funkcja <code>insertPost()</code> nie dodawała obrazu do storage bucketa wraz ze specjalnie wygenerowaną nazwą. Kiedy już mogliśmy otrzymać opcjonalny <code>null</code> to komponent, który odpowiada za wyświetlanie postów na ekranie renderował warunkowo obraz o ile był on wartością truthy.
 ## Testing
