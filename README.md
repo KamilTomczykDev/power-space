@@ -23,10 +23,15 @@ The application was developed by using these tools:
 - Testing Library,
 - Supabase
   <br>
-  <br>
+  
 ## Getting Started
+
 Follow these steps to install power-space on your local environment.
 <br>
+<strong>Clone projects repository</strong>
+```
+git clone https://github.com/KamilTomczykDev/power-space.git
+```
 <strong>Install the packages</strong>
 ```
 npm install
