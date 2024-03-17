@@ -3,7 +3,7 @@
 </p>
 
 # Power Space - React project
-Power Space jest platformą społecznościową dla trójboistów, przy pomocy której możemy aktualizować swoje wyniki siłowe. Wszyscy użytkownicy aplikacji są punktowani i stawiani obok siebie w rankingu. Dodatkowo możemy publikować posty wraz ze zdjęciami na wallu oraz dodawać innych użytkowników do listy znajomych. Stworzyłem ten projekt aby nauczyć się pracy przy użyciu reacta oraz innych bibliotek niezbędnych do tworzenia wydajnego, utrzymywalnego kodu o wysokiej jakości.
+Power Space is a social platform for powerlifters, through which we can update our strength results. All application users are scored and placed next to each other in the ranking. Additionally, we can publish posts with photos on the wall and add other users to the friends list. I created this project to learn how to work using React and other libraries necessary for creating efficient, maintainable code of high quality.
 
 # [Live DEMO](https://power-space.vercel.app)
 
@@ -39,10 +39,8 @@ npm install
 npm run dev
 ```
 <br>
-<br>
 
 # Requirements
-<br>
 
 ## General:
 - Build a real world application from the scratch.
@@ -92,9 +90,9 @@ npm run dev
 ## Settings:
 - Some users may want to use pounds instead of kilograms, allow them to change the unit.
 - Create an option to hide a profile in a ranking leaderboard.<br>
+<br>
 
 # Implementation
-<br>
 
 ## Back-end
 As a person currently focused on front-end development, I decided to build my own back-end with Supabase. Using a pre-existing (in my opinion, overused) weather API or crypto API was out of the question, as from the beginning, I wanted to create a product tailored to my needs. Supabase offers intuitive GUI to create a database and provides access to an extensive API. Learning back-end development to bring the project to completion would certainly have taken at least a few months, and that was not an option for me in this case.
@@ -102,26 +100,36 @@ As a person currently focused on front-end development, I decided to build my ow
 ## Problems
 
 ### Authentication:
-- Uwierzytelnianie towarzyszy nam na codzień i stanowi podstawe obecnych usług i serwisów internetowych. Ja również chciałem zaimplementować taką funkcjonalność i pomogło mi w tym API supabase, które zapisuje aktywną sesję w <code>localstorage</code> (o ile użytkownik podał prawidłowe dane do logowania) tymsamym udostępniając dostęp do aplikacji zapiętej w protected route. <br>
+- Authentication is present in our daily lives and forms the basis of current internet services and websites. I wanted to implement such functionality, and Supabase API helped me with this. It saves an active session in the <code>localStorage</code> (only if the user has entered correct login credentials), thus providing access to the application secured within protected route. <br>
+
 ```
-//if theres no imageFile selected insert null into image column;
-  if (!newPost.image) {
-    let { data, error } = await supabase
-      .from("posts")
-      .insert([{ ...newPost, image: null }])
-      .select();
 
-    if (error) {
-      console.error(error);
-      throw new Error(error.message);
-    }
+function ProtectedRoute({ children }) {
+  const navigate = useNavigate();
+  const { isLoading, isAuthenticated } = useUser();
 
-    return data;
-  }
+  useEffect(
+    function () {
+      if (!isAuthenticated && !isLoading) navigate("/login");
+    },
+    [isAuthenticated, isLoading, navigate],
+  );
+
+  if (isLoading)
+    return (
+      <div className="flex h-screen w-full items-center justify-center">
+        <img src={logo} />
+      </div>
+    );
+
+  if (isAuthenticated) return children;
+}
+
+export default ProtectedRoute;
 ```
 
 ### Adding friends:
-- Tutaj długo nie byłem pewien czy mój pomysł zadziała, ponieważ powstał on zanim napisałem pierwsze linie kodu w tym projekcje, a ja nie wiedziałem czy supabase pozwoli mi na użycie tablicy w jednej z column. Koncepcja była następująca: jako, iż odwiedzając jakiś konkretny profil na naszej platformie otrzymujemy <code>id</code> danego użytkownika w adresie URL to możemy go pobrać i sprawdzić czy w tablicy w columnie <code>friends</code> w profilu obecnie zalogowanego użytkownika znajduje się wartość równa temu <code>id</code> z adresu URL. Jeżeli znajduje się ono w naszej tablicy to po wciśnięciu odpowiedniego przycisku (który wtedy ma napis "Remove friend") filtrujemy tę tablice. W przciwnym wypadku przycisk ma nazwę "Add Friend" a my dekonstuujemy tablice pobraną z API, dodajemy do niej kolejny element którego wartość to <code>id</code> z adresu URL a następnie zapisujemy tę tablicę w naszej bazie danych. Tak oto dodajemy nowy profil do naszej listy znajomych.<br>
+- I was not sure for a long time if my idea would work because it emerged before I wrote the first lines of code in this project, and I didn't know if Supabase would allow me to use an array in one of the columns. The concept was as follows: since when visiting a specific profile on our platform, we receive the <code>id</code> of the user in the URL address, we can retrieve it and check if the value equal to this <code>id</code> from the URL address is present in the array in the friends column of the currently logged-in user's profile. If it is present in our array, then upon pressing the appropriate button (which would then be labeled "Remove friend"), we filter out that value from the array. Otherwise, the button is labeled "Add Friend," and we destructure the array retrieved from the API, add another element to it whose value is the <code>id</code> from the URL address, and then save this array in our database.<br>
   
 ```
 function AddFriendButton({ friends, currentProfileId, id }) {
@@ -156,41 +164,63 @@ function AddFriendButton({ friends, currentProfileId, id }) {
 ```
 
 ### Adding posts:
-- Aby utworzyć post wystarczy wypełnić text area oraz opcjonalnie dodać plik ze zdjęciem. Następnie submitujemy formularz i post zostaje dodany do naszej bazy danych. Koncepcja wydaję się być prosta jednak w praktyce przyspożyła mi dużo trudność. Mianowicie nie wiedziałem gdzie ta "opcjonalność" powinna się znajdować. Finalnie postawiłem na duży if statement, który decydował o tym, że asynchroniczna funkcja <code>insertPost()</code> nie dodawała obrazu do storage bucketa wraz ze specjalnie wygenerowaną nazwą. Kiedy już mogliśmy otrzymać opcjonalny <code>null</code> to komponent, który odpowiada za wyświetlanie postów na ekranie renderował warunkowo obraz o ile był on wartością truthy.<br>
+- To create a post, you simply need to fill out the text area and optionally add a file with a photo. Then, you submit the form, and the post is added to our database. The concept seems simple, but in practice, it caused me a lot of difficulties. I struggled with where this "optionality" should reside. Ultimately, I opted for an if statement that determined whether the asynchronous function insertPost() would add an image to the storage bucket along with a specially generated name. When we could receive an optional null value, the component responsible for displaying posts on the screen conditionally rendered the image if it was a truthy value.<br>
 
 ```
+  if (!newPost.image) {
+    let { data, error } = await supabase
+      .from("posts")
+      .insert([{ ...newPost, image: null }])
+      .select();
 
-function ProtectedRoute({ children }) {
-  const navigate = useNavigate();
-  const { isLoading, isAuthenticated } = useUser();
+    if (error) {
+      console.error(error);
+      throw new Error(error.message);
+    }
 
-  useEffect(
-    function () {
-      if (!isAuthenticated && !isLoading) navigate("/login");
-    },
-    [isAuthenticated, isLoading, navigate],
-  );
-
-  if (isLoading)
-    return (
-      <div className="flex h-screen w-full items-center justify-center">
-        <img src={logo} />
-      </div>
-    );
-
-  if (isAuthenticated) return children;
-}
-
-export default ProtectedRoute;
+    return data;
+  }
 ```
 
 ## Testing
 
-Jeśli chodzi o testowanie aplikacji zdecydowałem się na użycie vitesta i testing library. Skupiłem się na testowaniu kluczowych komponentów z perspektywy użytkownika (głównie poprawne ich renderowanie) oraz kilka ważniejszych hooków. Żałuję, że nie zacząłem pisać testów szybciej, ponieważ wydaje mi się, że mogłoby to przynieść bardzo dużo wartości dla projektu oraz pozwoliłoby mi to szybciej nabrać szerszej perspektywy na wytwarzanie oprogramowania.
+When it comes to testing the application, I decided to use <code>Vitest</code> and <code>Testing Library</code>. I focused on testing key components from the user's perspective, mainly ensuring their correct rendering, as well as several important hooks. I regret not starting to write tests sooner because I believe it could have brought a lot of value to the project and allowed me to gain a broader perspective on software development more quickly.
 
 ## CI/CD
 
-Wcześniej wymienione testy wykorzystałem aby przygotować proste workflow przy użyciu gitHub actions i vercela: 
-- Przy każdym pull requescie kod który wprowadza jakieś zmiany w projekcie jest testowany.
-- Potem o ile testy przebiegną pomyślnie tworzony jest nowy build.
-- Na końcu build jest deployowany przy użyciu vercela i aplikacja w paredziesiąt sekund jest gotowa to użytkowania na produkcji.
+I utilized the above mentioned tests to set up a simple workflow using GitHub Actions and Vercel:
+
+- With each pull request, the code that introduces changes to the project is tested.
+- Subsequently, if the tests pass successfully, a new build is created.
+- Finally, the build is deployed using Vercel, and the application is ready for production use in a matter of seconds.
+- 
+```
+name: Node Continuous Integration and Vercel Deployment
+env:
+  VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+  VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+on:
+  pull_request:
+    branches: [main]
+
+jobs:
+  test_pull_request:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 18
+      - name: Install
+        run: npm ci
+      - name: Test
+        run: npm run test
+      - name: Install Vercel CLI
+        run: npm install --global vercel@latest
+      - name: Pull Vercel Environment Information
+        run: vercel pull --yes --environment=production --token=${{ secrets.VERCEL_TOKEN }}
+      - name: Build Project Artifacts
+        run: vercel build --prod --token=${{ secrets.VERCEL_TOKEN }}
+      - name: Deploy Project Artifacts to Vercel
+        run: vercel deploy --prebuilt --prod --token=${{ secrets.VERCEL_TOKEN }}
+```
