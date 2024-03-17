@@ -4,23 +4,26 @@ import { useUpdateProfile } from "../profiles/useUpdateProfile";
 
 function AddFriendButton({ friends, currentProfileId, id }) {
   const { updateProfile, isUpdating } = useUpdateProfile();
-  const isFriend = friends.some((arrId) => arrId === id);
 
-  function handleClick() {
-    if (!isFriend) {
-      updateProfile({
-        stats: { friends: [...friends, id] },
-        id: currentProfileId,
-      });
-      console.log(friends);
+  const isFriend = friends.includes(id);
+
+  const handleAddFriend = () => {
+    const updatedFriends = [...friends, id];
+    updateProfile({ stats: { friends: updatedFriends }, id: currentProfileId });
+  };
+
+  const handleRemoveFriend = () => {
+    const updatedFriends = friends.filter((friendId) => friendId !== id);
+    updateProfile({ stats: { friends: updatedFriends }, id: currentProfileId });
+  };
+
+  const handleClick = () => {
+    if (isFriend) {
+      handleRemoveFriend();
     } else {
-      const updatedArray = friends.filter((friend) => friend !== id);
-      updateProfile({
-        stats: { friends: [...updatedArray] },
-        id: currentProfileId,
-      });
+      handleAddFriend();
     }
-  }
+  };
 
   return (
     <Button onClick={handleClick} disabled={isUpdating}>
