@@ -121,9 +121,69 @@ As a person currently focused on front-end development, I decided to build my ow
   }
 ```
 
-### Filtering
+### Adding friends:
+- Tutaj długo nie byłem pewien czy mój pomysł zadziała, ponieważ powstał on zanim napisałem pierwsze linie kodu w tym projekcje, a ja nie wiedziałem czy supabase pozwoli mi na użycie tablicy w jednej z column. Koncepcja była następująca: jako, iż odwiedzając jakiś konkretny profil na naszej platformie otrzymujemy <code>id</code> danego użytkownika w adresie URL to możemy go pobrać i sprawdzić czy w tablicy w columnie <code>friends</code> w profilu obecnie zalogowanego użytkownika znajduje się wartość równa temu <code>id</code> z adresu URL. Jeżeli znajduje się ono w naszej tablicy to po wciśnięciu odpowiedniego przycisku (który wtedy ma napis "Remove friend") filtrujemy tę tablice. W przciwnym wypadku przycisk ma nazwę "Add Friend" a my dekonstuujemy tablice pobraną z API, dodajemy do niej kolejny element którego wartość to <code>id</code> z adresu URL a następnie zapisujemy tę tablicę w naszej bazie danych. Tak oto dodajemy nowy profil do naszej listy znajomych.<br>
+  
+```
+function AddFriendButton({ friends, currentProfileId, id }) {
+  const { updateProfile, isUpdating } = useUpdateProfile();
+
+  const isFriend = friends.includes(id);
+
+  const handleAddFriend = () => {
+    const updatedFriends = [...friends, id];
+    updateProfile({ stats: { friends: updatedFriends }, id: currentProfileId });
+  };
+
+  const handleRemoveFriend = () => {
+    const updatedFriends = friends.filter((friendId) => friendId !== id);
+    updateProfile({ stats: { friends: updatedFriends }, id: currentProfileId });
+  };
+
+  const handleClick = () => {
+    if (isFriend) {
+      handleRemoveFriend();
+    } else {
+      handleAddFriend();
+    }
+  };
+
+  return (
+    <Button onClick={handleClick} disabled={isUpdating}>
+      {isUpdating ? <SpinnerMini /> : isFriend ? "Remove friend" : "Add friend"}
+    </Button>
+  );
+}
+```
 
 ### Adding posts:
-- Aby utworzyć post wystarczy wypełnić text area oraz opcjonalnie dodać plik ze zdjęciem. Następnie submitujemy formularz i post zostaje dodany do naszej bazy danych. Koncepcja wydaję się być prosta jednak w praktyce przyspożyła mi dużo trudność. Mianowicie nie wiedziałem gdzie ta "opcjonalność" powinna się znajdować. Finalnie postawiłem na duży if statement, który decydował o tym, że asynchroniczna funkcja <code>insertPost()</code> nie dodawała obrazu do storage bucketa wraz ze specjalnie wygenerowaną nazwą. Kiedy już mogliśmy otrzymać opcjonalny <code>null</code> to komponent, który odpowiada za wyświetlanie postów na ekranie renderował warunkowo obraz o ile był on wartością truthy.
+- Aby utworzyć post wystarczy wypełnić text area oraz opcjonalnie dodać plik ze zdjęciem. Następnie submitujemy formularz i post zostaje dodany do naszej bazy danych. Koncepcja wydaję się być prosta jednak w praktyce przyspożyła mi dużo trudność. Mianowicie nie wiedziałem gdzie ta "opcjonalność" powinna się znajdować. Finalnie postawiłem na duży if statement, który decydował o tym, że asynchroniczna funkcja <code>insertPost()</code> nie dodawała obrazu do storage bucketa wraz ze specjalnie wygenerowaną nazwą. Kiedy już mogliśmy otrzymać opcjonalny <code>null</code> to komponent, który odpowiada za wyświetlanie postów na ekranie renderował warunkowo obraz o ile był on wartością truthy.<br>
+
+```
+
+function ProtectedRoute({ children }) {
+  const navigate = useNavigate();
+  const { isLoading, isAuthenticated } = useUser();
+
+  useEffect(
+    function () {
+      if (!isAuthenticated && !isLoading) navigate("/login");
+    },
+    [isAuthenticated, isLoading, navigate],
+  );
+
+  if (isLoading)
+    return (
+      <div className="flex h-screen w-full items-center justify-center">
+        <img src={logo} />
+      </div>
+    );
+
+  if (isAuthenticated) return children;
+}
+
+export default ProtectedRoute;
+```
+
 ## Testing
 ## CI/CD
