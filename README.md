@@ -7,9 +7,7 @@ Power Space is a social platform for powerlifters, through which we can update o
 
 # [Live DEMO](https://power-space.vercel.app)
 
-| Project preview           |
-:-------------------------:
-|<img src="src/assets/app-preview.gif" width="550" height="300" />|
+<img src="src/assets/app-preview.gif" />
 <br>
 <br>
 
