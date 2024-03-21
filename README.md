@@ -236,5 +236,5 @@ Huge part of every social media platform is a communication. That's why my next 
 # Contact
 
 ## [LinkedIn](https://www.linkedin.com/in/kamil-tomczyk-a118952b3/)
-I'm currently spending a lot of time on that platform so feel free to ask any questions about my projects or about anything else by messaging me on LinkedIn :)
+I'm currently spending a lot of time on that platform. Feel free to ask any questions about my projects or about anything else :)
 
