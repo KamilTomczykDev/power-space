@@ -21,6 +21,7 @@ function Pricing() {
       <div className="relative flex w-full max-w-[1500px] flex-col items-center justify-center gap-6 p-4 text-white">
         <img
           src={sun}
+          alt="Background image"
           className="translate absolute bottom-[-100px] left-[-400px] w-[1000px] opacity-[0.03] md:flex"
         />
         <div className="rounded-full border-1 border-secondary bg-secondary-900 px-4 py-1 text-sm">

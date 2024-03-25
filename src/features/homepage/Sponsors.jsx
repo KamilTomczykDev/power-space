@@ -9,10 +9,18 @@ function Sponsors() {
         <h4 className="border-[4px] border-primary-700 px-3 py-1 text-xl font-bold text-primary-700">
           PWR-LFT
         </h4>
-        <img src={STAY_FIT} className="w-[120px] opacity-60" />
-        {/* <img src={K_T} className="w-[100px] opacity-60" /> */}
-        <img src={GYN} className="w-[100px] opacity-60" />
-        <img src={SOBIE_DESIGN} className="w-[80px] opacity-[0.15]" />
+        <img
+          src={STAY_FIT}
+          alt="Sponsor's logo"
+          className="w-[120px] opacity-60"
+        />
+
+        <img src={GYN} alt="Sponsor's logo" className="w-[100px] opacity-60" />
+        <img
+          src={SOBIE_DESIGN}
+          alt="Sponsor's logo"
+          className="w-[80px] opacity-[0.15]"
+        />
       </div>
     </div>
   );

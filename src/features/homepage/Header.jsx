@@ -13,6 +13,7 @@ function Header() {
         <img
           src={stripes}
           className="translate absolute right-[-400px] top-[-400px] hidden w-[1000px] opacity-10 md:flex"
+        alt="Background image"
         />
         <div className="relative hidden h-screen max-h-[900px] px-10 py-4 md:flex">
           <img

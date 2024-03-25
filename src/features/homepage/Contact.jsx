@@ -21,12 +21,14 @@ function Contact() {
       <div className="relative flex flex-col items-center gap-6 p-4 lg:gap-10">
         <img
           src={rectangles}
+          alt="Background image"
           className="translate absolute bottom-[-300px] left-[-600px] w-[1300px] opacity-[0.02] md:flex"
         />
 
         <div className="z-[5] flex items-center">
           <img
             className="hidden h-[400px] rounded-l-xl border-1 border-r-0 border-main lg:flex"
+            alt="Weights"
             src={contactImg}
           />
           <div className="flex max-w-[400px] flex-col items-center gap-6 rounded-md border-1 border-main bg-primary-900 px-2 py-6 sm:px-6">

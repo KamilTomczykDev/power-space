@@ -5,7 +5,7 @@ function Footer() {
   return (
     <div className="flex w-full flex-col items-center justify-center gap-2 bg-primary-950">
       <div className="flex w-full max-w-[1500px] flex-col gap-4 p-4 pt-10 md:flex-row md:items-center md:justify-center md:gap-[75px] md:pb-[50px]">
-        <img src={logo} className="w-[100px]" />
+        <img src={logo} alt="Logo" className="w-[100px]" />
         <ul className="flex flex-col gap-2 text-primary-600 md:flex-row md:gap-[75px] md:text-lg">
           <HomepageLink to="pricing" className="border-b-0">
             Pricing
