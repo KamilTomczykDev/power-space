@@ -23,10 +23,15 @@ The application was developed by using these tools:
 - Testing Library,
 - Supabase
   <br>
-  <br>
+  
 ## Getting Started
+
 Follow these steps to install power-space on your local environment.
 <br>
+<strong>Clone projects repository</strong>
+```
+git clone https://github.com/KamilTomczykDev/power-space.git
+```
 <strong>Install the packages</strong>
 ```
 npm install
@@ -231,5 +236,5 @@ Huge part of every social media platform is a communication. That's why my next 
 # Contact
 
 ## [LinkedIn](https://www.linkedin.com/in/kamil-tomczyk-a118952b3/)
-I'm currently spending a lot of time on that platform so feel free to ask any questions about my projects or about anything else by messaging me on LinkedIn :)
+I'm currently spending a lot of time on that platform. Feel free to ask any questions about my projects or about anything else :)
 
