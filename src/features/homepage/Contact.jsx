@@ -24,7 +24,6 @@ function Contact() {
           alt="Background image"
           className="translate absolute bottom-[-300px] left-[-600px] w-[1300px] opacity-[0.02] md:flex"
         />
-
         <div className="z-[5] flex items-center">
           <img
             className="hidden h-[400px] rounded-l-xl border-1 border-r-0 border-main lg:flex"
@@ -32,7 +31,6 @@ function Contact() {
             src={contactImg}
           />
           <div className="flex max-w-[400px] flex-col items-center gap-6 rounded-md border-1 border-main bg-primary-900 px-2 py-6 sm:px-6">
-            {/* form */}
             <div className="rounded-full border-1 border-secondary-500 bg-secondary-900 px-4 py-1 text-sm text-white">
               Contact
             </div>
